@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="style.css" />
+	<body>
+		<div id="wrap_head"></div>
+		<div id="main">main</div>
+		<div id="wrap_foot"></div>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	//通过ajax  load方式 请求 头部html文件
+	// 选择器.load(url,data,function(){  })
+	$("#wrap_head").load("http://127.0.0.1/load/public.html #head",function(){
+		//为load的html元素 添加事件   必须放在 回调函数中
+		$("#btn").click(function(){
+			alert();
+		})
+	});
+	$("#wrap_foot").load("http://127.0.0.1/load/public.html #foot");
+</script>

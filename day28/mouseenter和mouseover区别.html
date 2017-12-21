@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#over,#enter{
+			width:200px;
+			height:200px;
+			background: skyblue;
+			margin-bottom: 20px;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+	<body>
+		<div id="over">
+			<div class="son">over</div>
+		</div>
+		<div id="enter">
+			<div class="son">enter</div>
+		</div>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	//mouseover 会产生冒泡问题
+	//mouseenter 只触发一次 不会冒泡
+	$("#over").mouseover(function(){
+		alert("over");
+	})
+	$("#enter").mouseenter(function(){
+		alert("enter");
+	})
+</script>

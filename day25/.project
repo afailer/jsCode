@@ -1,0 +1,67 @@
+ajax：
+ 作用 ： 页面无刷新
+ 同步和异步有什么区别 ：
+	同步 ：生活中的异步  顺序执行    阻塞模式 
+	异步 ：同时执行     非阻塞模式  
+ ajax对象 ： XMLHttpRequest
+ ajax请求数据的方法 ： get url传值  数据量小  安全性较低        post  非url传值 数据量大 安全性较高
+ ajax请求数据过程：
+ var ajax = new XMLHttpRequest()  创建对象
+ ajax.open()   建立和服务器连接
+ ajax.send()   向服务器发送数据
+ 通过 onreadystatechange  事件  实现获取服务器数据
+ ajax.onreadystatechange = function(){  200  404   500  
+	if( ajax.readyState == 4 && ajax.status == 200 ){ alert( ajax.responseText ) }
+ }
+
+ajax文件的运行 需要服务器  
+apache 过滤php文件  
+
+ajax不能跨域  ，ajax通过 jsonp 跨域  
+ajax为什么不能跨域 ： 受同源策略的影响  
+什么是同源策略 ： 同源指的是同一个来源，同源策略是浏览器的一个行业标准 
+                  为了保证用户数据的安全 浏览器才有同源策略的机制
+
+jsonp跨域原理 ：
+动态创建script标签     设置src值为一个接口   接口中有一个回调函数，通过回调函数 获取服务器数据
+ajax获取的服务器的数据类型： string
+jsonp获取的服务器的数据类型： object
+数据类型转换方法 ： string -- >object  JSON.parse()
+		    object ---> string  JSON.stringify()
+
+
+cors跨域 ，服务器端跨域   header()
+通过promise对象实现异步  三种状态 ：pending  resolve rejected
+
+
+面向对象
+对象的创建 ： {} -- > 工厂 -->构造函数 ---> 原型 -- > 混合
+
+构造函数 
+
+原型 prototype  原型对象
+ 
+原型链 ：  实例对象和原型之间的链接关系  __proto__
+function cat(){
+
+}
+Object.prototype.name = "jack"
+var c = new cat()
+
+继承几种方法  :
+call 和 apply继承  ：  改变父类的this指向
+call第二个参数个数不固定   apply第二个参数是一个数组
+
+原型继承  原理 ：  Parent 父类   Son 子类
+Son.prototype = new Parent() 
+
+闭包
+
+
+
+
+
+
+
+
+

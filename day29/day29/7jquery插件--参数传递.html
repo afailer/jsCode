@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<h1 id="dd"></h1>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	// 插件   ：   函数的另一种定义方式  
+	// $.extend()   全局定义    调用 ：  $.方法名()
+	// $.fn.extend()   局部定义方法   调用 ：  选择器.方法名()
+	
+	/*$.extend({
+		init : function(){
+			alert("init 方法");
+		},
+		say : function(){
+			alert("say");
+		}
+	});
+	$.say();*/
+
+	/*$.fn.extend({
+		init2 : function(){
+			console.log("hello");
+		}
+	})*/
+	
+	$.fn.extend({
+		setColor : function(){
+			//插件方法中的this指向方法的调用者 
+			this.css("background","#87CEEB");
+		},
+		setBgcolor : function(){
+			//插件方法中的this指向方法的调用者 
+			this.each(function(){
+				//this   指向的是each 遍历的dom元素  
+				$(this).css("background",getColor());
+			})
+		},
+		over : function(opt){ //opt 参数   json对象类型   如果用户传递参数，就使用传递的参数，否则就使用默认值
+			this.mouseover(function(){
+				color = $(this).css("backgroundColor");
+				size = $(this).css("fontSize");
+				var defaults = { //默认值对象
+					"bgcolor" : "pink",
+					"size" : 30
+				}
+				//参数合并   如果opt有值 按opt中的值 执行  否则就按照defaults中的值执行
+				var setting = $.extend( defaults , opt );
+				//参数的合并   $.extend()
+				//this  指向  事件的调用者  
+				$(this).css({"background":setting.bgcolor,"fontSize":setting.size});
+			})
+		},
+		out : function(){
+			this.mouseout(function(){
+				//离开恢复原来的颜色
+				$(this).css({"background":color,"fontSize":size});
+			})
+		}
+	})
+	$("li").setBgcolor();
+	$("li").over({"bgcolor":"yellow","size":20});
+	$("li").out();
+	
+	console.log( $.extend( {a:1},{a:2,b:3},{b:7} ) );
+</script>

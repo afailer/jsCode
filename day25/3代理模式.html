@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Mx(){
+		this.sing = function(){
+			console.log("开演唱会... 要求出场费  30000000");
+		}
+	}
+	function Jjr(){
+		this.master = new Mx();
+		this.sing = function(money){
+			if( money > 30000000 ){
+				//代理模式体现   通知 主人可以开演唱会
+				this.master.sing();
+			}
+		}
+	}
+	var j = new Jjr();
+	j.sing( 40000000 );
+</script>

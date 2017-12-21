@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>放烟花效果</title>
+		<style type="text/css">
+			html,
+			body {
+				overflow: hidden;
+			}
+			
+			body {
+				background: #000;
+			}
+			
+			.fire {
+				width: 3px;
+				height: 3px;
+				background: white;
+				position: absolute;
+			}
+			
+			.spark {
+				position: absolute;
+				width: 6px;
+				height: 6px;
+			}
+		</style>
+		<script src="sport5.js"></script>
+
+	</head>
+
+	<body>
+	</body>
+
+</html>
+<script type="text/javascript">
+	/*
+	 点击页面  出现火花  
+	火花向上缓冲运动到点击的位置    火花消失       出现烟花     火花：  创建   运动   爆炸  
+	烟花爆炸     以抛物线的形式  向下运动          烟花 ：创建 和 运动  
+	*/
+	document.onclick = function(e){
+		var e = e || event;
+		//点击文档  创建一个火花对象 
+		new Fire({ x : e.pageX , y : e.pageY }).init().move(); 
+		//在一个方法的内部调用另外一个方法时，可以使用链式调用  要求前一个方法需要返回一个对象 （new出来的对象）
+	}
+	function rand(min,max){
+		return Math.floor(Math.random()*(max-min+1) + min);
+	}
+	function Fire(pos){ //火花
+		this.fire = document.createElement("div");
+		this.pos = pos;//记录鼠标点击的位置
+		this.init = function(){ //设置火花的样式
+			this.fire.className = "fire";
+			document.body.appendChild(this.fire);
+			this.fire.style.left = this.pos.x + "px";
+			this.fire.style.top = window.innerHeight - 100 + "px";
+			//调用火花运动功能
+			//this.move();
+			return this;
+		}
+		this.move = function(){
+			startMove(this.fire,{top : this.pos.y},function(){
+				//运动完成后  出现烟花    同时火花消失
+				this.fire.remove();//火花消失
+				this.explode(); //出现烟花 
+			}.bind(this))
+		}
+		this.explode = function(){
+			//获取烟花的个数
+			this.count = rand(60,80);
+			//通过循环 创建count个烟花对象
+			for( var i = 0 ; i < this.count ; i++ ){
+				var sp = new Spark(this.pos);
+				sp.init().move();
+			}
+		}
+	}
+		
+	
+	function Spark(pos){ //烟花
+		this.spark = document.createElement("div");
+		this.pos = pos;//烟花的初始位置
+		this.init = function(){
+			this.spark.className = "spark";
+			document.body.appendChild(this.spark);
+			this.spark.style.background = `rgb( ${rand(0,255)},${rand(0,255)},${rand(0,255)} )`;
+			this.spark.style.left = this.pos.x + "px";
+			this.spark.style.top = this.pos.y + "px" ;
+			return this;
+//			this.move();
+		}
+		this.move = function(){
+			this.speedX = rand(-7,7);//横向速度  
+			this.speedY = rand(-5,5);//纵向速度  
+			this.timer = setInterval(function(){
+				this.spark.style.left = this.spark.offsetLeft + this.speedX + "px";
+				this.spark.style.top = this.spark.offsetTop + this.speedY++ + "px";
+				if( this.spark.offsetTop > window.innerHeight ){
+					clearInterval(this.timer);
+					this.spark.remove();
+				}
+			}.bind(this),30)
+		}
+	}
+	//使用面向对象编程时注意this指向问题
+	// 事件中的this   定时器中的this
+</script>

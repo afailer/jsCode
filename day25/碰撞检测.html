@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#d2{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			margin: 100px;
+		}
+		#d1{
+			position: absolute;
+			left : 100px;
+			top: 200px;
+			background: red;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<body>
+		<div id="d1">拖拽的物体</div>
+		<div id="d2"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//obj1 运动的物体
+	//obj2 被碰撞的物体
+	function pz(obj1,obj2){
+		var L1 = obj1.offsetLeft + obj1.offsetWidth;
+		var R1 = obj1.offsetLeft;
+		var T1 = obj1.offsetTop + obj1.offsetHeight;
+		var B1 = obj1.offsetTop;
+		
+		var L2 = obj2.offsetLeft;
+		var R2 = obj2.offsetLeft + obj2.offsetWidth;
+		var T2 = obj2.offsetTop;
+		var B2 = obj2.offsetTop + obj2.offsetHeight;
+		if( L1 < L2 || R1 > R2 || T1 < T2 || B1 > B2){ //碰不上
+			return false;
+		}else{
+			return true;
+		}
+	}
+	var obj1 = document.querySelector("#d1");
+	var obj2 = document.querySelector("#d2");
+	obj1.onmousedown = function(){
+		var disx = event.pageX - obj1.offsetLeft;
+		var disy = event.pageY - obj1.offsetTop;
+		console.log(disx,disy);
+		document.onmousemove = function(e){
+			var e = e || event;
+			obj1.style.left = e.pageX - disx  + "px";
+			obj1.style.top = e.pageY - disy + "px";
+			if( pz( obj1,obj2 ) ){
+				obj2.style.background = "burlywood";
+			}else{
+				obj2.style.background = "skyblue";
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	}
+</script>

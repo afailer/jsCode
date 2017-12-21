@@ -1,0 +1,19 @@
+
+#head{
+	width: 960px;
+	height: 200px;
+	background: skyblue;
+	margin: 0 auto;
+}
+#main{
+	width: 960px;
+	height: 500px;
+	background: orange;
+	margin: 0 auto;
+}
+#foot{
+	width: 960px;
+	height: 200px;
+	background: skyblue;
+	margin: 0 auto;
+}

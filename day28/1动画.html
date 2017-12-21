@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 300px;
+			height :150px;
+			background :skyblue;
+			margin-top:20px;
+			position:absolute;
+			left :100px;
+			top: 50px;
+		}
+	</style>
+	<body>
+		<input type="button" value="show/hide/toggle" />
+		<input type="button" value="slideDown/slideUp/slideToggle" />
+		<input type="button" value="fadeIn/fadeOut/fadeToggle" />
+		<input type="button" value="fadeTo" />
+		<input type="button" value="animate" />
+		<div id="box" ></div>
+	</body>
+</html>
+<script type="text/javascript">
+	//表单选择器   :text  :button  :password      
+	// :radio:ehecked   :checkbox:checked     :selected 被选中的下拉列表
+	$(":button").eq(4).click(function(){
+		$("#box").animate({
+			width : 400,
+			height : 300,
+			left : 300,
+			top : 300,
+			opacity : 0.3
+		},2000)
+	})
+	$(":button").eq(3).click(function(){
+		$("#box").fadeTo(1000,0.3);
+	})
+	$(":button").eq(0).click(function(){
+		/*$("#box").hide(1000,function(){
+			alert("运动完成后执行");
+		});*/
+		$("#box").toggle(1000);
+	})
+	$(":button").eq(1).click(function(){
+		$("#box").slideToggle(1000);
+	})
+	$(":button").eq(2).click(function(){
+		$("#box").fadeToggle(1000);
+	})
+</script>

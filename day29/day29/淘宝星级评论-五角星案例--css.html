@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02五角星案例</title>
+	<style>
+		* { margin: 0; padding: 0; }
+		ul { list-style: none; margin: 100px; }
+		.comment {
+			color: deeppink;
+		 
+		}
+
+		.comment li {
+			float: left;
+		 
+			font-size: 40px;
+			margin-left:5px;
+		}
+	</style>
+	<script src="jquery-1.11.1.js"></script>
+	
+</head>
+<body>
+	<ul class="comment">
+		<li>☆ </li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+</body>
+</html>
+<script>
+	/*
+	 1、鼠标移入   ：当前星星和前面的为实心的
+	 2、鼠标移出  ：
+	 	 未点击： 全部空心
+	 	 有点击： 当前点击的星星和前面的是实心的
+	 3、鼠标点击：
+	     	当前点击的星星和前面的是实心的
+	 * */
+	var wjx_null = "☆"     
+	var wjx_sel = "★"    
+	$("ul").on("mouseover","li",function(){
+		$(this).text( wjx_sel ) 
+			   .prevAll()
+			   .text( wjx_sel )
+			   .end()
+			   .nextAll()
+			   .text( wjx_null );
+	}).on("mouseout","li",function(){
+		//没有点击  所有的li都空心
+		$("li").text(wjx_null);
+		
+		//如果有点击    含有clickded类的li及其前面的为实心   
+		$(".clicked").text(wjx_sel)
+					 .prevAll()
+					 .text( wjx_sel )
+					 .end()
+					 .nextAll()
+					 .text( wjx_null );
+	}).on("click","li",function(){
+		//为当前点击的li加一个标记  class
+		$(this).addClass("clicked").siblings().removeClass("clicked");
+	})
+	//  html()  text()   操作内容    
+</script>

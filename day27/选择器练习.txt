@@ -1,0 +1,45 @@
+﻿选择器练习：  
+         1  让id为mp的元素文字大小变成30px   
+         	 $("#mp")
+         2. 让class名为.c1的元素背景为#CCFF99
+            $(".c1")
+         3. 找到所有的div和p
+           $("div,p")
+         4. 将所有的div增加 2像素 实线 红色
+              $("div")
+         5. 将div下的所有子div中文字变蓝色blue
+         $("div").children("div")
+           
+         6. 将div中包含的div颜色变成#FF99FF
+         $("div").find("div")
+           
+         7. 将div的下面所有兄弟标签p的字体颜色变成蓝色
+           $("div").nextAll("p")
+         8. 将紧跟着div的p标签的边框设为2像素 实线 #009900
+          $("div").next("p")
+         9  找到页面中的所有dom元素
+          $("*")
+         10 找到页面中所有偶数行的p元素
+           $("p:odd")
+         11  找到页面中的最后一个li元素
+          $("li:last")
+         12 找到第一个类名称为demo的元素
+           $(".demo:first")
+         13 找到div下面所有的子元素p
+           $("div").children("p")
+         14 找到表格奇数行中的最后一个tr
+           $("tr:even:last")
+         15 找到id为 demo下面的所有兄弟元素 p
+          	$("#demo").nextAll("p")
+         16 找到除了第三个li之外的所有的li元素
+          $("li:not(:eq(2))")
+          $("li:eq(2)").siblings()
+         17 找到页面中不包含 p元素的所有元素
+          $("*:not(p)")   
+	 	 18、找到下标为3的li标记
+	     $("li").eq(3)
+         19、找到页面中的所有超链接和span标记
+         $("a,span")
+         20、找到类名为p1的li元素
+          $("li.p1")
+          $("li").filter(".p1")

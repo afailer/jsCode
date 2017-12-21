@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.js" ></script>
+	<style type="text/css">
+		.active{
+			background: skyblue;
+			border: 2px solid red;
+		}
+		.p1{
+			color: red;
+		}
+	</style>
+	<body>
+		<input type="button" value="切换样式类" />
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li id="b">孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	$("#b").addClass("active p1");
+	$("#b").removeClass();
+	$("input").click(function(){
+		//$("#b").toggleClass("active");
+		if( $("#b").hasClass("active") ){
+			$("#b").removeClass("active");
+		}else{
+			$("#b").addClass("active");
+		}
+	})
+</script>

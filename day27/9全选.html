@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<input type="checkbox" name="qx" />全选
+		<input type="checkbox" name="h"/>
+		<input type="checkbox" name="h"/>
+		<input type="checkbox" name="h"/>
+		<input type="checkbox" name="h" />
+		<input type="checkbox" name="h"/>
+	</body>
+</html>
+<script>
+	//属性选择器 []
+	// $("input[name]") 表示查找含有name属性的input
+	// $("input[name=qx]") 表示查找name值为qx的input
+	$("input[name=qx]").click(function(){
+		//思路 ： 让被操作的复选框的checked值和当前点击的checked值保持一致
+		// 获取当前点击的checked值
+		// 设置被操作的复选框的checked值
+		
+		//alert( this.checked );
+		$("input[name=h]").prop("checked", $(this).prop("checked") );
+		
+		//$("input[name=h]").attr("checked", this.checked );  ???
+	})
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+		</ul>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	//遍历li  操作li不同的背景色
+	$("li").each(function(index,ele){
+		//ele  参数是一个dom元素 
+		//console.log( ele.tagName );
+		//$("li").eq(index).css("background",getColor());
+		//$(ele).css("background",getColor());
+		$(this).css("background",getColor());
+	})
+</script>

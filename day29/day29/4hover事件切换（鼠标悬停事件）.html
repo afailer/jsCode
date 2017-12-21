@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		h1{
+			width: 200px;
+			height: 200px;
+			background: skyblue;
+		}
+		span{
+			width: 100px;
+			height: 100px;
+			background: red;
+			display: block;
+		}
+	</style>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<h1>本节主题：事件切换<span>子元素</span></h1>
+	</body>
+</html>
+<script type="text/javascript">
+	$("h1").hover(function(){
+		alert(1);
+	},function(){
+		alert(2);
+	})
+</script>
+

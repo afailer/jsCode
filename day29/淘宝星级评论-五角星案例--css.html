@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02五角星案例</title>
+	<style>
+		* { margin: 0; padding: 0; }
+		ul { list-style: none; margin: 100px; }
+		.comment {
+			color: deeppink;
+		 
+		}
+
+		.comment li {
+			float: left;
+		 
+			font-size: 40px;
+			margin-left:5px;
+		}
+	</style>
+
+	
+</head>
+<body>
+	<ul class="comment">
+		<li>☆ </li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript" src="jquery-1.11.1.js" ></script>
+<script>
+	/*
+	 1、鼠标移入   ：当前星星和前面的为实心的
+	 2、鼠标移出  ：
+	 	 未点击： 全部空心
+	 	 有点击： 当前点击的星星和前面的是实心的
+	 3、鼠标点击：
+	     	当前点击的星星和前面的是实心的
+	 * */
+	var wjx_null = "☆"     
+	var wjx_sel = "★"    
+	var flag=false;
+	$(".comment li").hover(function(){
+		$(this).html(wjx_sel).prevAll().html(wjx_sel);
+		//$(this).;  //previousSibling().html(wjx_sel);
+	},function(){
+		//alert(flag);
+		if(flag){
+			
+		}else{
+			$(this).html(wjx_null);
+			$(this).prevAll().html(wjx_null);
+		}
+		flag=false;
+	})
+	$(".comment").on("click","li",function(){
+		flag=true;
+	})
+</script>

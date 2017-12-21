@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<h1 id="dd"></h1>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script type="text/javascript">
+	// 插件   ：   函数的另一种定义方式  
+	// $.extend()   全局定义    调用 ：  $.方法名()
+	// $.fn.extend()   局部定义方法   调用 ：  选择器.方法名()
+	
+	/*$.extend({
+		init : function(){
+			alert("init 方法");
+		},
+		say : function(){
+			alert("say");
+		}
+	});
+	$.say();*/
+
+/*	$.fn.extend({
+		init2 : function(){
+			console.log("hello");
+		}
+	})
+	$("body").init2();*/
+	
+	$.fn.extend({
+		setColor : function(){
+			//插件方法中的this指向方法的调用者 
+			this.css("background","#87CEEB");
+		},
+		setBgcolor : function(){
+			//插件方法中的this指向方法的调用者 
+			this.each(function(){
+				//this   指向的是each 遍历的dom元素  
+				$(this).css("background",getColor());
+			})
+		},
+		over : function(){
+			this.mouseover(function(){
+				color = $(this).css("backgroundColor");
+				//this  指向  事件的调用者  
+				$(this).css("background","gray");
+			})
+		},
+		out : function(){
+			this.mouseout(function(){
+				//离开恢复原来的颜色
+				$(this).css("background",color);
+			})
+		}
+	})
+	$("li").setBgcolor();
+	$("li").over();
+	$("li").out();
+	
+</script>

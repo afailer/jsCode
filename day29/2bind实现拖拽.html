@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		}
+	</style>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	 $("#box").on("mousedown",function(e){
+	 	var disx = e.pageX - $(this).offset().left;
+	 	var disy = e.pageY - $(this).offset().top;
+	 	$(document).on("mousemove",function(e){
+	 		$("#box").css({
+	 			left : e.pageX - disx,
+	 			top : e.pageY - disy
+	 		})
+	 	})
+	 	$(document).on("mouseup",function(){
+	 		$(document).off("mousemove");
+	 	})
+	 })
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function fn(){
+		return function(){ //闭包  一个函数返回一个匿名函数，这个匿名函数就称为闭包
+			return "hello";
+		}
+	}
+	alert( fn()() );//"hello"*/
+	
+	
+	/*function fn(){
+		var num = 10; //能够访问其它函数内部变量的函数，这样的函数就称为闭包
+		return function (){
+			alert( num );
+		}
+	}
+	fn()();*/
+	
+	
+	//闭包的形式多样
+	/*document.onclick = function(){
+		var num = 10;
+		setTimeout(function(){ ///---闭包
+			alert(num);
+		},1000)
+	}*/
+	
+	
+	//闭包可以让一个局部变量长期驻留在内存中
+	/*function fn(){
+		var num = 10;
+		return function(){
+			return num++;
+		}
+	}
+	var res = fn(); // res = function (){ return num++ }; 
+	alert( res() );//10 
+	alert( res() );//11
+	alert( res() );//12
+	res = null;
+	//js 中有一个垃圾回收机制  将一个变量设值为 null  
+	var res = fn();
+	alert( res() ); //10*/
+	
+	
+	
+	//调用该函数    fn(1)(2)   得到结果 3    使用闭包     写出fn的内部实现过程
+	/*function fn(m){
+		return function(n){
+			return m + n;
+		} 
+	}
+	
+	alert( fn(1)(2) );*/
+	
+	// fn(1)(2)(3)     得到 6   实现fn过程
+/*	function fn(m){
+		return function (n){
+			return function (k){
+				return m + n + k;
+			}
+		}
+	}
+	alert( fn(1)(2)(3) );*/
+</script>

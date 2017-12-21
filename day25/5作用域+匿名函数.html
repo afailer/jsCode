@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// 变量的作用域 ：
+	// 全局变量 和 局部变量  ：  形参是 局部变量
+	/*var a = 9;
+	function fun(){
+		b = 10;
+		a = 10;
+		var c = 10;
+	}
+	fun();
+	alert(a);//10  
+	alert(b);//10
+	alert(c);//报错*/
+	
+	// 匿名函数的执行：   事件      定时器
+	/*var fun = function(){
+		alert(this);
+	}
+	fun();*/
+	
+	//匿名函数自执行 ：
+	/*(function (){
+		alert(this);
+	})()*/
+	
+	/*alert( (function (a,b){
+		return a>b?a:b;
+	})(23,1) )*/
+	
+	/*(function (a,b){
+		alert(a+b);
+	})(3,2);*/
+	//表达式定义法 的 匿名函数自执行     
+	var fun = function(){
+		alert(this);
+	}();
+</script>

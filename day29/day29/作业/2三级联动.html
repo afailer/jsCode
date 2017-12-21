@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<select name="" id="prov">
+			<option value="">请选择省</option>
+		</select>
+		<select name="" id="city">
+			<option value="">请选择市</option>
+		</select>
+		<select name="" id="county">
+			<option value="">请选择县</option>
+		</select>
+	</body>
+</html>
+<script type="text/javascript">
+	var provArr = ["辽宁","山西","河北"];
+	//				0     1     2
+	var cityArr = [["沈阳","大连","铁岭"],["大同","太原"],["邯郸","石家庄","唐山","雄安"]];
+	//				  0    1      2      0     1	
+	var countyArr = [[["s1","s2"],["d1"],["昌图","莲花乡"]],[["t1","t2"],["y1"]],[["h1"],["s1","s2"],["tangshan1"],["xiongan1"]]];
+	//                  00          01        02             10          11      20      21
+	//页面加载后   将省的信息 添加到select中
+	$(function(){
+		for( var i = 0 ; i < provArr.length ; i++ ){
+			$("#prov").append("<option value='"+i+"'>"+provArr[i]+"</option>");
+		}
+	})
+	//为省的下拉列表添加一个改变事件   通过省改变 获取对应的市
+	$("#prov").change(function(){
+		//再次改变省之前  将原市的信息清除  
+		//由于jquery中的length属性是只读的   将jq对象转成js对象后  改变 select的长度值  
+		$("#city")[0].length = 1; //$("#city").empty();  
+		//alert( $("#prov :selected").index() );
+		//alert( $(this).val() );//被选中的下拉列表的value值
+		var index = $(this).val();//得到省的下标  
+		var _cityArr = cityArr[index];//某个省对应的市的一维数组
+		
+		for( var i = 0 ; i < _cityArr.length ; i++ ){
+			$("#city").append("<option value='"+index+"_"+i+"'>"+_cityArr[i]+"</option>");
+		}
+		
+	})
+	
+	// 为市的select添加一个改变事件     通过市改变 获取对应的县
+	$("#city").change(function(){
+		$("#county")[0].length = 1;
+		//alert( $(this).val() );
+		var str = $(this).val();//被选中的市的value值  省下标_市下标
+		var pindex = str.split("_")[0];
+		var cindex = str.split("_")[1];
+		var _countyArr = countyArr[pindex][cindex];
+		for( var i = 0 ; i < _countyArr.length ; i++ ){
+			$("#county").append("<option>"+_countyArr[i]+"</option>");
+		}
+	})
+ 	// length   
+ 	/*arr = [3,4,5,6,7,78];
+ 	arr.length = 1;
+ 	alert(arr);*/
+</script>

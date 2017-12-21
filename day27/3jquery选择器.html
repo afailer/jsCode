@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	
+	<body>
+		 
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2
+				<ul>
+					<li>子元素1</li>
+					<li>子元素2</li>
+					<li>子元素3</li>
+					<li>子元素4</li>
+					<li>子元素5</li>
+				</ul>
+			</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//$("li").first().css("color","red");
+	/*for( var i = 0 ; i < $("li").length ; i++ ){
+		if( i%2 ){
+			$("li").eq(i).css("color","red");
+		}else{
+			$("li").eq(i).css("color","blue");
+		}
+	}*/
+	alert( $("li:eq(3)").parent().parent()[0].nodeName )
+</script>

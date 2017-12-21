@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Iphone(){
+		this.music = function(){
+			console.log("手机可以播放音乐");
+		}
+		this.phonecall = function(){
+			console.log("手机可以打电话");
+		}
+	}
+	function Ipad(){
+		this.music = function(){
+			console.log("ipad可以播放音乐");
+		}
+	}
+	//通过适配器可以判断 手机和pad的功能
+	function Adapter(pro){
+		this.pro = pro;
+		this.music = function(){
+			if( this.pro.music ){
+				console.log("可以听音乐");
+			}else{
+				console.log("不可以播放音乐");
+			}
+		}
+		this.phonecall = function(){
+			if( this.pro.phonecall ){
+				console.log("可以打电话");
+			}else{
+				console.log("不可以打电话");
+			}
+		}
+	}
+	var iphone = new Iphone();
+	var ipad = new Ipad();
+	var ada1 = new Adapter(iphone);
+	var ada2 = new Adapter(ipad);
+	
+	//同时测试两个产品
+	function test(adapter){ //判断适配器的功能
+		adapter.music();
+		adapter.phonecall();
+		console.log("测试成功");
+	}
+	test( ada1 );
+	test( ada2 );
+</script>

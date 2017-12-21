@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*var obj1 = {};
+	var obj2 = {};
+	alert( obj1 == obj2 ); //false
+	
+	function Cat(){
+		
+	}
+	var  c1 = new Cat();
+	var  c2 = new Cat();
+	alert( c1 == c2 );  //false*/
+	//如果  c1 == c2  true   如何实现？？
+	//单例模式 ：
+	/*  实现思路 ：
+		 将第一次new出来的对象 this  保存到一个变量中 ，返回这个变量
+                        再次创建对象时，判断  这个变量中是否含有值，如果有值，就直接将这个变量返回
+	 */
+	//var ins = null; 考虑到全局变量会被污染
+	/*function Cat(){
+		//在构造函数的内部可以为构造函数定义私有属性   Cat.属性
+		//this指向构造函数new出来的对象
+		if( Cat.ins ){
+			return Cat.ins;//ins 存放的是第一次new出来的对象
+		}
+		Cat.ins = this;
+		return Cat.ins;
+	}
+	var c1 = new Cat();
+	var c2 = new Cat();
+	var c3 = new Cat();
+	
+	alert( c3 == c2 );*/
+	
+	//判断 Cat.instance是否有对象，如果没有对象，就创建一个对象,存入到Cat.instance中      返回  Cat.instance  
+	//单例模式的好处:  可以使一个私有变量全局执行  
+	function Cat(){
+		if( !Cat.instance ){
+			Cat.instance = {
+				name :"jack",
+				index : 0
+			}
+		}
+		return Cat.instance;
+	}
+	var c1 = new Cat();
+	c1.index++;
+	alert( c1.index );
+	var c2 = new Cat();
+	c2.index++;
+	alert( c2.index );
+	new Cat().index++
+	alert( new Cat().index );
+	
+	/*function Cat(){
+		this.index = 0;
+	}
+	var c1 = new Cat();
+	c1.index ++;
+	alert(c1.index);//1
+	
+	var c2 = new Cat();
+	c2.index++;
+	alert( c2.index );//1*/
+	//alert( c2 == c1 );
+	
+	/*
+	 if(对象){
+	 	if语句
+	 }
+	 if(null){ 为假
+	 	
+	 }
+	 
+	 * */
+</script>

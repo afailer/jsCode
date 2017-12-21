@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		body{
+			height: 1000px;
+		}
+		div{
+			width: 80px;
+			height: 80px;
+			background: skyblue;
+			position: absolute;
+			right: 0;
+			top: 1000px;
+		}
+	</style>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<div id="btn">回到顶部</div>
+	</body>
+</html>
+<script>
+	$(window).scroll(function(){
+		console.log( $(document).scrollTop() );
+	})
+	$("#btn").click(function(){
+		//$(document).scrollTop(0)
+		$("body,html").animate({"scrollTop":0},1000);
+	})
+</script>

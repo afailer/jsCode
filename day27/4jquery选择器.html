@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	
+	<body>
+		<div id="box">
+			<div id="">
+				<p>第一个孩子1</p>
+				<p>第一个孩子2</p>
+				<p>第一个孩子3</p>
+				<div id="">
+					<p>第一个孩子3333</p>
+					<p class="p1">第一个孩子3333</p>
+				</div>
+			</div>
+			<p>第一个孩子1</p>
+			<p class="p1">第一个孩子2</p>
+			<p>第一个孩子3</p>
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	//$("#box").children().css("color","red")
+	//$("p:eq(2)").siblings().css("color","red")
+	//$("#box").find("p").css("color","red")
+	//$("p").filter(".p1").css("color","red")
+	$res = $("p").filter(function(index){
+		//函数返回一个布尔值  如果值为真 说明查找到满足某个条件的p元素   如果为假  没查找到任何元素
+		console.log(index);
+		return index == 3;
+	});
+	$res.css("color","red")
+</script>

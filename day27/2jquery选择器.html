@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<script type="text/javascript">
+		$(function(){
+			//$("img:eq(2)").css("border","3px solid blue");
+			//$("img:not(:last)").css("border","3px solid blue");
+			$("img:not(:eq(1))").css("border","3px solid blue");
+		})
+	</script>
+	<body>
+		<img src="001.jpg" alt="" />
+		<img src="002.jpg" alt="" />
+		<img src="003.jpg" alt="" id="img1" />
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2
+				<ul>
+					<li>子元素1</li>
+					<li>子元素2</li>
+					<li>子元素3</li> 
+					<li>子元素4</li>
+					<li>子元素5</li>
+				</ul>
+			</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+			<li>孩子多个6</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+//	alert( $("body") );	
+	//页面加载 设置li的奇数行和偶数行颜色不一致
+	//$("li:odd").css("background","skyblue");
+	//$("li:even").css("background","palevioletred");
+	
+	//查找含有ul的li
+	//$("li:has(ul)").css("border","1px solid red")
+	//$("li:not(:has(ul))").css("color","blueviolet");
+	
+	$("li:has(ul)").not( $("li:has(ul)").children() ).css("border","1px solid red")
+	 
+ 
+	
+	
+</script>

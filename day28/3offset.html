@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#par{
+			width: 400px;
+			height: 400px;
+			background: skyblue;
+			margin: 300px;
+			position: relative;
+		}
+		#son{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			top :600px;
+			left : 500px;
+		}
+	</style>
+	<body>
+		<div id="par">
+			<div id="son"></div>
+		</div>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	/*console.log( $("div").width() ); //200
+	console.log( $("div").outerWidth() );// 222
+	console.log( $("div").innerWidth() );// 220*/
+	
+	//console.log( $("#son").offset() );
+	console.log( $("#son").position().left );
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function Engine(){
+		if( !Engine.instance ){
+			Engine.instance = {
+				
+			}
+		}
+		return Engine.instance;
+	}*/
+	
+	class Engine{
+		constructor(){
+			if( !Engine.instance ){
+				Engine.instance = {
+					init : function(){
+						alert("init");
+					}
+				}
+			}
+			return Engine.instance;
+		}
+	}
+	var en = new Engine();
+	var en2 = new Engine();
+	alert( en == en2 );
+</script>

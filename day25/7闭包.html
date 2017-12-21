@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function fn(){
+		return function(){
+			alert( this );
+		}
+	}
+	fn()();*/
+	
+	
+	//闭包应用 ： 点击某个li  得到下标
+	var list = document.getElementsByTagName("li");
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].onclick =function(k){
+			return function(){
+				alert( k );
+			}
+		}(i) 
+	}
+	
+	
+	var name = "jack";
+    var obj = {
+        name: "Lily",
+        getName :function(){
+            return function(){
+                return this.name;
+            }
+        }
+    }
+    alert( obj.getName()() );//jack
+
+    /*var name = "jack";
+    var obj = {
+        name: "Lily",
+        getName :function(){
+            var that = this;
+            return function(){
+                return that.name;
+            }
+        }
+    }
+    alert( obj.getName()() );*/
+
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script>
+	$.ajax({
+		type:"get",
+		url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=李&cb=fn", //接口路径
+		dataType : "jsonp",
+		jsonpCallback : "fn"
+	});
+	function fn(res){
+		console.log( res );
+	}
+</script>

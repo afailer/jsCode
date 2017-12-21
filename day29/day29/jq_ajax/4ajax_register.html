@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名 ： <input type="text"  id="t1"/>
+		密码 ： <input type="text"  id="t2"/>
+		<input type="button" value="注册" id="btn"/>
+	</body>
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	$("#btn").click(function(){
+		$.ajax({
+			type:"get",
+			url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+			data : { 
+						"status":"register",
+						"userID": $("#t1").val() , 
+						"password" :$("#t2").val() 
+					},
+			success : function(res){
+				switch( res ){
+					case "0":
+						alert("重名了");break;
+					case "1":
+						alert("注册成功");break;
+					case "2":
+						alert("报错了");break;
+				}
+			}
+		});
+	})
+</script>

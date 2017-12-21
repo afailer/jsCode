@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<img src="001.jpg" alt="" />
+	</body>
+</html>
+<script type="text/javascript">
+	//console.log( $("img").attr("src") );
+	$("img").mouseover(function(){
+		$("img").attr("src","002.jpg");
+	}).mouseout(function(){
+		$("img").attr("src","001.jpg");
+	})
+	$("img").attr("level","3");
+	//alert( $("img").attr("level") );
+</script>

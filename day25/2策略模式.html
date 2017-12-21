@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: teal;
+			position: absolute;
+			left: 200px;
+			top: 200px;
+		}
+	</style>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		new MoveDiv().addListener({ type : "mouse" }) //策略模式
+	}
+	function MoveDiv(){
+		this.div = document.getElementsByTagName("div")[0];
+		this.addListener = function(obj){ //监听  div是通过鼠标操作还是 键盘操作的移动
+			switch( obj["type"] ){
+				case "key":{
+					document.onkeydown = function(e){
+						var code = e.keyCode;
+						switch(code){
+							case 37 :{
+								this.div.style.left = this.div.offsetLeft - 8 + "px";
+								break;
+							}
+							case 39 :{
+								this.div.style.left = this.div.offsetLeft + 8 + "px";
+								break;
+							}
+						}
+					}.bind(this)
+					break;
+				}
+				case "mouse" : {
+					document.onmousemove = function(e){
+						this.div.style.left = e.pageX + "px";
+						this.div.style.top = e.pageY + "px";
+					}.bind(this)
+					break;
+				}
+			}
+		}
+	}
+</script>

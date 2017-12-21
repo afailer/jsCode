@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<style>
+		#box{
+			border: 1px solid red;
+			height: 400px;
+		}
+	</style>
+	<body>
+		<input type="button" value="append/appendTo" />
+		<input type="button" value="before/insertBefore" />
+		<div id="box">
+			<p>这是一个段落</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//创建一个新元素     $("<div>xxxx</div>");
+	$("input:eq(0)").click(function(){
+		//$("#box").append("<p>新段落</p>");
+		$("<p>新段落</p>").appendTo( "#box" );
+	})
+	$("input:eq(1)").click(function(){
+		//$("#box").before("<p>新段落</p>");
+		$("<p>新段落</p>").insertBefore( "#box" );
+	})
+</script>
+

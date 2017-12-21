@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.js"></script>
+	<body>
+		<input type="button" value="创建li" />
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	/*$("li").click(function(){
+		alert();
+	})*/
+	$("input").click(function(){
+		$("ul").append("<li>111111111</li>");
+	})
+	
+	/*$("ul").delegate("li","click",function(){
+		alert("委托");
+	})*/
+	
+	$("ul").on("click","li",function(){
+		alert("委托");
+	})
+	
+</script>

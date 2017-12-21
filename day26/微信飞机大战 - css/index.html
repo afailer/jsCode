@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/dahuiji.css"/>
+ 
+	 
+	<body>
+		<div class="main" id="main">
+			<ul class="options" id="options">
+				<li level="1">非常简单</li><!-- 200 -->
+				<li level="2">比较简单</li><!-- 400 -->
+				<li level="3">比较困难</li><!-- 600 -->
+				<li level="4">非常困难</li><!-- 800 -->
+			</ul>
+		</div>
+	</body>
+</html>
+<script src="../public.js"></script>
+<script src="js/gameengine.js"></script>
+<script src="js/bullet.js"></script>
+<script src="js/enemy.js"></script>
+<script src="js/myplane.js"></script>
+<script type="text/javascript">
+	/*
+	四个角色 ：
+		游戏引擎     ：  点击菜单记录等级    （初始化菜单）        背景移动、动画飞机、logo出现    
+		战斗机      ：  创建     移动（鼠标或键盘控制）       开火   
+		敌机        ： 创建   移动   碰撞  销毁等
+		子弹    ：  创建  移动      碰撞 
+	*/
+	window.onload = function(){
+		new GameEngine().start();
+	}
+	
+</script>
+ 
