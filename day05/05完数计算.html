@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 请列出2~10000的所有完全数
+	 因子之和 == 该数本身 （因子不包括本身）
+	 */
+	function perfectNumber(){
+		for(var m = 2 ; m <= 10000 ; m++){
+			var s = 0;//每次判断完m之后 都要进行清零处理
+			for(var i = 1 ; i < m ; i++){
+				if( m % i == 0 ){
+					s += i;
+				}
+			}
+			if( s == m ){
+				console.log( m );
+			}
+		}
+	}
+	perfectNumber();
+</script>

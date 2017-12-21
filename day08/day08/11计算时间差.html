@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var now = new Date();
+	var birth = new Date("1997-10-25");
+	var diff = Math.abs( now.getTime() - birth.getTime() ); //时间差的毫秒值
+	var day = diff/1000/3600/24;
+	alert( day );
+	
+	//定义一个函数  功能实现 获取任意两个时间段的时间差  
+	function timeDiff(start,end){
+		return Math.abs( start.getTime() - end.getTime() );
+	}
+</script>

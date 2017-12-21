@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//定义一个老师对象 ：属性： 姓名   家庭住址  性别  年龄    工资    
+	//			         方法：   教课   吃饭
+	var t1 = {
+		tname : "张老师",
+		addr : "上海虹桥",
+		sex : "男",
+		salary : 23000,
+		age : 30,
+		teach : function(){
+			alert("老师在上课");
+		},
+		eat : function(){
+			return "老师在吃肉";
+		}
+	}
+	t1.id = "10001";
+	alert( t1.eat() );
+</script>

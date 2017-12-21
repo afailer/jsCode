@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var arr = [23,12,45,23,67,12];
+	//alert( arr.indexOf(233) );
+	function noRepeat(arr){
+		var newArr = [];
+		for( var i= 0 ; i < arr.length ; i++ ){
+			if( newArr.indexOf( arr[i] ) == -1){
+				newArr[newArr.length] = arr[i];
+			}
+		}
+		return newArr;
+	}
+	//alert( noRepeat(arr) );
+	
+	//forEach  
+//	arr.forEach(function(item,index,array){
+//		//console.log(array);
+//		/*if( item % 2 ){
+//			console.log(item);
+//		}*/
+//		var flag = true;
+//		
+//		for( var i = 2 ; i < item ; i++  ){
+//			if( item % i == 0 ){
+//				flag = false;
+//				break;
+//			}
+//		}
+//		if( flag ){
+//			console.log( item );
+//		}
+//	})
+
+
+	//map
+	/*var arr = [1,2,3,4,5,6];
+	//将数组中的每一项 加10  
+	var newArr = arr.map(function(item){
+		return item + 10;
+	})
+	alert( newArr );*/
+	
+	
+	//filter 
+	/*var arr = [10,32,13,45,89];
+	var newArr = arr.filter(function(item){
+		return item%2 == 1;
+	})
+	alert( newArr );*/
+	
+	
+	//reduce
+	var arr = [1,2,3,4,5];
+	document.write("up" + "," + "down<br>");
+	var res = arr.reduce(function(up,down){
+		// up :  前一个操作返回的结果  第一个默认值为数组的第一个数  
+		// down ： 下一个操作数   （数组中第一个数的下一个数 ）
+		document.write(up + "&ensp;&ensp;" + down);
+		document.write("<br>");
+		return up * down;
+	})
+	//alert( res );
+</script>

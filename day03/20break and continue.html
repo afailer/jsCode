@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// 输出 1--10 以内的数  不能输出 5的倍数
+	/*for(var i = 1 ; i <= 10 ; i++){
+		if( i % 5 != 0 ){
+			console.log( i );
+		}
+	}*/
+	/*for( var i = 1 ; i <= 10 ; i++ ){
+		 if( i % 5 == 0 ){
+		 	continue;
+		 }
+		 
+		 console.log( i );
+	}*/
+	
+	// 输出1--10以内的数   遇到5的倍数 就不输出了
+	for( var i = 1 ; i <= 10 ; i++ ){
+		if( i % 5 == 0){
+			break;
+		}
+		console.log(i);
+	}
+</script>

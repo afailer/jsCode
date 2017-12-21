@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//判断ch字符 在str 串中是否存在
+	function hasChar(str,ch){
+		for( var i = 0 ; i < str.length ; i++ ){
+			if( str.charAt(i) == ch ){
+				return true;
+			}
+		}
+		return false;
+	}
+	alert( hasChar( "hello" , "e" ) );
+</script>

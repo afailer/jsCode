@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 编程实现、有一个棋盘，有64个方格，在第一个方格里面放1粒芝麻重量是0.00001kg，
+	 第二个里面放2粒，第三个里面放4，计算 棋盘上放的所有芝麻的重量
+	1 1
+	2 2
+	3 4
+	4 8
+	 */
+	var sum = 0;
+	for(var i = 0 ; i < 64 ; i++){
+		sum += Math.pow(2,i) * 0.00001;
+	}
+	alert( sum );
+</script>

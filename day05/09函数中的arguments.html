@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//arguments
+	function fn(a,b,c,d){
+		//alert( arguments.length );
+		//当形参个数和实参个数不符时  不进行代码执行
+		//alert( fn.length );
+		if( arguments.length != fn.length ){
+			alert( "形参的个数和实参不相符" );
+		}else{
+			alert(a+b+c+d);
+		}
+	}
+	//fn(1,2,3,1);
+	
+	
+	//通过arguments可以实现任意n个数的和
+	//sum(1,2,3)
+	//sum(1,2,3,4)
+	function sum(){
+		//alert( arguments[4] );
+		var s = 0;
+		for(var i = 0 ; i < arguments.length; i++){
+			s += arguments[i];
+		}
+		alert(s);
+	}
+	//sum(1,2,3,13,1);//20
+	//sum(1,2,3);//6
+	//sum(2,3); //5
+	
+	
+	function fun(a){
+		arguments[0] = 12; //  arguments值的变化也会影响形参（局部变量）值的变量
+		alert(a);
+	}
+	fun(10);
+</script>

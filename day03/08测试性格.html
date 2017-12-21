@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var sex =parseInt(  prompt( "请输入您的性别 1 ： 男   2： 女" ) );
+	var type =parseInt(  prompt( "请输入您的血型 1A,2B ,3O ,4AB" ) );
+	switch( sex ){
+		case 1: {
+			switch( type ){
+				case 1 : alert("追求完美  很执着");break;
+				case 2 : alert("很有思想 有远见  但是很花心");break;
+				case 3 : alert("适应能力强 软弱");break;
+				case 4 : alert("性格善变  很极端");break;
+				default : alert( "您来自火星" );
+			}
+			break;
+		}
+		case 2:{
+			switch( type ){
+				case 1 : alert("事业心强");break;
+				case 2 : alert("很有思想 ");break;
+				case 3 : alert("适应能力强");break;
+				case 4 : alert("女汉子");break;
+				default : alert( "您来自火星" );
+			}
+			break;
+		}
+		default : alert("您来自泰国");
+	}
+	
+</script>

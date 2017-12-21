@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；
+	//然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程
+	var arr = [];
+	for(var i = 1 ; i <= 30 ; i++){
+		arr.push(i*2);
+	}
+	var brr = [];//存放平均数
+	var sum = 0;
+	for( var i = 0 ; i < arr.length ; i++ ){
+		sum += arr[i];
+		if( i % 5 == 4 ){ // 每5个数 ： 01234  56789  
+			brr.push( sum/5 );
+			sum = 0;//清零处理
+		}
+	}
+	console.log( brr );
+</script>

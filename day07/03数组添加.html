@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 4、	有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+	例如  原数组  [3,10,49,89,100] 
+	 插入一个数 15   
+	   新数组为   [3,10,15,49,89,100]
+	 * */
+	function insertNum(arr,num){
+		for(var i = 0 ; i < arr.length ; i ++){
+			if( arr[i] > num  ){
+				index = i;//记录num所在的位置
+				//通过循环的方式 将index位置处及其后面的数据依次向后移动
+				for( var j = arr.length ; j > index ; j-- ){
+					arr[j] = arr[j-1];
+				}
+				break;//只要有一个数满足 arr[i] > num   就终止判断
+			}
+		}
+		//循环结束后  将num插入到index位置处
+		//如果循环结束后， i == arr.length 说明 没有满足arr[i] > num 这个条件的
+		//说明 num 比数组中的每一个数都大    放到数组最后
+		if( i == arr.length ){
+			arr.push(num);
+		}else{
+			arr[index] = num;
+		}
+		
+		return arr;
+	}
+	alert( insertNum( [3,10,45,56,90] , 150 ) );
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+/*	3．某个公司要给员工发年终奖，为了奖励老员工，所以工作时间越长，发的越多，规则如下：
+		工作满 0 年 发月薪的 1 倍月薪年终奖，如果月薪大于 8000 ，那么就是发 1.2倍
+		
+		工作满 1 年 发月薪的 1.5 倍月薪年终奖，如果月薪大于 10000 ，那么就是发 1.7倍
+		
+		工作满 2 年，甚至更多  发月薪的3 倍月薪年终奖，如果月薪大于 12000 ，那么就是发 3.2倍*/
+	
+	var year = prompt("请输入工作年限");
+	var salary = prompt( "请输入月薪" );
+	if( year < 1  ){
+		if( salary > 8000 ){
+			alert( "年终奖=" + ( salary * 1.2 ) );
+		}else{
+			alert( "年终奖=" + ( salary ) );
+		}
+	}else if( year < 2 ){
+		
+		if( salary > 10000 ){
+			alert( "年终奖=" + ( salary * 1.7 ) );
+		}else{
+			alert( "年终奖=" + ( salary * 1.5 ) );
+		}
+		
+	}else{
+		
+		if( salary > 12000 ){
+			alert( "年终奖=" + ( salary * 3.2 ) );
+		}else{
+			alert( "年终奖=" + ( salary * 3 ) );
+		}
+		
+	}
+</script>

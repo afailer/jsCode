@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、统计字符串中每个字符的个数   
+	function getCount(str){
+		//  计算某个字符在某个字符串中出现的次数   "sreafda"   --  a
+		//根据0--127 中的ASCII值 找到对应的字符 ，然后判断这个字符在str中出现的次数
+		for( var i = 0 ;  i <= 127 ; i++ ){
+			var ch = String.fromCharCode(i);
+			var count = 0;//计数器  
+			for(var j = 0 ; j < str.length ; j++){
+				if( ch == str.charAt(j) ){
+					count++;
+				}
+			}
+			if( count > 0 ){
+				console.log("字符" + ch + "出现了" +  count + "次");
+			}
+		}
+	}
+	getCount( "aaaabbb333222&&&444" );
+</script>

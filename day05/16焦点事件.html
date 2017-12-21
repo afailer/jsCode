@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="请输入" id="txt"/><span id="s"></span>
+	</body>
+</html>
+<script>
+	//当文本框获取焦点时  清空表单内容
+	//当文本框失去焦点时 判断是否有内容，如果没有内容提示 内容不能为空(红色) ，否则提示正确(绿色)
+	var oTxt = document.getElementById("txt");
+	var oSpan = document.getElementById("s");
+	oTxt.onfocus = function(){
+		this.value = "";
+	}
+	oTxt.onblur = function(){
+		if( this.value == "" ){
+			oSpan.innerHTML = "内容不能为空";
+			oSpan.style.color = "red";
+		}else{
+			oSpan.innerHTML = "正确";
+			oSpan.style.color = "green";
+		}
+	}
+</script>

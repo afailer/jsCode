@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	水仙花数 ： 
+	是一个三位数   ，  各个位数的立方和 等于 该数本身   
+	153   ==   1*1*1  + 5*5*5 + 3*3*3
+	
+	要求：找出所有的水仙花数
+	*/
+	//  100   999
+	
+	//判断任意一个数是不是水仙花数   
+	var num = 100;
+	do{
+		
+		//取出num各个位数 
+		var digit = num%10;
+		var ten = parseInt(num/10) % 10;
+		var hunder = parseInt( num / 100 );
+		// Math.pow(m,n)  获取  m的 n次方
+		//获取各个位数的立方和
+		var sum = Math.pow(digit,3) + Math.pow(ten,3) + Math.pow(hunder,3);
+		//根据条件 判断  
+		if( num == sum ){
+			console.log( num + "是水仙花数" );
+		}
+		
+		num++;
+		
+	}while( num <= 999 );
+</script>

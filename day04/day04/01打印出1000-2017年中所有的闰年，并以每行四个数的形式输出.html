@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、	打印出1000-2017年中所有的闰年，并以每行四个数的形式输出
+	//每几个数换行   ：   使用一个计数器    ，遇到闰年就 累加， 当计数器能被4整除 就输出换行
+	var count = 0;
+	for( var year = 1000 ; year <= 2017 ; year ++ ){
+		if( !(year%4)&&year%100 || !(year%400) ){
+			document.write( year + " " );
+			count ++;
+			if( !(count%4) ){
+				document.write("<br>");
+			}
+		}
+	}
+</script>

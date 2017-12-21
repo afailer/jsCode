@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//一个员工的入职薪水10K, 每年涨幅5%，问 10年后月薪是多少？
+	var salary = 10000;
+	// 10000 + 10000*0.05   10000*1.05
+	for(var i = 1 ; i <= 10 ; i ++){
+		salary *= 1.05
+	}
+	alert( salary );
+</script>

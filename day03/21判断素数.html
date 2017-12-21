@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// 键盘上任意输入一个数  判断这个数是否是素数
+	// 素数 ： 只能被1 和 其本身整除的数  
+	// 2 3  5   7  11  13 
+	// 方案一 、  因数个数 = 2
+	// 因数 ： 能被这个数整除的数
+	
+	/*var count = 0;//计算因数个数
+	var num = 101;
+	for( var i = 1 ; i <= num; i++){
+		if( num%i == 0 ){
+			count ++;
+		}
+	}
+	if( count == 2 ){
+		alert( num + "是素数" );
+	}else{
+		alert( num + "不是素数" );
+	}*/
+	
+	//方案二 、 因数和 = num + 1
+	
+	//方案三 ： break
+	// 5 ：  5 % 2--4  == 0   如果满足条件的，就break; 循环结束后 观察 循环变量的值，循环变量的值 == 这个数本身相等 --》这个数 一定素数  
+	// 100 ： 100 % 2 == 0 break； 
+	/*var num = 14;
+	for( var i = 2 ; i < num ; i++ ){
+		if( num % i == 0 ){ //不是素数
+			break;
+		}
+	}
+	
+	//如果循环变量i 和 这个数本身相等，说明 没有满足 num % i == 0  ，就是素数
+	if( i == num ){
+		alert( num + "是素数" );
+	}else{
+		alert( num + "不是素数" );
+	}*/
+	
+	//方案四 ： 开关变量  假设 flag = true ，这个数num 是素数  ， flag = false 时不是素数
+	var flag = true;//是素数
+	var num = 23;
+	for( var i = 2 ; i < num ; i++ ){
+		if( num % i == 0 ){ //不是素数
+			flag = false;
+			break;
+		}
+	}
+	//循环结束后，如果flag值没有任何变化，num就是素数 ，否则就不是素数
+	if( flag ){
+		alert( num + "是素数" );
+	}else{
+		alert( num + "不是素数" );
+	}
+</script>

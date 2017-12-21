@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//输入任意三个数，输出最大值？
+	var one = 23 , two = 555 , three = 9;
+	/*if( one > two && one > three ){
+		alert(one);
+	}else if( two > one && two > three ){
+		alert( two );
+	}else{
+		alert( three );
+	}*/
+	
+	//找出one 和 two 中的最大值 ，存入一个变量中temp   ， 在用temp 和 three 做比较
+	temp = one > two ? one : two; //找出one 和 two 中的最大值 ，存入一个变量中temp
+	max = temp > three ? temp : three; //在用temp 和 three 做比较
+	alert( max );
+</script>

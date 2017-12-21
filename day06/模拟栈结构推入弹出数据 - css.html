@@ -1,0 +1,49 @@
+﻿<!doctype html>
+
+<html>
+	<head>
+	<meta charest="utf-8"/>
+
+<title>模拟栈结构推入弹出模拟数据</title>
+
+<script>
+  
+</script>
+
+</head>
+
+<body>
+	
+	<input type="text" id="txt"/>
+	<input type="button" value="推入" id="tr" />
+	<input type="button" value="弹出" id="tc" />
+	<div id="divlist" style="width:270px; min-height:20px; margin-top:10px; border:2px solid red;"></div>
+	
+</body>
+
+</html>
+<script>
+	var oTxt = document.getElementById("txt");
+	var oTr = document.getElementById("tr");
+	var oTc = document.getElementById("tc");
+	var oDiv = document.getElementById("divlist");
+	
+	var arr = [];
+	function showData(){
+		var str = "";
+		for( var i = 0 ; i < arr.length ; i++ ){
+			str += "<div>"+arr[i]+"</div>";
+		}
+		oDiv.innerHTML = str;
+	}
+	oTr.onclick = function(){
+		var con = oTxt.value;
+		arr.push(con);
+		oTxt.value = "";
+		showData();
+	}
+	oTc.onclick = function(){
+		arr.pop();
+		showData();
+	}
+</script>

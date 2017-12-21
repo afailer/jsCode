@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 已知有一串字符串，"中国23人5民156共和国568"，将字符串中的数字字符串都提取出来，存入到数组中
+               例如：  提取数字后的数组是：  [23,5,156,568]
+	*/
+	
+	function getNumber(str){
+		var arr = []; //将提取的数字存入到该数组
+		var numStr = "";//拼接紧邻的数字字符
+		for( var i = 0 ; i < str.length ; i++ ){
+			if( str.charAt(i) >= "0" && str.charAt(i) <= "9" ){
+				numStr += str.charAt(i);
+			}else{
+				if( numStr.length > 0 ){
+					arr.push( numStr );
+					numStr = "";
+				}
+			}
+		}
+		//考虑到 字符串如果是以数字结尾，循环结束后就要判断numStr中是否含有字符
+		if( numStr.length > 0 ){
+			arr.push( numStr );
+		}
+		alert( arr );
+	}
+	
+	getNumber("34s2t456r78uu999")
+</script>

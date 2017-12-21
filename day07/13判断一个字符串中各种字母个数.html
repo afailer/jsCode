@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//  "heSDSDewe2323@##$aa"  问：大写字母几个  小写 、数字、特殊字符 分别有几个？
+	function getCount(str){
+		var big = 0 , small = 0 , num = 0 , other = 0;
+		for( var i = 0; i < str.length ; i++ ){
+			if( str.charAt(i) >= "A" && str.charAt(i) <= "Z" ){ //大写字母
+				big ++;
+			}else if( str.charAt(i) >= "a" && str.charAt(i) <= "z" ){ //小写字母
+				small++;
+			}else if( str.charAt(i) >= "0" && str.charAt(i) <= "9" ){ //数字
+				num++;
+			}else{
+				other ++;
+			}
+		}
+		console.log( "大写字母：" + big );
+		console.log( "小写字母：" + small );
+		console.log( "数字：" + num );
+		console.log( "特殊字符：" + other );
+	}
+	getCount("heSDSDewe2323@##$aa");
+</script>

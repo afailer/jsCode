@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入第一个数 ： <input type="text"  id="n1" /> <br>
+		请输入一个运算符： <input type="text"  id="f" /><br>
+		请输入第二个数： <input type="text"  id="n2" /><br>
+		结果 ： <input type="text" id="res"/><br>
+		<input type="button" value="计算" id="btn1" /> 
+		<input type="button" value="清空" id="btn2" /><br>
+		<hr />
+		请输入年份： <input type="text"  id="y" /> <br>
+		请输入月份： <input type="text"  id="m" /><br>
+		请输入日期： <input type="text"  id="d" /><br>
+		这一天是这一年的第  <input type="text" id="day"/>天<br>
+		<input type="button" value="计算" id="btn3" /> 
+		<input type="button" value="清空" id="btn4" /><br>
+	</body>
+</html>
+<script>
+	//1 找到页面元素
+	//2 添加单击事件
+	//3 获取年月日
+	//4 根据月份做判断 
+	//5 回填结果到文本框
+	//  2017 3 2   31 +  28 + 2
+	
+	var y = document.getElementById("y");
+	var m = document.getElementById("m");
+	var d = document.getElementById("d");
+	var day = document.getElementById("day");
+	var oBtn3 = document.getElementById("btn3");
+	var oBtn4 = document.getElementById("btn4");
+	
+	oBtn3.onclick = function(){
+		var _year = y.value;
+		var _month =Number(  m.value );
+		var _date = Number( d.value ) ;
+		var sum = 0;
+		switch( _month ){
+			case 12 : sum += 30; //累加 11月份天数
+			case 11 : sum += 31;
+			case 10 : sum += 30;
+			case 9 : sum += 31;
+			case 8 : sum += 31;
+			case 7 : sum += 30;
+			case 6 : sum += 31;
+			case 5 : sum += 30;
+			case 4 : sum += 31;
+			case 3 : 
+				(!(_year%4) && _year%100 || !(_year%400)) ? sum += 29 : sum += 28;
+			case 2 :  sum += 31;  
+			case 1 :  sum += _date;
+		}
+		day.value = sum;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//实现思路
+	//  1、查找页面元素	
+	var oOpt1 = document.getElementById("n1"); 
+	var oOpt2 = document.getElementById("n2"); 
+	var oOptSign = document.getElementById("f");
+	var oOptRes = document.getElementById("res");
+	var oBtnCal = document.getElementById("btn1");
+	var oBtnClear = document.getElementById("btn2");
+	
+	//  2、为按钮添加单击事件
+	oBtnCal.onclick = function(){
+		//  3、获取 操作数和运算符
+		var num1 =Number( oOpt1.value ) ;
+		var num2 =Number( oOpt2.value ) ;
+		var sign = oOptSign.value;
+		var result;
+		//  4、 根据运算符 做判断  
+		switch( sign ){
+			case "+" :
+				result = num1+" + "+num2+" = "+ (num1 + num2); // 2 + 3 = 5
+				break;
+			case "-" :	
+				result = num1+" - "+num2+" = "+ (num1 - num2); // 2 + 3 = 5
+				break;
+			case "*" :
+				result = num1+" * "+num2+" = "+ (num1 * num2); // 2 + 3 = 5
+				break;
+			case "/" :
+				if( num2 == 0 ){
+					alert( "除数不能是0" );
+				}else{
+					result = num1+" / "+num2+" = "+ (num1 / num2); // 2 + 3 = 5
+				}
+				break;
+			case "%" :
+				if( num2 == 0 ){
+					alert( "除数不能是0" );
+				}else{
+					result = num1+" % "+num2+" = "+ (num1 % num2); // 2 + 3 = 5
+				}
+				break;
+		}
+		
+		//  5、 将计算的结果回填到 文本框中
+		oOptRes.value = result;
+	}
+	
+	
+	
+	
+	
+</script>

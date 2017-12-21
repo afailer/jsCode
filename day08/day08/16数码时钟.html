@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+	
+</script>
+</head>
+
+<body>
+	<div id="div">
+		<img src="img/0.png" />
+		<img src="img/8.png" />
+		时
+		<img src="img/1.png" />
+		<img src="img/5.png" />
+		分
+		<img src="img/0.png" />
+		<img src="img/9.png" />
+		秒
+	</div>
+</body>
+</html>
+<script>
+	function showTime(){
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		var time = [
+			parseInt(h/10),h%10,
+			parseInt(m/10),m%10,
+			parseInt(s/10),s%10
+		];
+		var imgs = document.getElementsByTagName("img");
+		for( var i = 0 ; i < 6 ; i++ ){
+			imgs[i].src = "img/"+time[i]+".png";
+		}
+	}
+	showTime();
+	var timer = setInterval( showTime,1000 );
+</script>

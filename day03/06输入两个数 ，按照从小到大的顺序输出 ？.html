@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//输入两个数 ，按照从小到大的顺序输出 ？
+	/*var num1 = 23 , num2 = 9;
+	if( num1 > num2 ){
+		alert( "从小到大的顺序是 ：" + num2 + "," +num1 );
+	}else{
+		alert( "从小到大的顺序是 ：" + num1 + "," +num2 );
+	}*/
+	
+	var num1 = 23 , num2 = 5;
+	var temp;
+	if( num1 > num2 ){ //假不成立时   
+		temp = num1;
+		num1 = num2;
+		num2 = temp;
+	}
+	//输出时，假设   num1 是最小的  
+	alert( "从小到大的顺序是 ：" + num1 + "," +num2 );
+</script>

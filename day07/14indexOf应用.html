@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 3、	练习：  arr = ["Apple","orange","banana","red","blue"];  
+	   查找这个数组中 包含A或a的字符串 的个数 （3），编程实现
+	 */
+	function getCount(){
+		var arr = ["Apple","orange","banana","red","blue"];
+		//思路：将数组中的每一个字符串取出来，判断是否含有A  a
+		var count = 0;
+		for( var i = 0 ; i < arr.length ; i++ ){
+			if( arr[i].indexOf("a") != -1 || arr[i].indexOf("A") != -1 ){
+				count ++;
+			}
+		}
+		return count;
+	}
+	alert( getCount() );
+</script>

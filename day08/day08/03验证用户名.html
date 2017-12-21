@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="t" />
+		<input type="button" value = "登录" id="btn" />
+	</body>
+</html>
+<script>
+	/*
+	 
+		要求：长度在6—20 之间，否则alert提示
+			不能用数字开头    否则有alert提示
+			只能包含数字、字母、下划线，都正确，提示 正确，否则输出 只能包含字母数字下划线
+
+	 */
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("btn").onclick = function(){
+		var str = $("t").value;
+		if( str.length < 6  || str.length > 20 ){
+			alert("长度在6—20 之间");
+			return;//阻止后面代码的运行
+		}
+		
+		if( str.charAt(0) >= "0" && str.charAt(0) <= "9" ){
+			alert("不能用数字开头");
+			return;//阻止后面代码的运行
+		}
+		
+		// 只能包含数字、字母、下划线   “yuiohj222%”
+		// 遍历字符串，统计字符串中字母、数组和下划线 的个数count，如果 count == str.length，就正确 
+		var count = 0;
+		for( var i = 0 ; i < str.length ; i++ ){
+			var ch = str.charAt(i);//提取出字符
+			if( ch>="0"&&ch<="9" || ch>="a"&&ch<="z" || ch>="A"&&ch<="Z" ||ch == "_" ){
+				count++;
+			}
+		}
+		if( count == str.length ){
+			alert("可以登录了");
+		}else{
+			alert("只能包含数字、字母、下划线 ");
+		}
+	}
+</script>

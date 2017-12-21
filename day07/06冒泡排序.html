@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//冒泡排序
+	//相邻的两个数进行比较  大数下沉 小数上浮
+	function mySort(arr){
+		var temp = 0;
+		for( var i = 0 ; i < arr.length - 1 ; i ++ ){ //控制比较轮数
+			for( var j = 0 ; j < arr.length-1-i ; j++ ){ //每轮比较次数
+				if( arr[j] > arr[j+1] ){
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		return arr;
+	}
+	alert( mySort( [34,67,12,5,90,2] ) );
+</script>

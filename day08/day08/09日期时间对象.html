@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		当前时间是：<div id="time"></div>
+	</body>
+</html>
+<script>
+	var d = new Date();
+	//alert( d.getFullYear() );
+	//alert( d.getMonth() );
+	//alert( d.toLocaleDateString() );
+	
+	//写一个函数 功能实现  将日期格式转成字符串
+	function dateToString(d,sign){
+		//如果用户没有传递 年月日的分隔符   默认为 "-"
+		sign = sign || "-";
+		var _y  = d.getFullYear();
+		var _m = d.getMonth() + 1;
+		var _d = d.getDate();
+		var h =getNum( d.getHours() );
+		var m =getNum( d.getMinutes() );
+		var s =getNum( d.getSeconds() );
+		return _y +sign+ _m + sign + _d + " " + h + ":" + m + ":" + s;
+	}
+	function getNum(num){
+		return num < 10 ? "0"+num : num;
+	}
+	var oDiv = document.getElementById("time");
+	var now = new Date();
+	oDiv.innerHTML = dateToString(now);
+</script>

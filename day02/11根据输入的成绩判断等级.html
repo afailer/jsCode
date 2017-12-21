@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		输入一个成绩：  <input type="text" id="score" /><br>
+		结果 ： <input type="text" id="res" /><br>
+		<input type="button" value="计算结果" id="btn" />
+		<input type="button" value="清空" id="btn2" />
+	</body>
+</html>
+<script>
+	//操作页面元素
+	//第一步 ： 找到页面元素（要做事  先找人）
+	var oScore = document.getElementById("score");//根据给定的id查找页面对象（页面元素）
+	var oRes = document.getElementById("res");
+	var oBtn = document.getElementById("btn");
+	var oClear = document.getElementById("btn2");
+	
+	//第二步： 给点击的按钮添加事件
+	oBtn.onclick = function(){
+		//第三步 ： 完成判断  （获取文本框的成绩）
+		var score = oScore.value; 
+		var str = "";
+		if( score >= 90 ){
+			//alert("优秀");
+			str = "优秀";
+		}else if( score >= 70 ){
+			//alert("良好");
+			str = "良好"
+		}else if( score >= 60 ){
+			//alert("中");
+			str ="中";
+		}else{
+			//alert( "差" );
+			str = "差";
+		}
+		
+		oRes.value = str;//将结果写入到文本框
+	}
+	
+	oClear.onclick = function(){
+		oRes.value = "";
+		oScore.value = "";
+	}
+</script>

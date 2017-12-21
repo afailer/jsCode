@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//累加  ：   1 + 2 + 3 + ... + 100   需要一个 累加器  初始值  0
+	/*var sum = 0;
+	for( var i = 1 ; i <= 100 ; i++ ){
+		sum = sum + i; // sum += i
+	}
+	alert("1--100的和是：" + sum);*/
+	
+	//循环实现输出1—100以内所有偶数及偶数的和
+	/*var sum = 0;
+	for( var i = 1 ; i <= 100 ; i++ ){
+		if( !(i%2) ){
+			console.log( i + " " );
+			sum += i;
+		}
+	}
+	alert("偶数的和是：" + sum);*/
+	
+	
+	/*var fac = 1;
+	for( var i = 1 ; i <= 5 ; i++ ){
+		fac *= i;
+	}
+	alert( fac );*/
+	
+	//求出1-1/2+1/3-1/4…..1/100的和
+	/*var sum = 0;
+	for(var i = 1 ; i <= 100 ; i++){
+		if( i%2 ){
+			sum += 1/i;
+		}else{
+			sum -= 1/i
+		}
+	}
+	alert( sum );*/
+	
+	var flag = 1; //分子
+	var sum = 0;
+	for(var i = 1 ; i <= 100 ; i++){
+		sum += flag / i;  
+		flag = -flag;   //分子的变化规律    
+	}
+	alert( sum );
+</script>

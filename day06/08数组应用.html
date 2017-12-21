@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、计算数组中所有偶数的和 奇数的和   偶数的个数  奇数的个数 
+	var arr = [12,34,5,8,9,7,6];
+	var  oddCount = 0 , oddSum = 0;
+	var  evenCount = 0, evenSum = 0;
+	for( var i = 0 ; i < arr.length ; i++ ){
+		if( arr[i]%2 ){//奇数
+			oddCount++;
+			oddSum += arr[i];
+		}else{
+			evenCount++;
+			evenSum += arr[i];
+		}
+	}
+	alert("奇数个数是：" + oddCount);
+	alert("奇数和是：" + oddSum);
+	alert("偶数个数是：" + evenCount);
+	alert("偶数和是：" + evenSum );
+	
+	//已知数组  arr = [23,12],将数组中的两个数交换后输出
+	/*var arr = [23,12];
+	temp = arr[0];
+	arr[0] = arr[1];
+	arr[1] = temp;
+	alert( arr[0] );*/
+	
+	//输出数组中的最大数和最小数
+	//思路一： 相邻两个数进行比较，如果前一个数大于后一个数，就交换，循环结束后，数组的最后一个数就是最大值
+	/*var arr = [34,2,560,78,123,20];
+	for( var i = 0 ; i < arr.length - 1 ; i ++  ){
+		if( arr[i] > arr[i+1] ){
+			temp = arr[i];
+			arr[i] = arr[i+1];
+			arr[i+1] = temp;
+		}
+	}
+	//取最大值
+	alert( arr[arr.length-1] );*/
+	
+	//思路二：  假设数组中的第一个数是最大值  max =arr[0] , 用max值和后面的数依次比较，
+	// 如果max < arr[i]  说明假设不成立   改变max值  max = arr[i]
+	/*var arr = [34,2,560,78,123,20];
+	var max = arr[0];//假设最大值
+	var min = arr[0];//假设最小值
+	for( var i = 1 ; i < arr.length ; i ++ ){
+		if( max < arr[i] ){
+			max = arr[i];
+		}
+		if( min > arr[i] ){
+			min = arr[i];
+		}
+	}
+	alert( "最大值是：" + max );
+	alert( "最小值是：" + min );*/
+	
+	//使用JSON形式创建一个对象{  }，该对象存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，
+	//同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息
+	var obj = {
+		id : 1,
+		idCard : "211...",
+		age : 19,
+		sex : "女",
+		major : "computer",
+		intr : function(){
+			console.log("大家好，我叫大黄,我今天"+obj.age + "岁了，至今未婚");
+		}
+	}
+	obj.intr();
+</script>

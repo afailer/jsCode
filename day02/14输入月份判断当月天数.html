@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var month = parseInt( prompt( "请输入月份" ) ) ,year = 2017;
+	//switch 比较时  是   ===    比较  ，先比较类型  再比较值
+	switch( month ){
+		case 1 : 
+		case 3 :
+		case 5 :
+		case 7 :
+		case 8 :
+		case 10 :
+		case 12 : alert("31天");break;
+		case 4 :
+		case 6 :
+		case 9 :
+		case 11 : alert( "30天" );break;
+		case 2 : 
+			( !(year%4) && year%100 || !(year%400) ) ? alert( "29天" ) : alert("28天");
+			break;
+		default : alert( "请输入正确的月份" );
+	}
+	
+	
+</script>

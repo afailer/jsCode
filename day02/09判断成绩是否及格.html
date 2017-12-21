@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var score = prompt( "请输入一个百分制成绩1--100" );
+	//score >= 0 && score <= 100 && !( isNaN(Num) )   符合条件  
+	if( score < 0 || score > 100 || isNaN( score )  ){  //不正确
+		alert( "请输入正确的数字" );
+	}else{
+		if( score >= 60 ){
+			alert( "恭喜，你及格了" );
+			alert( "不要骄傲啊" );
+		}else{
+			alert( "很遗憾，你没有及格" );
+			alert( "继续努力" );
+		}
+		
+		alert( "么么哒" );
+	}
+</script>

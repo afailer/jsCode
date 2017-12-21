@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		请输入第一个数 ： <input type="text"  id="n1" /> <br>
+		请输入一个运算符： <input type="text"  id="f" /><br>
+		请输入第二个数： <input type="text"  id="n2" /><br>
+		结果 ： <input type="text" id="res"/><br>
+		<input type="button" value="计算" id="btn1" /> 
+		<input type="button" value="清空" id="btn2" /><br>
+	</body>
+</html>
+<script>
+	//获取页面元素
+	var oNum1 = document.getElementById("n1");
+	var oNum2 = document.getElementById("n2");
+	var oSign = document.getElementById("f");
+	var oRes = document.getElementById("res");
+	var oBtn = document.getElementById("btn1");
+	var oBtnClear = document.getElementById("btn2");
+	
+	oBtn.onclick = function(){ //匿名函数
+		//获取值
+		var iOne =Number( oNum1.value ) ;
+		var iTwo =Number( oNum2.value ) ;
+		var sign = oSign.value;
+		if( isNaN( iOne ) || isNaN( iTwo ) ){
+			alert( "请输入正确的数字" );
+		}else{
+			if( sign == "+" ){
+				oRes.value = iOne + "+" + iTwo + "=" + (iOne + iTwo);
+			}else if( sign == "-" ){
+				oRes.value = iOne + "-" + iTwo + "=" + (iOne - iTwo);
+			}else if( sign == "*" ){
+				oRes.value = iOne + "*" + iTwo + "=" + (iOne * iTwo);
+			}else if( sign == "/" ){
+				if( iTwo == 0 ){
+					alert("除数不能是0");
+				}else{
+					oRes.value = iOne + "/" + iTwo + "=" + (iOne / iTwo);
+				}
+			}else if( sign == "%" ){
+				if( iTwo == 0 ){
+					alert("除数不能是0");
+				}else{
+					oRes.value = iOne + "%" + iTwo + "=" + (iOne % iTwo);
+				}
+			}else{
+				alert( "运算符出错了" );
+			}
+		}
+	}
+	//清空
+	oBtnClear.onclick = function(){
+		oNum1.value = "";
+		oNum2.value = "";
+		oSign.value = "";
+		oRes.value = "";
+	}
+</script>

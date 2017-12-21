@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//变量的作用域
+	/*var num = 90;
+	function fn(){
+		//num = 100;//没有通过var声明  （隐式全局变量）
+		var num = 100;
+	}
+	fn();
+	
+	alert( num );*/
+	
+//	var m = 10;
+//	function fn(m){//形参是局部变量
+//		m++;//操作形参m   局部变量优先权大于全局的     此时的m  和 全局变量m 不是同一个变量
+//		console.log(m);//101 
+//	}
+//	
+//	fn(100);
+//	console.log(m); // 10  
+	
+	
+	/*var m = 10;
+	function fn(){
+		m++;
+		console.log(m);//11 
+	}
+	
+	fn();
+	console.log(m); // 11*/
+	
+	
+	
+	function fn(){
+		alert(m); // 变量提升
+		var m = 10;
+	}
+	fn();
+	
+</script>

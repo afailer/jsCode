@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//任意输入一个正整数，判断这个数的位数？
+	//   234    234/10--23    23/10---2      2/10---0     00000
+	// 用这个数 num / 10 取整，得到的数 如果不是0 ，计数器就进行位数累加
+	var count = 0;
+	var num = parseInt( prompt("请输入一个整数") );
+	var temp = num;//将变量预存到另一个变量中
+	while( num != 0  ){ // 234
+		num = parseInt( num / 10 );// 23  2  0
+		count++; // 1 2 3     
+	}
+	alert( temp + "是"+count+"位数" );
+	
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//判断一个数在某个数组中是否存在   如果存在就删除该元素  
+	var arr = [23,12,56,78,9];
+	//键盘任意输入一个数
+	var num = prompt("请输入要判断的数");
+	
+	//判断num在数组中是否存在 
+	for(var i = 0 ; i < arr.length ; i++){
+		if( num == arr[i] ){
+			arr.splice( i,1 );
+		}
+	}
+	alert( arr );
+</script>

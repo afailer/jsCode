@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//2、	函数实现  输出1—100中（7的倍数和带7的数除外）的数  (传参数实现)
+	function fnPrint(){
+		for(var i = 1 ; i <= 100 ; i++){
+			// i%7!=0 && i%10 !=7 && parseInt(i / 10) != 7
+			if( i%7==0 || i%10 == 7 || parseInt(i / 10) == 7 ){
+				continue;
+			}else{
+				console.log(i);
+			}
+		}
+	}
+	fnPrint();
+	
+	/*
+	 8、	编写函数实现：
+	求2的平方的阶乘  + 3的平方的阶乘（至少用两个函数实现，一个函数实现平方，一个函数实现阶乘）
+	 */
+	function fac(m){
+		var f = 1;
+		for(var i = 1 ; i <= m ; i++){
+			f *= i;
+		}
+		return f;
+	}
+	function square(m){
+		return m*m;
+	}
+	alert( fac( square(2) ) + fac( square(3) ) );
+</script>

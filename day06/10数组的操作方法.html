@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="push/pop" onclick="showpush()" />
+		<input type="button" value="shift/unshift" onclick="showshift()" />
+		<input type="button" value="slice/splice" onclick="showslice()" />
+		<input type="button" value="join" onclick="showjoin()" />
+		<input type="button" value="concat/reverse" onclick="showconcat()" />
+	</body>
+</html>
+<script>
+	function showconcat(){
+		var arr = [1,2];
+		var brr = [3,6];
+		alert( arr.concat(brr) );
+		alert( arr.reverse() );
+	}
+	function showjoin(){
+		var arr = [1,2,3,4,5,6,7,8];
+		alert( arr.join("-") );
+	}
+	function showslice(){
+		var arr = [1,2,3,4,5,6,7,8];
+		/*alert( arr.splice(2,1) );
+		alert( arr );*/
+		
+		arr.splice( 2,0,88,99 );
+		alert(arr);
+		
+		/*alert( arr.slice(2,5) );//3 4 5   
+		alert( arr );*/
+	}
+	
+	function showshift(){
+		var arr = [23,1,4,5,6,7];
+		//arr.shift();
+		arr.unshift(90);
+		alert(arr);
+	}
+	
+	function showpush(){
+		var arr = [23,1,4,5,6,7];
+		arr.push( 9,67 );
+		arr.pop() ;
+		alert(arr);
+	}
+	
+	//循环为数组赋值
+	/*var arr = [];
+	for(var i = 1 ; i <= 100 ; i++){
+		if( i%2 ){
+			arr.push(i);
+		}
+	}
+	console.log(arr);*/
+</script>

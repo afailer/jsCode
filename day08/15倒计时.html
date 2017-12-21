@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		距离该商品下架还有：  <span id="time"></span>
+	</body>
+</html>
+<script>
+	
+	
+	
+	function timeDiff(start,end){
+       return Math.abs( start.getTime() - end.getTime() );
+    }
+	
+	
+	
+	var oTime = document.getElementById("time");
+	//倒计时函数
+	function showTime(){
+		var endTime = new Date("2017-09-21 14:00:00");//下架时间 
+		var now = new Date();//当前时间
+		
+		//获取两个时间段的时间差
+		var t = timeDiff(endTime,now)/1000; 
+		
+		var h = parseInt( t/3600 );
+		var m = parseInt( (t - h*3600)/60 );
+		var s = parseInt( t - h*3600 - m * 60 );
+		oTime.innerHTML = h +"小时" + m + "分" + s + "秒";
+		
+		//t--;
+	}
+	
+	//页面加载调用函数显示时间
+	showTime();
+	
+	//启动定时器 
+	var timer = setInterval( countDown , 1000 );
+	function countDown(){
+		showTime();
+	}
+</script>

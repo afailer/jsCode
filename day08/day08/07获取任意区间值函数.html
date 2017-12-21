@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	function rand( min,max ){
+	    return  Math.floor(  Math.random()*( max-min + 1 )  ) + min
+	}
+	
+	/*for(var i = 1 ; i <= 50 ; i++){
+		console.log( rand( 2,9 ) );
+	}*/
+	
+	var count = 0;
+	for( var i = 1 ; i <= 100 ; i ++ ){
+		if( Math.random() > 0.3 ){
+			count++;
+		}
+	}
+	alert( count );
+</script>

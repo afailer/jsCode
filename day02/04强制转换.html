@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	console.log( " parseInt('123') -- >  " + (  parseInt('123')  ) );//123
+	console.log( " parseInt('123asd') -- >  " + (  parseInt('123asd')  ) );//123
+	console.log( " parseInt('aa123') -- >  " + (  parseInt('aa123')  ) );//NaN
+	console.log( " parseInt('1aa23') -- >  " + (  parseInt('1aa23')  ) ); // 1
+	
+	//ctrl + shift + a
+	console.log( " parseFloat('123.34') -- >  " + (  parseFloat('123.34')  ) );//123.34
+	console.log( " parseFloat('12.3asd') -- >  " + (  parseFloat('12.3asd')  ) );//12.3
+	console.log( " parseFloat('aa1.23') -- >  " + (  parseFloat('aa1.23')  ) );//NaN
+	console.log( " parseFloat('1aa2.3') -- >  " + (  parseFloat('1aa2.3')  ) ); // 1
+	
+	
+	console.log( " Number('123.34') -- >  " + (  Number('123.34')  ) );// 123.34
+	console.log( " Number('123') -- >  " + (  Number('123')  ) );//123
+	console.log( " Number('123a') -- >  " + (  Number('123a')  ) );//123
+	console.log( " Number('12.3asd') -- >  " + (  Number('12.3asd')  ) );//12.3
+	console.log( " Number('aa1.23') -- >  " + (  Number('aa1.23')  ) );//NaN
+	console.log( " Number('1aa2.3') -- >  " + (  Number('1aa2.3')  ) ); // 1
+	
+	var num = 90;
+	//console.log( typeof num.toString() );
+	console.log( num.toString( 16 ) );
+	
+</script>

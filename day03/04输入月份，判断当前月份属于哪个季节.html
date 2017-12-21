@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//输入月份，判断当前月份属于哪个季节
+	var month = parseInt( prompt("请输入月份") ) ;
+	switch( month ){
+		case 12 : 
+		case 1 :
+		case 2 : alert("冬季");break;
+		case 3 :
+		case 4 :
+		case 5 : alert("春季");break;
+		case 6 :
+		case 7 :
+		case 8 : alert("夏季");break;
+		case  9 :
+		case 10 :
+		case 11 : alert("秋季");break;
+		default: alert("输入有误");
+	}
+</script>

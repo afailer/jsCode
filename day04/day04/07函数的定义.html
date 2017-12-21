@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*fun();
+	function fun(){
+		alert("函数体内部实现");
+	}*/
+	
+	/*var fn = function(){
+		alert("表达式定义函数");
+	}
+	fn();*/
+	
+	//定义一个函数  实现打印九九乘法表
+	function fnPrint(){
+		document.write("<table>");
+		for(var i = 1 ; i <= 9 ; i++){
+			document.write("<tr>");
+			for( var j = 1 ; j <= i ; j++ ){
+				document.write("<td>"+j+"*"+i+"="+(i*j)+"</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	
+	//fnPrint();
+	
+	//prompt()  alert()  console.log()  
+	//定义一个函数 打印三行四列的表格
+	function fnPrintTable(m,n,a){ //m  n 形式参数 
+		document.write("<table border=1>");
+		for(var i = 1 ; i <= m ; i++ ){
+			document.write("<tr>");
+			for( var j = 1 ; j <= n ; j++ ){
+				document.write("<td>333</td>");
+			}
+			document.write("</tr>");
+		}
+		document.write("</table>");
+	}
+	//fnPrintTable(15,16); // 实际参数
+	
+	
+	//定义一个函数 --- 完成简单计算器   计算任意两个数的  和 差 积 商   
+	function calculator(m,n,sign){
+		switch( sign ){
+			case "+": alert( m + n );break;
+			case "-": alert( m - n );break;
+			case "*": alert( m * n );break;
+			case "/": alert( m / n );break;
+		}
+	}
+	calculator(3,5,"+");
+	
+	
+	//定义函数，功能是 输出m---n之间的闰年    传参数实现
+	function leapYear(m,n){
+		var t;
+		if( m > n ){
+			t = m;
+			m = n;
+			n = t;
+		}
+		for(var i = m ; i <= n ; i++){
+			if( i % 4 == 0 && i % 100 != 0 || i % 400 == 0 ){
+				console.log(i);
+			}
+		}
+	}
+	//leapYear(1990,2010);
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="fpz.png" alt="" id="img1" width="212" height="210"/>
+	</body>
+</html>
+<script>
+	//鼠标移入到图片上  显示另一张图片   鼠标离开 ，恢复图片
+	var oImg = document.getElementById("img1");
+	oImg.onmouseover = function(){
+		//this指向 事件的触发者   表示当前对象
+		this.src = "img2.jpg";
+		this.width = "212";
+		this.height = "210";
+	}
+	oImg.onmouseout = function(){
+		this.src = "fpz.png";
+		this.width = "212";
+		this.height = "210";
+	}
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="String.fromCharCode" id="btn1" />
+		<input type="button" value="indexOf/lastIndexOf" id="btn2" />
+		<input type="button" value="substr/substring" id="btn3" />
+		<input type="button" value="split" id="btn4" />
+		<input type="button" value="replace" id="btn5" />
+		<input type="button" value="trim" id="btn6" />
+		<input type="button" value="toLowerCase/toUpperCase" id="btn7" />
+	</body>
+</html>
+<script>
+	//写一个函数 功能实现 根据id查找页面元素
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("btn7").onclick = function(){
+		var str = "hwloEEwwdsfEwqeQ";
+		alert( "hwloEEwwdsfEwqeQ ===>" + str.toUpperCase() ); //HWLOEEWWDSFEWQEQ
+	}
+	$("btn6").onclick = function(){
+		var str = "  我有一个活泼可爱的女朋友-她     时而天真时而认真-她爽朗的笑声可以让我忘记一切烦恼       ";
+		console.log(str);
+		console.log( str.trim() );
+	}
+	$("btn4").onclick = function(){
+		var str = "我有一个活泼可爱的女朋友-她时而天真时而认真-她爽朗的笑声可以让我忘记一切烦恼";
+		//alert( str.split("-") );
+		var str = "www.baidu.com?uname=admin&upwd=123456";
+		//得到  admin   密码 ： 123456    split
+		var arr = str.split("?");//["www.baidu.com", "uname=admin&upwd=123456"]
+		var arr = arr[1].split("&");//["uname=admin", "upwd=123456"]
+		var uname = arr[0].split("=")[1];
+		var upwd = arr[1].split("=")[1];
+		console.log(uname + "," + upwd);
+	}
+	$("btn5").onclick = function(){
+		var str = "我有一个活泼可爱的女朋友-她时而天真时而认真-她爽朗的笑声可以让我忘记一切烦恼";
+		alert( str.replace("她" , "他") );
+	}
+	
+	$("btn3").onclick = function(){
+		var str = "helloworld";
+		alert( str.substring(2,5) );//llo
+		alert( str.substr(2,5) );   //llowo
+	}
+	
+	$("btn1").onclick = function(){
+		alert( String.fromCharCode(97) );
+	}
+	
+	$("btn2").onclick = function(){
+		var str = "helloworld";
+		alert( str.indexOf("l") );
+		alert( str.lastIndexOf("l") );
+	}
+	
+	function showCharAt(){
+		var str = "helloworld";
+		//alert( str[2] );
+		///alert( str.charAt(1) );
+		alert( str.charCodeAt(4) );
+	}
+	//showCharAt();
+</script>

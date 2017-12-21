@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		/*window.onload = function(){
+			//alert("页面加载事件");
+			num = 10;
+			alert(num);
+		}*/
+		onload = function(){
+			var odiv = document.getElementById("box");
+			alert(odiv);
+		}
+		
+		//这样的函数不能下载onload中
+		function fun(){
+			alert();
+		}
+		//fun();
+	</script>
+	<body>
+		<div id="box" onclick = "fun()">我是一个div</div>
+	</body>
+</html>
+

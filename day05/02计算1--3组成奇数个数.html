@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//1、	函数实现：输出1—3之间能组成的奇数个数，并输出这些数
+	//要求 ： 组成的数是一个两位数，个位数！=十位数
+	//组成： 13  21   23  31  共4个		
+	// 1 2 3  十位
+	// 1 2 3 个位
+	function oddCount(){
+		var count = 0;
+		for(var i = 1 ; i <= 3 ; i++){
+			for(var j = 1 ; j <= 3 ; j++){
+				if( i != j ){
+					var n = "" + i + j;
+					if( n%2 ){
+						count++;
+						console.log(n);
+					}
+				}
+			}
+		}
+		return count;
+	}
+	alert( oddCount() );
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//实现计算任意一个数的各个位数的和 
+	function sum(m){
+		var s = 0;
+		while(m!=0){
+			var digit = m % 10;//取出m的个位数
+			s += digit;
+			m = parseInt( m / 10 );
+		}
+		return s;
+	}
+	alert( sum(123) );
+</script>

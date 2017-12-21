@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	// 定义一些变量  描述一个人的基本信息
+	//var stuName = "xm",age = 18 , sex = "男" ,addr = "北京",score = 90;
+	
+	//var stuName1 = "xm1",age1 = 18 , sex1 = "女" ,addr1 = "北京",score1 = 95;
+	//对象 ：将多个信息组合起来，这样多个信息的组合 就称为一个对象
+	var stu1 = {
+		name : "xm", // 键值对 
+		age : 12,
+		sex : "男",
+		addr : "北京"
+	}
+	var stu2 = {
+		name : "xm2", // 键值对 
+		age : 17,
+		sex : "女",
+		addr : "北京"
+	}
+	//为stu1对象添加tel属性
+	stu1.tel = "18322222222";
+	var tel = 90;
+	//为stu2对象添加一个学习方法
+	stu2.study = function(){
+		alert("学生在学习");
+	}
+	//stu2.study();
+	//函数
+	function study(){
+		alert("全局函数");
+	}
+	 
+	//查找对象中描述的信息  对象.属性    <input type="text" value="">
+	//alert( stu2.age );
+	alert( stu1.tel );
+</script>

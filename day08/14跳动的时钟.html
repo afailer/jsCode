@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		当前时间是：<div id="time"></div>
+	</body>
+</html>
+<script>
+	 function dateToString(d,sign){
+       //如果用户没有传递 年月日的分隔符   默认为 "-"
+       sign = sign || "-";
+       var _y  = d.getFullYear();
+       var _m = d.getMonth() + 1;
+       var _d = d.getDate();
+       var h =getNum( d.getHours() );
+       var m =getNum( d.getMinutes() );
+       var s =getNum( d.getSeconds() );
+       return _y +sign+ _m + sign + _d + " " + h + ":" + m + ":" + s;
+    }
+    function getNum(num){
+       return num < 10 ? "0"+num : num;
+    }
+    
+	var oDiv = document.getElementById("time");
+	
+	var timer = setInterval( changeTime , 1000 );
+	function changeTime(){
+		var d = new Date();
+		oDiv.innerHTML = dateToString(d);
+	}
+	
+	//页面加载后 立刻显示时间
+	changeTime();
+</script>

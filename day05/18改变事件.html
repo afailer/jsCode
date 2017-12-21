@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="" id="sel">
+			<option value="50px">大号字体</option>
+			<option value="30px">中号字体</option>
+			<option value="15px">小号字体</option>
+		</select>
+		<p>好的代码像粥一样，都是慢慢熬出来的</p>
+	</body>
+</html>
+<script>
+	var oSel = document.getElementById("sel");
+	oSel.onchange = function(){
+		alert( oSel );
+		//通过改变下拉框控制字体大小 
+	}
+</script>

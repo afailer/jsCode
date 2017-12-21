@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//  7  j  7+8   7>9
+	//任意输入一个数 判断奇偶
+	var num = prompt( "请输入一个数" );
+	if( isNaN( num ) ){//非数字
+		alert( "请输入数字" );
+	}else{
+		//判断奇偶
+		if( !(7%2)  ){ // num % 2 != 1   !(num%2)    num%2 == 0
+			alert( "偶数" );
+		}else{
+			alert( "奇数" );
+		}
+	}
+	
+	//alert( isNaN( num ) ? "非数字" : ( num > 0 ? "正数" : ( num< 0 ? "负数" : "非正非负" ) ) ); 
+	// 改写成 if   
+</script>

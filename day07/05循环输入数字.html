@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	/*
+	 输入若干个成绩存入到数组中，输入负数后退出。 
+	 统计数组平均成绩，输出低于平均成绩的分数并统计低于平均成绩的学生个数
+	 */
+	/*var arr = [];
+	while(1){
+		var num =parseInt(  prompt("请输入一个数") );
+		if( num < 0 ){
+			break;
+		}else{
+			arr.push( num );
+		}
+	}
+	//统计平均分
+	var avg = 0;
+	var sum = 0;
+	for( var i = 0 ; i < arr.length ; i++ ){
+		 sum += arr[i];
+	}
+	avg = sum / arr.length;
+	//alert(avg)
+	var count = 0;
+	for( var i = 0 ; i < arr.length ; i ++){
+		if( arr[i] < avg ){
+			count ++;
+			console.log( arr[i] );
+		}
+	}*/
+	//alert(count);
+	
+	/*
+	 
+	 、通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。试编程。
+		1   2   3  4   5
+		6   7   8  9   10
+		11 12   13  14  15
+	 */
+	function fnArrPrint(){
+		var arr = [[],[],[],[],[]];
+		var num = 1;
+		for( var i = 0 ; i < 5 ; i ++ ){
+			for( var j = 0 ; j < 5 ; j ++ ){
+				arr[i][j] = num++;
+			}
+			//输出左下半三角
+			for( var k = 0 ; k <= i ; k++ ){
+				document.write( arr[i][k] + "&ensp;" );
+			}
+			document.write("<br>");
+		}
+	}
+	fnArrPrint();
+</script>

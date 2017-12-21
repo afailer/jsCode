@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="b"></h1>
+	</body>
+</html>
+<script>
+	/*
+	 一个加油站为了鼓励车主多加油，所以加的多有优惠。（嵌套）
+	92 号汽油，每升 6 元；如果大于等于 20升，那么每升 5.9 ；
+	97 号汽油，每升 7 元；如果大于等于 30升，那么每升 6.95
+	编写 JS 程序，用户输入自己的汽油编号，然后输入自己加多少升，弹出价格。
+	 */
+	var oilType = prompt( "请输入油型号-- 92？97？" );
+	
+	var price = 0;//
+	if( oilType != 92 && oilType != 97 || isNaN( oilType ) ){
+		alert( "请输入正确的油号" );
+	}else{
+		var litre = prompt( "请输入要加入的油升数" );
+		if(  !isNaN( litre ) ){
+			
+			if( oilType == 92 ){
+				if( litre >= 20 ){
+					price = litre * 5.9 ; 
+				}else{
+					price = litre * 6;
+				}
+			}else{
+				if( litre >= 30 ){
+					price = litre * 6.95;
+				}else{
+					price = litre * 7;
+				}
+			}
+			alert( "总金额是：" + price );
+			
+		}else{
+			alert( "油升数应该是一个数字" );
+		}
+		
+	}
+	
+</script>

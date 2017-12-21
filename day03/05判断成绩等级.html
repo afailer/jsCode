@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//输入分数，判定成绩等级(if和switch两种写法)
+	var score = prompt( "请输入一个分数" );
+	//  >90  优秀           70--90 良好        60--70   中等     <60 其余 ： 下个班再见
+	/*if( score >= 90 ){
+		alert("优秀");
+	}else if( score >= 70 ){
+		alert("良好");
+	}else if( score >= 60 ){
+		alert("中");
+	}else{
+		alert("加油啊");
+	}*/
+	
+	//  90--99 / 10  9    80--89 / 10  8   
+	switch( parseInt( score / 10 ) ){
+		case 10 : 
+		case 9 :  alert("优秀");break;
+		case 8 : 
+		case 7 :  alert("良好");break;
+		case 6 :  alert("中");break;
+		case 5 :
+		case 4 :
+		case 3 :
+		case 2 :
+		case 1 :   
+		case 0 :  alert("加油啊");break;
+		default : alert("输入有误");
+	}
+</script>
