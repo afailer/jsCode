@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.min.js"></script>
+	<body>
+		<select name="" id="prov">
+			<option value="">请选择省</option>
+		</select>
+		<select name="" id="city">
+			<option value="">请选择市</option>
+		</select>
+		<select name="" id="county">
+			<option value="">请选择县</option>
+		</select>
+	</body>
+</html>
+<script>
+	var provArr = ["辽宁","山西","河北"];
+	//               0     1     2
+	var cityArr = [["沈阳","大连","铁岭"],["大同","太原"],["邯郸","石家庄","唐山","雄安"]];
+	//               0     1     2       0    1  
+	var countyArr = [[["s1","s2"],["d1"],["昌图","莲花乡"]],[["t1","t2"],["y1"]],[["h1"],["s1","s2"],["tangshan1"],["xiongan1"]]];
+	//                 0 0          01       02              10         11
+	
+	//将省加载到页面
+	for( var i = 0 ; i < provArr.length ; i++ ){
+		$("#prov").append("<option value="+i+">"+provArr[i]+"</option>");
+	}
+	//改变省  确定市的信息
+	$("#prov").change(function(){
+		//alert( $("#prov :selected").index() );
+		//alert( $(this).val() );
+		//$("#city").empty();
+		$("#city")[0].length = 1;//js的length属性可读写
+		var index = $(this).val(); //省的数组下标
+		var city = cityArr[index];//一维数组
+		
+		for( var i = 0 ; i < city.length ; i++ ){
+			$("#city").append("<option value="+index+"_"+i+">"+city[i]+"</option>");
+		}
+	})
+	//改变市的信息 确定县的信息
+	$("#city").change(function(){
+		var str = $(this).val();
+		$("#county")[0].length = 1;
+		var provIndex = str.split("_")[0];//省对应的数组下标
+		var cityIndex = str.split("_")[1];//市的数组下标
+		var counArr = countyArr[provIndex][cityIndex];
+		for( var i = 0 ; i < counArr.length ; i++ ){
+			$("#county").append("<option>"+counArr[i]+"</option>");
+		}
+	})
+	/*var  arr = [10,2,3,4,5];
+	arr.length = 0;  清空数组   
+	alert( arr );*/
+</script>

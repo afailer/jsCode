@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02五角星案例</title>
+	<style>
+		* { margin: 0; padding: 0; }
+		ul { list-style: none; margin: 100px; }
+		.comment {
+			color: red;
+		 
+		}
+
+		.comment li {
+			float: left;
+		 
+			font-size: 40px;
+			margin-left:5px;
+		}
+	</style>
+	<script src="jquery-1.11.1.min.js"></script>
+	
+</head>
+<body>
+	<ul class="comment">
+		<li>☆ </li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+</body>
+</html>
+<script>
+	/*
+	 * 思路：
+	 1、鼠标移入   ：当前星星和前面的为实心的   
+	 		   当前操作的星星后面的为空心
+	 2、鼠标移出  ：
+	 	 未点击： 全部空心
+	 	 有点击： 当前点击的星星和前面的是实心的
+	 3、鼠标点击：
+	     	当前点击的星星和前面的是实心的
+	 * */
+	var wjx_null = "☆";
+	var wjx_sel = "★"; 
+	$(".comment").on( "mouseover" , "li" , function(){
+		$(this).text( wjx_sel )
+			   .prevAll()
+			   .text(wjx_sel)
+			   .end()
+			   .nextAll()
+			   .text(wjx_null);
+			   
+	} ).on("mouseout","li",function(){
+		//没有点击  全部空心
+		$("li").text( wjx_null );
+		//离开时  有clicked类的和前面的为实心
+		$(".clicked").text(wjx_sel)
+					 .prevAll()
+					 .text(wjx_sel);
+	}).on("click","li",function(){
+		//点击时  为当前点击的li记录一个类  标记哪一个li被点击了
+		$(this).addClass("clicked").siblings().removeClass("clicked");
+	})
+	
+	//end()  结束离他最近的前面的选择器
+	//$("li:first").next().next().end().end().css("background","orange")
+</script>

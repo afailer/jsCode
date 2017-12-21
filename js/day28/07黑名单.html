@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="jquery-1.11.1.min.js"></script>
+	<body>
+		<select name="" id="left" multiple="multiple">
+			<option value="">张三</option>
+			<option value="">李四</option>
+			<option value="">王二麻</option>
+		</select>
+		<input type="button" value="加入到黑名单" />
+		<select name="" id="right" multiple="multiple">
+			 
+		</select>
+	</body>
+</html>
+<script>
+	$(":button").click(function(){
+		$("#left :selected").appendTo("#right");
+	})
+</script>

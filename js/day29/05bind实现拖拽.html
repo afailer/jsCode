@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			left : 100px;
+			top: 100px;
+		}
+	</style>
+	<body>
+		<div>jquery拖拽</div>
+	</body>
+</html>
+<script>
+	/*$("div").bind("mousedown",function(e){
+		var e = e || event;
+		var disx = e.pageX - $(this).offset().left;
+		var disy = e.pageY - $(this).offset().top;
+		//移动  
+		$(document).bind("mousemove",function(e){
+			var e = e || event;
+			$("div").css({
+				"left" : e.pageX - disx,
+				"top" :e.pageY - disy
+			})
+		})
+		$(document).bind("mouseup",function(){
+			// 解除对文档的移动事件绑定 鼠标抬起绑定
+			$(document).unbind("mousemove");
+			$(document).unbind("mouseup");
+		})
+		return false;
+	})*/
+	
+	///绑定多个事件  一个处理程序
+	/*$("div").bind("click mouseover",function(){
+		alert();
+	})*/
+	
+	//绑定多个事件 多个处理程序
+	/*$("div").bind({
+		"click" : function(){
+			$(this).css("font-size","30px");
+		},
+		"mouseover" : function(){
+			$(this).css("background","orange");
+		},
+		"mouseout" :function(){
+			$(this).css("background","red");
+		}
+	})*/
+	$("div").one("click",function(){
+		alert("one");
+	})
+</script>

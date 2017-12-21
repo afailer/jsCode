@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+
+#header{
+    .public(200px);
+    margin:0 auto;
+}
+#nav{
+    .public(30px);
+    background: red;
+    ul{
+        margin-left: 100px;
+        li{
+            float: left;
+            .pos(r);
+            a{
+               text-decoration: none; 
+               .pos(a);
+            }
+        }
+    }
+}
+
+.public(@h,@w:960px){
+    width: @w;
+    height: @h;
+}
+
+.pos(r){
+     position:relative;
+}
+
+.pos(a){
+     position:absolute;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<input type="button" value="创建li" />
+		<ul>
+			<li>兄弟多个1</li>
+			<li>兄弟多个2</li>
+			<li>兄弟多个3</li>
+			<li>兄弟多个4</li>
+			<li>兄弟多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	$(":button").click(function(){
+		//在第一个li的前面添加一个li
+		$("li:first").before("<li>新来的兄弟</li>");
+	})
+	$("ul").delegate("li","click",function(){
+		console.log( $(this).html() );
+	})
+	$("ul").undelegate("click");
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<h1>本节主题：jquery插件</h1>
+		<ul>
+			<li>孩子多个1</li>
+			<li>孩子多个2</li>
+			<li>孩子多个3</li>
+			<li>孩子多个4</li>
+			<li>孩子多个5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//插件 -- 工具  （函数）
+	/*$.extend({
+		say : function(){
+			alert("hello");
+		}
+	})
+	$.say();*/
+	
+	/*$.fn.extend({
+		say : function(){
+			return "hello jquery";
+		}
+	})
+	alert( $("body").say() );*/
+	
+	
+	//使用jquery插件的方式   为每一个li定义背景色
+	$.fn.extend({
+		setColor : function(){ //设置元素的背景色  
+			//this指向的是 方法的调用者
+			this.css("background","pink");
+		},
+		setBgColor : function(){ //设置多个元素的不同背景色
+			var arr = ["orange","blue","skyblue","teal","yellow"];
+			//this : 指向 方法的调用者  
+			this.each(function(index){
+				//this : 当前遍历的li对象
+				$(this).css("background",arr[index]);
+			})
+		}
+	})
+	
+	$("li").setBgColor();
+</script>

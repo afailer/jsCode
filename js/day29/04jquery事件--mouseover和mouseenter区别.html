@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<style type="text/css">
+		#over,#enter{
+			width: 300px;
+			height: 300px;
+			background: cornflowerblue;
+			margin: 10px;
+		}
+		#overson,#enterson{
+			width: 100px;
+			height: 100px;
+			background: orangered;
+		}
+	</style>
+	<body>
+		<div id="over">
+			<div id="overson">over</div>
+		</div>
+		<div id="enter">
+			<div id="enterson">enter</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	$("#over").mouseover(function(){
+		alert("over");
+	})
+	$("#enter").mouseenter(function(){
+		alert("enter");
+	})
+</script>

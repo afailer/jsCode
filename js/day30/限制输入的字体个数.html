@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		个人简介：<textarea name="" rows="" cols="" id="con">请介绍你自己</textarea>
+		<span>限制在10字以内</span>
+	</body>
+</html>
+<script>
+	$(function(){
+		$("#con").focus(function(){
+			$(this).val("");
+		})		
+		$("#con").keyup(function(){
+			var v = $(this).val();
+			var len  = $(this).val().length;
+			var sheng = 10 - len;
+			
+			if (sheng>=0) {
+				$("span").html("您还可以输入"+sheng+"个字符");
+			}else{
+				$("#con").val(  v.substr(0,10) );//截取前10个字符
+			}
+		})	
+	})
+</script>
