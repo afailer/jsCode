@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="点我" id="btn" />
+	</body>
+</html>
+<script>
+	var oBtn = document.getElementById("btn");
+	oBtn.addEventListener("click",function(){
+		alert("按钮第一次被点击");
+	});
+	oBtn.addEventListener("click",function(){
+		alert("按钮第二次被点击");
+	});
+	
+</script>

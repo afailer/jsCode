@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>勾股定理</h1>
+        <input type="text" name=""  id="num1">
+        <span>+</span>
+        <input type="text" name=""  id="num2">
+        <span>=</span>
+        <input type="text" name="" id="result" readonly>
+	</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("num1").onkeyup = function(){
+		var num1 = $("num1").value;
+		var num2 = $("num2").value;
+		if( num1.length <= 0 || num2.length <= 0 ){
+			$("result").value = "必须填数字";
+			return;
+		}
+		if( isNaN(num1) || isNaN(num2)  ){
+			$("result").value = "必须是数字";
+			return;
+		}
+		$("result").value =Math.sqrt(  Math.pow(num1,2) + Math.pow(num2,2) );
+	}
+	$("num2").onkeyup = function(){
+		$("num1").onkeyup();//调用 第一个文本框的键盘事件
+	}
+</script>

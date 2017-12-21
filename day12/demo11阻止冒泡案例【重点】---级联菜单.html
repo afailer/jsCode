@@ -1,0 +1,73 @@
+9<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <ul>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单
+							<ul>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+								<li>四级菜单</li>
+							</ul>
+						</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+        <li>一级菜单ITEM
+            <ul>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单ITEM
+                    <ul>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                        <li>三级菜单</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>一级菜单</li>
+    </ul>
+    <script>
+        
+    </script>
+    </body>
+</html>
+<script>
+	//找到所有的li
+	var list = document.getElementsByTagName("li");
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].onclick = function(e){
+			var e = e || event;
+			//如果按住shift键  就阻止冒泡  否则就会实现冒泡
+			if( e.shiftKey ){
+				e.stopPropagation();
+				window.getSelection().removeAllRanges();//清除操作文字时文字的选中状态
+			}
+			if( this.firstElementChild.style.display == "none" ){
+				this.firstElementChild.style.display = "block";
+			}else{
+				this.firstElementChild.style.display = "none";
+			}
+		}
+	}
+</script>

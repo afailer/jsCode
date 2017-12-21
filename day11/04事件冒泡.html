@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width:100px;
+			height:100px;
+			border:2px solid red;
+		}
+	</style>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script>
+	window.onclick = function(){
+		alert("window窗口被点击了");
+	}
+	document.onclick = function(){
+		alert( "document窗口被点击了" );
+	}
+	document.body.onclick = function(){
+		alert("body被点击了");
+	}
+	document.getElementsByTagName("div")[0].onclick = function(e){
+		var e = e || event;
+		//e.stopPropagation();
+		//e.cancelBubble = true;
+		//alert( e.stopPropagation );
+		/*if( e.stopPropagation ){ //如果条件返回一个function 说明用的是高版本浏览器
+			e.stopPropagation();
+		}else{
+			e.cancelBubble = true;
+		}*/
+		e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
+		alert("div被点击了");
+	}
+</script>

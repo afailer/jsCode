@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			opacity: 0.3;
+		}
+	</style>
+	<body>
+		<div></div>
+		<div style="margin: 10px 0;"></div>
+		<div></div>
+	</body>
+</html>
+<script>
+	//鼠标移入和移出时操作透明度的改变
+	//移入 透明度变到1    移出时恢复
+	var divs = document.getElementsByTagName("div");
+	for( var i = 0 ; i < divs.length ; i++ ){
+		//位每一个操作的元素添加一个alpla属性   
+		divs[i].alpha = 30;
+		divs[i].onmouseover = function(){
+			startMove(100,this)
+		}
+		divs[i].onmouseout = function(){
+			startMove(30,this)
+		}
+	}
+	function startMove(target,obj){
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			var speed = target-obj.alpha>0?1:-1 ;//判断方向
+			if( obj.alpha == target ){
+				clearInterval(obj.timer);
+			}else{
+				obj.style.opacity = (obj.alpha + speed)/100;
+				obj.alpha += speed;
+			}
+		},30)
+	}
+</script>

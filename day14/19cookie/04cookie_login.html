@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text" id="uname"/><br>
+		密码：<input type="text" id="upwd"/><br>
+		<input type="button" value="登录" id="login" />
+	</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("login").onclick = function(){
+		//取出cookie中的用户名和密码
+		var str = document.cookie;
+		var arr = str.split("; ");//将cookie数据用; 拆分成一个数组
+		//["userInfo={"name":"lichune","pwd":"lichune"}"]
+		var arr = arr[0].split("=");//  ["userInfo", "{"name":"lichune","pwd":"lichune"}"]
+		var userInfo = arr[1];//"{"name":"lichune","pwd":"lichune"}"
+		var _json = JSON.parse( userInfo );
+		if( _json.name == $("uname").value && _json.pwd == $("upwd").value ){
+			alert("登录成功");
+		}else{
+			alert("登录失败");
+		}
+	}
+	//取出cookie中的用户名和密码
+	//将cookie拆成数组; 先用; 拆,再用=拆 
+	//将从登陆页取出的字符串转换成对象JSON.parse();
+	//判断两个数据是否相等,相等就提示登陆成功,不相等提示登录失败
+</script>

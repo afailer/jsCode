@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body bgcolor = "#000">
+	</body>
+</html>
+<script>
+	function rand(min,max){
+		return Math.floor( Math.random()*(max-min+1) + min );
+	}
+	timer = setInterval(function(){
+		var oImg = document.createElement("img");
+		oImg.src = "star.gif";
+		document.body.appendChild(oImg);
+		var w = rand(10,50);
+		oImg.style.width=oImg.style.height = w + "px";
+		oImg.style.position = "absolute";
+		oImg.style.left = rand(0,1000) + "px";
+		oImg.style.top = rand(0,700) + "px";
+		
+		/*oImg.onclick = function(){
+			this.remove();
+		}*/
+		oImg.onclick = del;
+		
+	},1000)
+	function del(){
+		this.remove();
+	}
+</script>

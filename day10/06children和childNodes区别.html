@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="d">
+			<p>孩子多个1</p>
+			<p id="p2">孩子多个2</p>
+			<p>孩子多个3</p>
+		</div>
+	</body>
+</html>
+<script>
+	 
+	var ps = document.getElementById("d").childNodes;
+	var ps2 = document.getElementById("d").children;
+	//alert( ps[1].nodeType );
+    for( var i = 0 ; i < ps.length ; i++ ){
+    	if( ps[i].nodeType == 1 ){//说明是元素节点
+    		ps[i].style.fontSize = "20px";
+    	}
+    }
+    
+</script>

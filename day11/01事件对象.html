@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	document.onclick = function(evt){
+		alert(evt);
+		//alert( event );
+	}
+	document.onkeyup = function(evt){
+		//alert(evt);
+		//alert( event );
+		var e = evt || event;
+		//alert( e.keyCode );
+		//功能键
+		/*if( e.ctrlKey ){
+			alert("您按下的是ctrl键");
+		}else{
+			alert("您按下的不是ctrl键");
+		}*/
+		
+		//  回车键 +  功能键的组合使用
+		if( e.keyCode==13 && e.ctrlKey  ){
+			alert("可以发送");
+		}else{
+			alert("按键错误");
+		}
+	}
+</script>

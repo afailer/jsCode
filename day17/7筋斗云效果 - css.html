@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul {list-style:none;}
+        body {
+            background-color: #000;
+        }
+        .nav {
+            width: 800px;
+            height: 42px;
+            background:url("images/rss.png") no-repeat right center #fff;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative; 
+        }
+        .cloud {
+            width: 83px;
+            height: 42px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(images/cloud.gif) no-repeat;
+        }
+        .nav ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .nav li {
+            float: left;
+            width: 88px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            color: #000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="nav" id="nav">
+    <span class="cloud" id="cloud"></span>
+    <ul id="box">
+        <li>首页新闻</li>
+        <li>千峰师资</li>
+        <li>千峰活动策划</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>上海校区</li>
+        <li>广州校区</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+ 	/*
+ 	  1、鼠标移入某个导航上，云彩跟随
+ 	  2、鼠标点击   云彩固定
+ 	  3、鼠标离开：
+ 	  	没有点击   恢复原来位置
+ 	  	有点击      回到点击位置	   
+ 	*/
+ 	function $(id){
+ 		return document.getElementById(id);
+ 	}
+ 	var list = $("box").children;
+ 	var cloud = $("cloud");
+ 	var current = 0;//记录当前云彩的位置
+ 	for( var i = 0 ; i < list.length ; i++ ){
+ 		list[i].onmouseover = function(){
+ 			//alert( this.offsetLeft );
+ 			startMove(this.offsetLeft,cloud)
+ 		}
+ 		list[i].onmouseout = function(){
+ 			startMove(current,cloud);
+ 		}
+ 		list[i].onclick = function(){
+ 			current = this.offsetLeft;//记录位置
+ 		}
+ 	}
+ 	var timer = null;
+	function startMove(target,obj){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var speed = (target- obj.offsetLeft)/10;
+			speed = speed>0?Math.ceil(speed) : Math.floor(speed);
+			if( target  == obj.offsetLeft ){
+				clearInterval(timer);
+			}else{
+				obj.style["left"] = obj.offsetLeft + speed + "px";
+			}
+		},30)
+	} 
+</script>

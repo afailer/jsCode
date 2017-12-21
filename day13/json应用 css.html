@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		li{
+			list-style: none;
+			float: left;
+			text-align: center;
+		}
+	</style>
+	<body>
+		<ul id="u">
+			<!--<li><img src="a.jpg"/><p>小米</p></li>-->
+		</ul>
+	</body>
+</html>
+<script>
+	var _json = {
+		"info" : [
+					{"src":"a.jpg","name":"小米"},
+					{"src":"b.jpg","name":"红米"},
+					{"src":"c.jpg","name":"大米"},
+				 ]
+	}
+	var str = "";
+	for(var i in _json.info){
+		var item = _json.info[i];
+		str += '<li><img src="'+item.src+'"/><p>'+item.name+'</p></li>';
+	}
+	var oUl = document.getElementById("u");
+	oUl.innerHTML = str;
+	
+	oUl.onmouseover = function(e){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName == "IMG" ){
+			target.style.border = "1px solid red";
+			target.nextElementSibling.style.background = "pink";
+		}
+	}
+	oUl.onmouseout = function(){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName == "IMG" ){
+			target.style.border = "";
+			target.nextElementSibling.style.background = "";
+		}
+	}
+</script>

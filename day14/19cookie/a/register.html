@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="注册" id="btn"/>
+	</body>
+</html>
+<script>
+	document.getElementById("btn").onclick = function(){
+		document.cookie = "uname=lichune";
+		location.href = "../b/login.html";
+	}
+</script>

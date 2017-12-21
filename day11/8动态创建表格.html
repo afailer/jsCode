@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		行：<input type="text" id="row"/>
+		列：<input type="text" id="col" />
+		<input type="button" value="创建表格" id="btn"/>
+		<div id="div1"></div>
+	</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	//获取任意区间值
+	function rand(min,max){
+		return  Math.floor( Math.random()*(max-min+1) ) + min;
+	}
+	
+	//获取随机颜色值
+	function getColor(){
+	      var R = rand(0,255).toString(16);
+	      var G = rand(0,255).toString(16);
+	      var B = rand(0,255).toString(16);
+	      return (R.length<2?"0"+R:R) + (G.length<2?"0"+G:G) + (B.length<2?"0"+B:B);
+	}
+	$("btn").onclick = function(){
+		//清除div的内容
+		$("div1").innerHTML = "";
+		var row = $("row").value;
+		var col = $("col").value;
+		var tab = document.createElement("table");
+		tab.border = 1;
+		for(var i =1; i <= row; i ++ ){
+			var tr = document.createElement("tr");
+			for(var j = 1 ; j <= col ; j++){
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				td.innerHTML = rand(1,100);
+				td.style.backgroundColor = "#"+ getColor();
+			}
+			var tdEnd = document.createElement("td");
+			tr.appendChild( tdEnd );
+			tdEnd.innerHTML = "<input type='button' onclick= 'del(this)'  value='删除'>";
+			
+			tab.appendChild(tr);
+		}
+		$("div1").appendChild( tab );
+	}
+	function del(obj){
+		//obj 指的是当前点击的按钮
+		//alert( obj.parentNode.parentNode.parentNode )
+		if(confirm("确定要删除么？")){
+			obj.parentNode.parentNode.parentNode.removeChild( obj.parentNode.parentNode );
+		}
+	}
+</script>

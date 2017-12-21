@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			background: skyblue;
+			padding: 2px;
+		}
+	</style>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script>
+	//获取非行内元素样式值  window.getComputedStyle(obj,false)[样式名]
+	var div = document.getElementsByTagName("div")[0];
+	//alert( window.getComputedStyle(div,false)["width"] );
+	// alert( div.currentStyle["width"] );
+	//window.getComputedStyle ? window.getComputedStyle(div,false)["height"] : div.currentStyle["width"];
+	
+	function getStyle(obj,attr){
+		return window.getComputedStyle ? window.getComputedStyle(obj,false)[attr] : obj.currentStyle[attr];
+	}
+	alert( getStyle(div,"width") );
+</script>

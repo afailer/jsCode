@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		 <input type="button" value="创建" id="cj" />
+		 <input type="button" value="删除" id="del" />
+	</body>
+</html>
+<script>
+	
+	//点击按钮 创建div
+	document.getElementById("cj").onclick = function(){
+		//创建一个div元素
+		odiv = document.createElement("div");
+		//找到body元素 将创建的div元素添加到body中
+		document.body.appendChild( odiv );
+		
+		//为创建的div设置内容
+		odiv.innerHTML = "新创建的元素"
+		//操作创建的div的样式
+		odiv.style.width = odiv.style.height = "300px";
+		odiv.style.border = "2px solid red";
+		
+		//为div添加鼠标移入和移出事件 ： 
+		/*odiv.onmouseover = function(){
+			alert("over");
+		}*/
+		//创建一个文本节点  设置div的内容
+		//oText = document.createTextNode("div的内容");
+		//将创建的文本节点添加到div中
+		//odiv.appendChild(oText);
+	}
+	//点击删除按钮  删除创建的div标签
+	document.getElementById("del").onclick = function(){
+		var divs = document.getElementsByTagName("div");
+		for( var i = divs.length - 1 ; i >= 0 ; i--  ){
+			document.body.removeChild(divs[i]);
+		}
+	}
+</script>

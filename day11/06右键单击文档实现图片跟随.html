@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#img1{
+			position:absolute;
+			left : 0 ;
+			top : 0 ;
+		}
+		body{
+			height:1000px;
+		}
+	</style>
+	<body>
+		<img src="1.jpg" alt="" id="img1"/>
+	</body>
+</html>
+<script>
+	var oImg = document.getElementById("img1");
+	document.oncontextmenu = function(e){
+		var e = e || event;
+		//e.preventDefault();
+		//e.returnValue = false;
+//		e.preventDefault?e.preventDefault() : e.returnValue = false;
+		oImg.style.left = e.pageX + "px";
+		oImg.style.top = e.pageY + "px";
+		
+		return false;//阻止右键菜单
+	}
+</script>

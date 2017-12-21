@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			border: 2px solid saddlebrown;
+			text-align: center;
+			line-height: 300px;
+			font-size: 60px;
+		}
+		input{
+			width:100px;
+			height: 35px;
+		}
+	</style>
+	<body>
+		<input type="button" id="btn" value="开始"/><br/><br/><br/>
+		<div id="box"></div>
+		<img src="image/1.jpg" alt="" id="m1"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>		
+	</body>
+</html>
+<script type="text/javascript">
+	 /*
+	  思路： flag = true 开始
+	  	点击开始：
+	  	  	开始 --- 结束
+	  	  	启动定时器--- 随机 换名字 换图片
+	  	  	flag = false
+	  	点击结束
+	  		结束--- 开始
+	  		停止定时器
+	  		flag = true
+	  */
+	function $(id){
+		return document.getElementById(id);
+	}
+	function rand(min,max){
+		return Math.floor( Math.random()*(max-min+1) + min );
+	}
+	var flag = true;
+	var timer = null;
+	var arr = ["小张1","小张2","小张13","小张14","小张15","小张16","小张17","小张18","小张19","小张10","小张11","小张12"];
+	$("btn").onclick = function(){
+		if( flag ){
+			this.value = "结束";
+			timer = setInterval(function(){
+				index = rand(0,11);
+				$('box').innerHTML = arr[index];
+				$("m1").src = "image/"+(index+1)+".jpg"
+			},30)
+			flag = false;
+		}else{
+			flag = true;
+			this.value = "开始";
+			clearInterval(timer);
+		}
+	}
+</script>

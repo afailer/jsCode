@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style-type: none;}
+        *{margin:0;padding: 0;}
+        .box {
+            margin: 100px auto;
+            width: 600px;
+            height: auto;
+            border:1px solid #333;
+            padding: 30px 0;
+        }
+        textarea {
+            width: 450px;
+            resize: none;  /*防止用户拖动 右下角*/
+        }
+        .box li {
+            width: 450px;
+            line-height: 30px;
+            border-bottom:1px dashed #ccc;
+            margin-left: 80px;
+        }
+        .box li a {
+            float: right;
+        }
+    </style>
+  
+</head>
+<body>
+<div class="box">
+    微博发布: <textarea name="" id="txt" cols="30" rows="10"></textarea>  <button id="btn">发布</button>
+ <ul id="u"></ul>	
+</div>
+
+</body>
+</html>
+<script>
+	//添加按钮单击事件
+	//获取文本域内容
+	//创建li   li.innerHTML = 文本域的内容+超链接
+	// 判断ul的长度  如果长度为0   直接添加  否则 找参照节点（第一个li）
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("btn").onclick = function(){
+		var content = $("txt").value.trim();
+		if( content.length <=0 ){//如果所填内容为空   阻止函数继续执行
+			return false;
+		}
+		var oLi = document.createElement("li");
+		oLi.innerHTML = content + "<a href = 'javascript:void(0)' class='del'>删除</a>";
+		
+		if( $("u").children.length == 0  ){
+			$("u").appendChild(oLi);
+		}else{
+			$("u").insertBefore( oLi, $("u").children[0] );
+		}
+		
+		var aList = document.getElementsByClassName("del");
+		for(var i = 0 ; i < aList.length ; i++){
+			aList[i].onclick = function(){
+				if( confirm("确定要删除么?") ){
+					$("u").removeChild( this.parentNode );
+				}
+			}
+		}
+		//清空文本域
+		$("txt").value="";
+	}
+</script>

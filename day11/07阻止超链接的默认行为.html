@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度一下</a>
+	</body>
+</html>
+<script>
+	var oA = document.getElementsByTagName("a")[0];
+	oA.onclick = function(e){
+		var e = e||event;
+		//阻止超链接跳转
+		//e.preventDefault ? e.preventDefault() : e.returnValue = false;
+		//alert("百度");
+		return false;
+	}
+</script>

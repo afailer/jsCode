@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var name = "jack";
+	function fn(){
+		return 23;
+	}
+	var str = `姓名: ${name} , 年龄 :  ${ fn() }` ;
+	alert( str );
+	str = `<ul><li>${name}</li><li>${fn()}</li></ul>`;
+	document.body.innerHTML = str;
+</script>

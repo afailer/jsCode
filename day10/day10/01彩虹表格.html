@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table width=500 border=1>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+		</table>
+	</body>
+</html>
+<script>
+	var trs = document.getElementsByTagName("tr");
+	function rand(min,max){
+		return Math.floor( Math.random()*(max-min+1) + min );
+	}
+	function randColor(){
+		var str = "0123456789abcdef";
+		var color = "#";
+		for(var i= 0 ; i < 6 ; i++){
+			color += str.charAt( rand(0,15) );
+		}
+		return color;
+	}
+	//遍历所有的 行  调用颜色方法  控制背景颜色
+	for( var i = 0 ; i < trs.length ; i++ ){
+		trs[i].style.backgroundColor = randColor();
+	}
+</script>

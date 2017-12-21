@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="d">
+			这是一个div容器   2秒后消失
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	// this 当前对象   哪一个对象调用该函数，this就指向这个对象
+	// 所有的全局变量 和 全局函数 都属于window对象       
+	/*function fn(){
+		console.log( this );//window
+	}
+	fn();
+	
+	document.onclick = function(){
+		console.log( this ); // document 
+	}
+	
+	setTimeout(function(){
+		console.log(this); // window 
+	},1000)
+	
+	var arr = [2,3,1];
+	window.arr.forEach(function(){
+		console.log( this ); // window
+	})*/
+	
+	
+	var odiv = document.getElementById("d");
+	
+	document.onclick = function(){
+		alert( this ); // document 
+	}.bind(odiv);
+	
+	setTimeout(function(){
+		this.style.display = "none";
+	}.bind(odiv),2000)
+	
+	function fn(){
+		console.log( this );//window
+	}
+	
+	fn.apply(odiv);
+</script>

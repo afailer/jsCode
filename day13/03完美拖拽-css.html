@@ -1,0 +1,66 @@
+  <!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>完美拖拽</title>
+	<style type="text/css">
+		html,body{overflow:hidden;}
+		body,div,h2,p{margin:0;padding:0;}
+		body{color:#fff;background:#000;font:12px/2 Arial;}
+		p{padding:0 10px;margin-top:10px;}
+		span{color:#ff0;padding-left:5px;}
+		#box{position:absolute;width:300px;height:150px;background:#333;border:2px solid #ccc;top:50%;left:50%;margin:-75px 0 0 -150px;}
+		#box h2{height:25px;cursor:move;background:#222;border-bottom:2px solid #ccc;text-align:right;padding:0 10px;}
+		#box h2 a{color:#fff;font:12px/25px Arial;text-decoration:none;outline:none;}
+	</style>
+	<script type="text/javascript">
+	
+	
+	</script>
+</head>
+<body>
+	<div id="box" style="margin-left: 0px; margin-top: 0px; left: 533px; top: 231px;">
+	    <h2><a href="javascript:;" id="a1">点击回放拖动轨迹</a></h2>
+	    <p><strong>Drag:</strong><span>false</span></p>
+	    <p><strong>offsetTop:</strong><span>231</span></p>
+	    <p><strong>offsetLeft:</strong><span>533</span></p>
+	</div>
+</body></html>
+<script>
+  	function  $(id){
+  		return document.getElementById(id);
+  	}
+  	var positionArr = [];//用来记录目标div的left值和top值  [{"left":obj.style.left,"top":obj.style.top},{},{},..]
+  	$("box").onmousedown = function(e){
+  		var e = e || event;
+  		var disx = e.offsetX;
+  		var disy = e.offsetY;
+  		document.onmousemove = function(e){
+  			var e = e || event;
+  			window.getSelection().removeAllRanges();//取消拖拽时文字对拖拽的影响
+  			$("box").style.left = e.pageX - disx +"px";
+  			$("box").style.top = e.pageY - disy + "px";
+  			//鼠标移动时记录移动的坐标
+  			positionArr.push( { "left":$("box").style.left , "top":$("box").style.top } );
+  		}
+  	}
+  	$("box").onmouseup = function(){
+  		document.onmousemove = null;
+  		console.log(positionArr);
+  	}
+  	//回放运动轨迹
+  	$("a1").onclick = function(){
+  		var index = positionArr.length-1 ;//获取数组中最大下标 
+  		timer = setInterval(function(){
+  			//将数组中的数据取出来  通过这些数据重新定位box的位置  
+  			$("box").style.left = positionArr[index].left;
+  			$("box").style.top = positionArr[index].top;
+  			index--;
+  			if( index == 0 ){
+  				clearInterval(timer);
+  				positionArr = [];
+  			}
+  		},30)
+  	}
+</script>

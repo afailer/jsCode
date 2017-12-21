@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>动态图片切换</title>
+        <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <!-- 游戏区域 -->
+        <div id="container">
+            <img src="images/dice_1.png" id="dice" alt="">
+        </div>
+        <div id="command">
+            <input type="button" onclick="shake()" value="摇一摇">
+        </div>
+    </body>
+</html>
+<script>
+    /*
+	     思路： 
+	     	点击摇一摇 ：
+	     		将图片变成gif动图 
+	     		获取随机时间   200----5000 
+	     		在随机时间之后要做：   得到一个随机点数 1--6 
+	     					          改变图片的路径  随机点数对应的图片
+	     		
+     */
+    function rand(min,max){
+		return Math.floor( Math.random()*(max-min+1) + min );
+	}
+    function $(id){
+		return document.getElementById(id);
+	}
+    var flag = true;//当值为true时 可以点击，值为false时不可以点击摇一摇
+    function shake(){
+    	if( flag ){
+    		flag = false;//不能连续的点击按钮
+	    	//改变图片的路径为 gif图片
+	    	$("dice").src = "images/diceDynamic.gif";
+	    	timer = rand(200,4000);//随机时间
+	    	//在timer后完成
+	    	setTimeout(function(){
+	    		index = rand(1,6);
+	    		$("dice").src = 'images/dice_'+index+'.png';
+	    		flag = true;
+	    	},timer)
+    	}
+    }
+</script>

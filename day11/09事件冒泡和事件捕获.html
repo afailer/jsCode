@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#big{
+			width:400px;
+			height:400px;
+			border:1px solid red;
+		}
+		#small{
+			width:200px;
+			height:200px;
+			border:1px solid black;
+		}
+	</style>
+	<body>
+		<div id="big">
+			<div id="small">
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var bigDiv = document.getElementById("big");
+	var smallDiv = document.getElementById("small");
+	 
+	bigDiv.addEventListener("click",function(){
+		alert("大div执行捕获");
+	},true)
+	bigDiv.addEventListener("click",function(){
+		alert("大div执行冒泡");
+	})
+	
+	smallDiv.addEventListener("click",function(){
+		alert("小div执行捕获");
+	},true)
+	smallDiv.addEventListener("click",function(){
+		alert("小div执行冒泡");
+	})
+	document.addEventListener("click",function(){
+		alert("document执行捕获");
+	},true)
+	document.addEventListener("click",function(){
+		alert("document执行冒泡");
+	})
+	
+	window.addEventListener("click",function(){
+		alert("window执行捕获");
+	},true)
+	window.addEventListener("click",function(){
+		alert("window执行冒泡");
+	})
+</script>

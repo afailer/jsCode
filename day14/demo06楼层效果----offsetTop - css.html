@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>商城楼层效果</title>
+        <meta charset="UTF-8">
+        <style>
+            .container{width:1200px;}
+            *{margin:0 auto;padding:0;}
+            .header{height:300px;background-color:#395;}
+            ul{list-style:none;}
+            ul li{width:50px;height:50px;border:orange solid 1px;}
+            #floor{display:none;width:50px;background-color:#ccc;position:fixed;top:100px;margin-left:-50px;}
+            [id^="box"]{height:500px;width:100%;font-size:120px;text-align:center;line-height:500px;}
+            #box1{background-color:gold;}
+            #box2{background-color:#ccc;}
+            #box3{background-color:green;}
+            #box4{background-color:orange;}
+            #box5{background-color:#ccc;}
+            #box6{background-color:gray;}
+            #box7{background-color:#069;}
+            #box8{background-color:gold;}
+        </style>
+       
+    </head>
+    <body>
+        <div class="container">
+            <div class="header"></div>
+            <div id="floor">
+                <ul>
+                    <li class="floorli">1</li>
+                    <li class="floorli">2</li>
+                    <li class="floorli">3</li>
+                    <li class="floorli">4</li>
+                    <li class="floorli">5</li>
+                    <li class="floorli">6</li>
+                    <li class="floorli">7</li>
+                    <li class="floorli">8</li>
+                    <li id="bcTop">顶部</li>
+                </ul>
+            </div>
+            <div class="box" id="box1">--第1楼</div>
+            <div class="box" id="box2">--第2楼</div>
+            <div class="box" id="box3">--第3楼</div>
+            <div class="box" id="box4">--第4楼</div>
+            <div class="box" id="box5">--第5楼</div>
+            <div class="box" id="box6">--第6楼</div>
+            <div class="box" id="box7">--第7楼</div>
+            <div class="box" id="box8">--第8楼</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	//找到所有的楼层 和 所有的 楼层号
+	var boxs = document.getElementsByClassName("box");//楼层
+	var list = document.getElementsByClassName("floorli");//楼层号
+	//触发滚动条  控制对应的楼层号显示
+	window.onscroll = function(){
+		//当滚动条滚动到某个距离时  显示楼层号
+		var sTop = document.body.scrollTop || document.documentElement.scrollTop;
+		if( sTop >150 ){
+			$("floor").style.display = "block";
+		}else{
+			$("floor").style.display = "none";
+		}
+		//每次触发滚动条时，遍历每一个楼层， 楼层中满足  ：  
+		//  Math.abs(楼层的offsetTop - 页面滚走的距离) < 某个楼层高度的一半  说明当前楼层在视口中面积最大
+		//     当前的楼层号应该是高亮的
+		//遍历每一个楼层  找到符合条件的那个楼层
+		for(var i = 0 ; i < boxs.length ; i ++){
+			if( Math.abs(boxs[i].offsetTop-sTop)  < boxs[i].offsetHeight/2){
+				//满足条件说明i对应的楼层号是高亮的
+				list[i].style.backgroundColor = "orange";
+			}else{
+				list[i].style.backgroundColor = "#ccc";
+			}
+		}
+	}
+	//回到顶部
+	$("bcTop").onclick = function(){
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
+	}
+	//点击左侧楼层号   对应的楼层显示
+	for( var i = 0 ; i < list.length ; i++ ){
+		list[i].index = i;
+		list[i].onclick = function(){
+			for( var j = 0 ; j < list.length ; j++ ){
+				list[j].style.backgroundColor = "#ccc";
+			}
+			this.style.backgroundColor = "orange";
+			document.body.scrollTop = document.documentElement.scrollTop=boxs[this.index].offsetTop;
+		}
+	}
+</script>

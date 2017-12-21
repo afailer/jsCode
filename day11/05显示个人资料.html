@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.uu{
+			display:none;
+		}
+	</style>
+	<body>
+		<input type="button" value="显示明星资料" id="btn" />
+		<ul class="uu">
+			<li>姓名：黄磊</li>
+			<li>职业：演员</li>
+			<li>性别：男</li>
+			<li>代表作 ： 小别离</li>
+		</ul>
+	</body>
+</html>
+<script>
+	// 点击按钮 显示明星资料
+	// 点击文档document 隐藏明星资料
+	var oBtn = document.getElementById("btn");
+	var oUl = document.getElementsByTagName("ul")[0];
+	oBtn.onclick = function(e){
+		var e = e || event;
+		e.stopPropagation();
+		oUl.style.display = "block";
+	}
+	document.onclick = function(){
+		oUl.style.display = "none";
+	}
+</script>

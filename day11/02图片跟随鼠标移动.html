@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#img1{
+			position:absolute;
+			left : 0 ;
+			top : 0 ;
+		}
+		body{
+			height:1000px;
+		}
+	</style>
+	<body>
+		<img src="1.jpg" alt="" id="img1"/>
+	</body>
+</html>
+<script>
+	var oImg = document.getElementById("img1");
+	//鼠标在文档上移动    让图片跟随鼠标移动，实际上就是改变图片的left和top
+	document.onmousemove = function(e){
+		var e = e || event;
+		/*console.log( e.clientX );
+		console.log( e.clientY );*/
+		//思考：如果让鼠标在图片的正中心，如何实现？
+		oImg.style.left = e.pageX-55 + "px";
+		oImg.style.top = e.pageY -55 + "px";
+	}
+</script>

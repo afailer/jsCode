@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	var set = new Set();
+	//通过add方法向集合中添加数据
+	set.add(12);
+	set.add(212);
+	set.add(12);
+	set.add(124);
+	set.add(123);
+	set.add(123);
+	set.add("123");
+	alert( set.size  ); //获取集合中元素的个数  
+	set.delete(123);
+	console.log(set);
+	console.log( set.has(100) );
+	set.clear();
+	console.log( set );
+	//数组去重   : 把数组转成集合，在将集合转成数组
+	var arr = [34,34,23,12,34,23,12];
+	/*var set = new Set(arr); //将数组转成集合  
+	arr = Array.from( set );  //将集合转成数组
+	alert( arr );*/
+	//alert( Array.from( new Set(arr) )  );
+	//alert( [...new Set(arr)] );
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+		}
+		#d2{
+			margin: 10px 0;
+		}
+	</style>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div id="d3"></div>
+	</body>
+</html>
+<script>
+	//鼠标移入到某个div上  该div宽度变为300px  离开时恢复
+	var divs = document.getElementsByTagName("div");
+	
+	for( var i = 0 ; i < divs.length ; i++ ){
+		divs[i].onmouseover = function(){
+			startMove(300,this);
+		}
+		divs[i].onmouseout = function(){
+			startMove(100,this);
+		}
+	}
+	
+	//var timer = null;
+	function startMove(target,obj){
+		clearInterval(obj.timer);//为每一个对象添加一个定时器属性 让每一个对象都有自己对应的定时
+		obj.timer = setInterval(function(){
+			var speed = (target- obj.offsetWidth)/10;
+			speed = speed>0?Math.ceil(speed) : Math.floor(speed);
+			if( target  == obj.offsetWidth ){
+				clearInterval(obj.timer);
+			}else{
+				obj.style["width"] = obj.offsetWidth + speed + "px";
+			}
+		},30)
+	} 
+</script>

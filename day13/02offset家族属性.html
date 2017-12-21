@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.box{
+			width:200px;
+			height:200px;
+			border:2px solid red;
+			background : orange;
+			padding:10px;
+		}
+	</style>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
+<script>
+	//获取div的宽度
+	var odiv = document.getElementsByTagName("div")[0];
+	//alert( odiv.style.width );
+	console.log( odiv.offsetWidth );
+	console.log( odiv.clientWidth );
+</script>

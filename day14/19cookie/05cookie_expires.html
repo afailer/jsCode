@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="存cookie" id="btn" />
+		<input type="button" value="删除cookie" id="btn2" />
+	</body>
+</html>
+<script>
+	document.getElementById("btn").onclick = function(){
+		var now = new Date();
+		//设置3天后的时间
+		now.setDate( now.getDate() + 3 );
+		document.cookie = "uname=lichune;expires="+now;
+	}
+	document.getElementById("btn2").onclick = function(){
+		document.cookie = "uname=''";
+	}
+</script>

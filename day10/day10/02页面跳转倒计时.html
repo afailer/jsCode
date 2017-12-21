@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+			line-height: 200px;
+			text-align: center;
+			font-size: 100px;
+		}
+	</style>
+	<body>
+		<div></div>
+	</body>
+</html>
+<script>
+	var index = 5;
+	var odiv = document.getElementsByTagName("div")[0];
+	var timer = setInterval(function(){
+		if( index <= 0  ){
+			clearInterval(timer);
+			location.href = "http://www.baidu.com";
+		}else{
+			odiv.innerHTML = index;
+			index--;
+		}
+	},1000)
+</script>

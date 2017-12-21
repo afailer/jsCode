@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			border: 2px solid darkgoldenrod;
+			padding: 2px;
+		}
+		#d2{
+			margin: 10px 0;
+		}
+	</style>
+	<body>
+		<div id="d1"></div>
+		<div id="d2"></div>
+		<div id="d3"></div>
+	</body>
+</html>
+<script src="sport1.js"></script>
+<script>
+	//鼠标移入到某个div上  该div宽度变为300px  离开时恢复
+	var divs = document.getElementsByTagName("div");
+	
+	for( var i = 0 ; i < divs.length ; i++ ){
+		divs[i].onmouseover = function(){
+			startMove(300,"width",this);
+		}
+		divs[i].onmouseout = function(){
+			startMove(100,"width",this);
+		}
+	}
+	
+	//var timer = null;
+	
+	/*
+	offsetWidth  : 获取的边框 padding  内容
+	clientWidth ： 获取 padding  内容 
+	obj.style.width  只能获取行内元素的宽度值
+	 */
+</script>

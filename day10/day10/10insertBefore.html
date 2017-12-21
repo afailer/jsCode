@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>老虎</li>
+			<li id="dx">大象</li>
+			<li>狮子</li>
+		</ul>
+	</body>
+</html>
+<script>
+	//在大象的前面添加一个小白兔
+	var oLi = document.createElement("li");
+	oLi.innerHTML = "小白兔";
+	var oUl = document.getElementsByTagName("ul")[0];
+	var oDxli = document.getElementById("dx");
+	oUl.insertBefore( oLi,oDxli );
+</script>

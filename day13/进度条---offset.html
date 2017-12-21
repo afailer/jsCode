@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>进度条 </title>	
+	</head>
+	<style>
+		#progress{
+			position: relative;
+			margin: auto;
+			top: 200px;
+			display: block;
+			width: 200px;
+			height: 20px;
+			border-style: dotted;
+			border-width: thin;
+			border-color: darkgreen;
+		}
+		#filldiv{
+			position:absolute;
+			top: 0px;
+			left: 0px;
+			width: 0px;
+			height: 20px;
+			background: blue;
+		}
+		#percent{
+			position: absolute;
+			top: 0px;
+			left: 200px;
+			
+		}
+	</style>
+	<!--<script src="js/common.js"></script>-->
+	<script>
+		window.onload = function(){
+			function rand(min,max){
+				 return Math.floor(  Math.random()*(max-min+1) )    +  min;
+			}
+
+			function _getColor(){
+				 var r = rand(0,255).toString(16);
+				 var g = rand(0,255).toString(16);
+				 var b = rand(0,255).toString(16);
+				 return (r.length<2 ? ("0"+r) : r)  + (g.length<2 ? ("0"+g) : g) + (b.length<2 ? ("0"+b) : b);
+			}
+ 			function $(id){
+ 				return document.getElementById(id);
+ 			}
+ 			var timer = setInterval(function(){
+ 				$("filldiv").style.width = $("filldiv").offsetWidth + 2 + "px";
+ 				$("filldiv").style.background = "#" +_getColor();
+ 				var percent = 100*$("filldiv").offsetWidth / 200 + "%";
+ 				$("percent").innerHTML = percent;
+ 				if( $("filldiv").offsetWidth >= 200 ){
+ 					clearInterval(timer);
+ 				}
+ 			},30);
+		}
+	</script>
+	<body>
+		<div id="progress">
+			<div id="filldiv"></div>
+			<span id="percent">0</span>
+		</div>
+	</body>
+</html>

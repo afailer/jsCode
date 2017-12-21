@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#parent{
+			width:400px;
+			height:400px;
+			background:pink;
+			margin:200px;
+			position:relative;
+		}
+		#son{
+			width:200px;
+			height:200px;
+			background:teal;
+		}
+	</style>
+	<body>
+		<div id="parent">
+			<div id="son"></div>
+		</div>
+	</body>
+</html>
+<script>
+	var son = document.getElementById("son");
+	var parent = document.getElementById("parent");
+	console.log(son.offsetLeft);
+</script>
+

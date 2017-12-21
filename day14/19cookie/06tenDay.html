@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>兼容所有浏览器的CSS3圆角</title>
+	<script type="text/javascript" src="js/curvycorners.js"></script>  	
+	<style type="text/css">
+		    body{
+			    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+		    }
+		    .roundedCorners{ 
+			    width:220px; padding:10px;
+			    background-color:#DDEEF6; 
+			    box-shadow: 0px 0px 10px 0px #888888;
+			    border:1px solid #DDEEF6;
+			    border-radius:6px;
+			    margin: auto;
+		    }
+		    .roundedCorners-textbox{ 
+				border:1px solid #999; width:160px;
+		    }
+			.checkbox {
+				margin-left: 30px;
+				border:1px solid #999; width:20px;
+			}
+	</style>
+</head>
+<body>
+	<form action="http://www.baidu.com" method="get">	
+		<div class="roundedCorners">
+			<label>账号</label>&nbsp;
+			<input id="username" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label>密码</label>&nbsp;
+			<input id="password" type="text" class="roundedCorners-textbox" /><br /><br />	
+		    	<input name="saveNP" type="checkbox" class="checkbox" id="ck" />
+				<label>记住用户名和密码</label>
+		    	<br/><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button id="submitbtn" >确定</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="清空" />
+		</div>
+	</form>	
+</body>
+</html>
+<script src="myCookie.js"></script>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	/*
+	 当点击button按钮时，判断 复选框是否被选中，如果被选中，就将当前输入的用户名和密码存入到cookie中（要有生存期）
+	 当页面加载时，判断浏览器中是否含有cookie信息，如果有，就将cookie信息取出来存入到对应的文本框中
+	 */
+	$("submitbtn").onclick = function(){
+		//判断复选框是否被选中
+		if( $("ck").checked ){
+			//存cookie
+			var json = {
+				"uname":$("username").value,
+				"upwd":$("password").value
+			}
+			setCookie("userInfo",JSON.stringify(json),2);
+			alert("设置cookie成功");
+		}
+	}
+	window.onload = function(){
+		//判断cookie是否存在
+		if( document.cookie ){ // ""
+			var obj = getCookie("userInfo");//根据对应的键找到值
+			$("username").value = obj.uname;
+			$("password").value = obj.upwd;
+		}
+		
+	}
+</script>

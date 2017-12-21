@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="1.jpg" alt="一张图片" title="图片" imgname="笑脸" />
+	</body>
+</html>
+<script>
+	// 获取图片的路径
+	//alert( document.getElementsByTagName("img")[0].imgname );
+	var oImg = document.getElementsByTagName("img")[0];
+	//alert( oImg.getAttribute("alt") );
+	oImg.removeAttribute("title");
+	oImg.setAttribute("title","新图片标题");
+</script>

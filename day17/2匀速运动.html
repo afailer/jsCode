@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			position: absolute;
+			left: 0;
+			top: 60px;
+		}
+	</style>
+	<body>
+		<input type="button" value="向右" />
+		<input type="button" value="向左" />
+		<div></div>
+	</body>
+</html>
+<script>
+	//点击向右按钮 实现让盒子匀速向右运动300px  
+	//点击向左按钮 实现让和盒子匀速运动到 0px
+	var oBtnR = document.getElementsByTagName("input")[0];
+	var oBtnL = document.getElementsByTagName("input")[1];
+	var box = document.getElementsByTagName('div')[0];
+	oBtnL.onclick = function(){ //向左
+		startMove(0);
+	}
+	oBtnR.onclick = function(){ //向右
+		startMove(300);
+	}
+	var timer = null;
+	function startMove(target){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var speed = target-box.offsetLeft>0?5:-5 ;//判断方向
+			if( box.offsetLeft == target ){
+				clearInterval(timer);
+			}else{
+				box.style.left = box.offsetLeft + speed + "px";
+			}
+		},30)
+	}
+
+	/*function startMove1(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			if( box.offsetLeft == 0 ){
+				clearInterval(timer);
+			}else{
+				box.style.left = box.offsetLeft - 5 + "px";
+			}
+		},30)
+	}*/
+	
+	
+	//bug1 :频繁点击按钮 物体运动速度加快    解决：每次点击时 都清除一下定时器
+	//bug2 :定下来后点击按钮 物体还会动     解决 ：加一个else 阻止运动  
+</script>

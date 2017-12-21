@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text" id="uname"/><br>
+		密码：<input type="text" id="upwd"/><br>
+		<input type="button" value="注册" id="register" />
+	</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("register").onclick = function(){
+		//将cookie信息存入到一个json对象中
+		var _json = {
+			"name":$("uname").value,
+			"pwd":$("upwd").value
+		}
+		document.cookie = "userInfo="+JSON.stringify(_json);//存储cookie信息
+		location.href = "04cookie_login.html";//页面跳转
+	}
+	//定义一个json对象
+	//将字符串转换成对象JSON.stringify(_json);
+	//跳转页面location.href
+</script>

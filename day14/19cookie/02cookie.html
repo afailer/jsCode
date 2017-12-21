@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="存cookie" id="btn1" />
+		<input type="button" value="取cookie" id="btn2"/>
+	</body>
+</html>
+<script>
+	//要求：  存一个数组信息到cookie中
+	var arr = [{"uname":"lichune"},{"uname":"lili"},{"uname":"jack"}];
+	//arr[0].uname
+	document.getElementById("btn1").onclick = funcdtion(){
+		 document.cookie = "userinfo="+JSON.stringify(arr);
+	}
+	document.getElementById("btn2").onclick = function(){
+		str = document.cookie;
+		var arr = str.split("; ");
+		var arr = JSON.parse(arr[0].split("=")[1]);
+		console.log(arr[0].uname);
+		
+	}
+</script>

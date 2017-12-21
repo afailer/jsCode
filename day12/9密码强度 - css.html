@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta charset="UTF-8">
+          <title></title>
+     </head>
+     <style type="text/css">
+          *{
+              margin: 0; padding: 0;
+          }
+          input{
+              outline: 0;
+          }
+          #pwd_level {
+              list-style: none; margin: 10px; border-radius: 15px;
+              width: 174px; border: solid 1px gainsboro; height: 16px;
+          }
+          #pwd_level li{
+              background: silver;  float: left;
+              width: 50px; margin: 4px; height: 8px;
+          }
+          #pwd_level_tip {
+              margin: 10px; width: 174px; height: 16px;
+          }
+          #pwd_level_tip div{
+              float: left; width: 58px; height: 16px;
+              text-align: center; line-height: 16px;
+              visibility: hidden;
+          }
+     </style>
+     <body>
+          <input type="text" name="pwd" id="pwd" value="" size="30"/>
+          <ul id="pwd_level">
+              <li style="border-top-left-radius: 8px; border-bottom-left-radius: 8px;"></li>
+              <li></li>
+              <li style="border-top-right-radius: 8px; border-bottom-right-radius: 8px;"></li>
+          </ul>
+          <div id="pwd_level_tip">
+              <div id="">弱</div>
+              <div id="">中</div>
+              <div id="">强</div>
+          </div>
+     </body>
+</html>
+
+<script>
+/* 要求：
+         至少有一个特殊符号-----强（对应div都变背景色）
+         至少有一个数字和一个字母---中（对应div变背景色）
+         其余的都是弱  （第一个div变背景色）
+		 如果长度小于5  不做任何判断*/
+	function $(id){
+		return document.getElementById(id);
+	}
+	$("pwd").onkeyup = function(){
+		var str = this.value;
+		//定义三个开关变量    标志是否含有特殊符号 字母  或数字 
+		var hasNum = false;//没有数字
+		var hasLetter = false;//没有字母
+		var hasChar = false;//没有特殊字符
+		
+		//长度判断  如果str的长度小于5   不做判断
+		if( str.length < 5 ){
+			for( var j = 0 ; j < 3 ; j++ ){
+				$("pwd_level_tip").children[j].style.visibility = "hidden";
+				$("pwd_level").children[j].style.background = "silver";
+			}
+			return;
+		}
+		
+		str = str.toLowerCase();
+		//遍历str字符串  判断是否含有字母 数字 或特殊字符
+		for( var i = 0 ; i < str.length ; i++ ){
+			var code = str.charCodeAt(i);
+			if( code >= 48 && code <= 57 ){ //说明有数字
+				hasNum = true;
+				continue;
+			}
+			if( code >= 97 && code <= 122 ){//说明有字母
+				hasLetter = true;
+				continue;
+			}
+			if( !(code >= 48 && code <= 57) && !(code >= 97 && code <= 122) ){
+				hasChar = true;
+				continue;
+			}
+		}
+		
+		//排他思想
+		for( var i = 0 ; i < 3 ; i++ ){
+			$("pwd_level_tip").children[i].style.visibility = "hidden";
+			$("pwd_level").children[i].style.background = "silver";
+		}
+		//密码强弱的判断
+		if( hasChar ){ //有特殊字符  强
+			$("pwd_level_tip").children[2].style.visibility = "visible";
+			$("pwd_level").children[2].style.background = "orange";
+		}else if( hasNum && hasLetter ){  //既有数字 又有字母
+			$("pwd_level_tip").children[1].style.visibility = "visible";
+			$("pwd_level").children[1].style.background = "orange";
+		}else{
+			$("pwd_level_tip").children[0].style.visibility = "visible";
+			$("pwd_level").children[0].style.background = "orange";
+		}
+	}
+</script>

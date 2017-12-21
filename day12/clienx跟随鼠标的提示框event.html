@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{font:12px; padding:0; margin:0;}
+#bigdiv{width:1000px;  margin:0 auto;}
+
+.smalldiv{width:auto; height:100px; background:red;}
+.infoa{color:#fff;}
+.infodiv{color:#fff; width:200px; position:absolute; height:150px; background:gray; display:none;}
+
+</style>
+
+
+</head>
+
+<body>
+	<div id="bigdiv">
+		<div class="smalldiv">
+			<a href="#" class="infoa">个人信息AAA</a>
+		</div>
+		<div class="smalldiv">
+			<a href="#" class="infoa">个人信息BBB</a>
+		</div>
+		<div class="smalldiv">
+			<a href="#" class="infoa">个人信息CCC</a>
+		</div>
+		<div class="smalldiv">
+			<a href="#" class="infoa">个人信息DDD</a>
+		</div>
+		<div class="infodiv" id="infoDiv">弹出框</div>
+	</div>
+</body>
+</html>
+<script>
+	var sdivs = document.getElementsByClassName("infoa");
+	var infodiv = document.getElementById("infoDiv");
+	for( var i = 0 ; i < sdivs.length ; i++){
+		console.log(sdivs[i].offsetTop)
+		sdivs[i].onclick = function(e){
+			var e =  e || event;
+			infodiv.style.display = "block";
+			infodiv.style.left =this.offsetLeft+this.offsetWidth+10 + "px";
+			infodiv.style.top = this.offsetTop + "px";
+		}
+	}
+	infodiv.onclick = function(){
+		infodiv.style.display = "none";
+	}
+</script>

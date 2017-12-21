@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			border:2px solid red;
+		}
+		#d2{
+			margin: 10px 0;
+		}
+		#d3{
+			opacity: .3;
+		}
+	</style>
+	<body>
+		<div></div>
+		<div id="d2"></div>
+		<div id="d3"></div>
+	</body>
+</html>
+<script src="sport2.js"></script>
+<script type="text/javascript">
+	//鼠标移入第一个操作宽度300   鼠标移入第二个div  操作高度到300  鼠标移入到第三个 操作透明度到1
+	var divs = document.getElementsByTagName("div");
+	divs[0].onmouseover = function(){
+		startMove( 300 , "width" , this );//(target,attr,obj)
+	}
+	divs[1].onmouseover = function(){
+		startMove( 300 , "height" , this );//(target,attr,obj)
+	}
+	divs[2].onmouseover = function(){
+		startMove( 100 , "opacity" , this );//(target,attr,obj)
+	}
+</script>

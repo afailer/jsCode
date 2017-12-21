@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol{list-style:none;}
+        #box {
+      
+			position:relative;
+			margin:100px auto;
+			border:1px solid #ccc;
+			width: 360px;
+			height:432px;
+        }
+        #box ul{
+            overflow: hidden;
+            border-top:1px solid #ccc;
+			position:absolute;
+			top:360px;
+			left:0;
+			width:360px;
+        }
+        #box li {
+            float: left;
+			 
+			border-top:none;
+        }
+		.bigImg{
+			width:360px;
+			height:360px;
+			background:red;
+		}
+		.bigImg li{
+			position:absolute;
+			top:0;
+			left:0;
+		}
+	 
+    </style>
+</head>
+<body>
+<div id="box">
+	<ol class="bigImg" id="top">
+        <li><img src="images/01big.jpg" alt=""/></li>
+        <li><img src="images/02big.jpg" alt=""/></li>
+        <li><img src="images/03big.jpg" alt=""/></li>
+        <li><img src="images/04big.jpg" alt=""/></li>
+        <li><img src="images/05big.jpg" alt=""/></li>
+    </ol>
+    <ul id="bottom">
+        <li><img src="images/01.jpg" alt=""/></li>
+        <li><img src="images/02.jpg" alt=""/></li>
+        <li><img src="images/03.jpg" alt=""/></li>
+        <li><img src="images/04.jpg" alt=""/></li>
+        <li><img src="images/05.jpg" alt=""/></li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	var ulList = $("bottom").getElementsByTagName("li");
+	var olList = $("top").getElementsByTagName("li");
+ 	for( var i = 0 ; i < ulList.length ; i++  ){
+ 		ulList[i].index = i;
+ 		ulList[i].onmouseover = function(){
+ 			for( var j = 0 ; j < olList.length ; j++ ){
+ 				olList[j].style.display = "none";
+ 			}
+ 			olList[this.index].style.display = "block";
+ 		}
+ 	}
+</script>

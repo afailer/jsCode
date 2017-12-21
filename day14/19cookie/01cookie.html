@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="存cookie" id="btn1" />
+		<input type="button" value="取cookie" id="btn2"/>
+		
+	</body>
+</html>
+<script>
+	document.getElementById("btn1").onclick = function(){
+		document.cookie = "uname=lichune";
+		document.cookie = "school=qianfeng";
+		document.cookie = "upwd=1234";
+	}
+	document.getElementById("btn2").onclick = function(){
+		//console.log( document.cookie );
+		//取出cookie中存储的用户名和密码
+		var str = document.cookie;//"uname=lichune; school=qianfeng; upwd=1234"
+		var arr = str.split("; ");//["uname=lichune","school=qianfeng","upwd=1234"]
+		for( var i = 0 ; i < arr.length ; i++ ){
+			var item = arr[i].split("=");// ["school","qianfeng"]
+			if( item[0] == "uname" ){//找到用户名对应的键 就能找到这个键对应的值
+				alert("用户名是:" + item[1]);
+			}
+			if( item[0] == "upwd" ){
+				alert("密码是：" + item[1]);
+			}
+		}
+	}
+</script>

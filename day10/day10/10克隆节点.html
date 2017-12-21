@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width:200px;
+			height:100px;
+			border:1px solid red;
+		}
+	</style>
+	<body>
+		<div><img src="3.jpg" alt="" /></div>
+		<img src="1.jpg" alt="" />
+		<img src="2.jpg" alt="" />
+		<img src="3.jpg" alt="" />
+	</body>
+</html>
+<script>
+	//点击图片克隆图片到div中
+	var imgs = document.getElementsByTagName("img");
+	var odiv = document.getElementsByTagName("div")[0];
+	for( var i = 0 ; i < imgs.length ; i++ ){
+		imgs[i].onclick = function(){
+			odiv.insertBefore( this.cloneNode(), null );
+		}
+	}
+	
+	//点击文档 操作克隆div 
+	document.onclick = function(){
+		document.body.appendChild( odiv.cloneNode(true) );
+	}
+</script>

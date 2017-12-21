@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script>
+	//正则表达式方法  exec
+	/*var reg = /\d+/g;//包含数字
+	var str = "33中45华3人民34共32和国45555";
+	var arr = reg.exec(str);//根据reg的规则在str中查找数字  查找到一个满足条件的数字后就返回
+	alert( arr );*/
+	
+	
+	//match方法
+	/*var reg = /\d+/g;//包含数字
+	var str = "33中45华3人民34共32和国45555";
+	var arr = str.match(reg);//根据正则表达式规则在字符串中查找，如果加修饰符g，就会全局查找
+	alert(arr);*/
+	
+	//search  
+	/*var reg = /\d+/g;//包含数字
+	var str = "ww33中45华3人民34共32和国45555";
+	var index = str.search(reg);//indexOf()
+	alert(index);*/
+	
+	
+	//replace(reg,"要替换的新字符")  返回替换后的新字符串
+	var str = "一想到回家我tmd就没有了tmd学习tmd的欲望";
+	var reg = /\w+/g;
+	var str = str.replace(reg,"");//将字符串中包含字母、或数字或_ 替换成 空
+	alert(str );
+</script>

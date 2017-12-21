@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="猜数字" id="btn" />
+	</body>
+</html>
+<script>
+	//  1--10 
+	/*
+	 系统给定一个随机数  1--10  randNum
+	 用户有三次机会 num ：
+	 	num  == randNum  猜中  退出循环
+	 	num > randNum  猜大了   重猜
+	 	num < randNum  猜小了  重猜
+	  	
+	  	循环结束后 如果  循环变量为 结束的值 4    提示 没有机会了 
+	 */
+	var oBtn = document.getElementById("btn");
+	oBtn.onclick = game;
+	function game(){
+		//系统获取一个随机值
+		var randNum = Math.floor( Math.random()*10  + 1);
+		
+		for( var i = 1 ; i <= 3 ; i++ ){
+			//用户得到一个数   prompt
+			var playerNum = prompt("请输入1--10数字");
+			if( playerNum > randNum ){
+				alert("猜大了");
+			}else if( playerNum < randNum ){
+				alert("猜小了");
+			}else if( playerNum == randNum ){
+				alert("恭喜您猜中了");
+				//如果猜中了 就break
+				break;
+			}
+		}
+		//循环结束后  如果 i==4  说明用户没有猜中
+		if( i == 4 ){
+			alert("抱歉，您没有猜中，系统随机数字是： " + randNum);
+		}
+		
+	}
+</script>

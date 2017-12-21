@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				width:80px;
+				height: 10px;
+				display: inline-block;
+				background: deeppink;
+				margin-right: 3px;
+				font-size: 18px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="txt" />
+		<div id="box" style="margin-top: 4px;">
+			<span id="r">弱</span>
+			<span id="z">中</span>
+			<span id="q">强</span>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+ 	/*
+ 	 1、一类字符 是   弱         纯数字  弱              纯字母  弱                  纯 特殊字符 弱
+ 	 2、两类字符 是   中   
+ 	 3、三类字符      强
+ 	*/	 
+  	var regNum = /^\d+$/;//纯数字
+  	var regLetter = /^[a-z]+$/i;//纯字母
+  	var regOther = /^[!@#$%^&*()]+$/;//纯特殊字符
+  	
+  	var _regNum = /\d+/;//包含数字
+  	var _regLetter = /[a-z]+/i;//包含字母
+  	var _regOther = /[!@#$%^&*()]+/;//包含特殊字符
+  	function $(id){
+  		return document.getElementById(id);
+  	}
+  	$("txt").onkeyup = function(){
+  		var str = this.value;//88888g
+  		//先清空所有的背景颜色
+  		for(var i = 0 ; i < $("box").children.length ; i++){
+  			$("box").children[i].style.backgroundColor = "deeppink";
+  		}
+  		
+  		if( str.length < 5 ){
+  			return;
+  		}
+  		
+  		if( regNum.test(str) || regLetter.test(str) || regOther.test(str) ){ //弱
+  			$("r").style.backgroundColor = "purple";
+  		}else if( _regNum.test(str) && _regLetter.test(str) && _regOther.test(str) ){
+  			//强
+  			$("q").style.backgroundColor = "purple";
+  		}else{
+  			$("z").style.backgroundColor = "purple";
+  		}
+  	}
+</script>
