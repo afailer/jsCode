@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		*,ul{ margin: 0; padding:0 ;}
+		#books{width: 1000px;  margin: 50px auto 0;
+		border: 4px #fff solid;overflow: hidden; background: #f1f1f1;
+		box-shadow:0 0 5px rgba(0,0,0,0.7) ;}
+		ul li{ list-style: none; width: 150px; height:180px ;
+		float: left; margin: 25px; background: blue; text-align: center;}
+		ul li img { width: 105px; height: 140px;}
+		ul li p{color:#fff; font-weight: bold;}
+	</style>
+	<script src="myTool.js"></script>
+	<script type="text/javascript">
+		//接口:https://api.douban.com/v2/book/search?q=text&callback=fn&start=0&count=1
+		//本地定义好一个函数，这个函数名和接口上的函数名一样，data接受那堆数据
+		function fn(data){
+			console.log("------------------");
+			console.log(data.stringify());
+			console.log("*******************");
+			//操作数据
+			var oBooks=$("#books");
+			console.log(typeof data, data);
+			var str="";
+			//通过循环，把书一个一个拼接字符串 然后统一放入ul里面
+			for(var i=0;i<data.books.length;i++){
+				
+				/*var oLi=document.createElement("li");
+				var oDiv=document.createElement("div");
+				var oImg=document.createElement("img");
+				oImg.src=data.books[i].image;
+				oDiv.appendChild(oImg);
+				oLi.appendChild(oDiv);*/
+				str+="<li><a href='"+data.books[i].alt+"' target='_blank'><div><img src='"+data.books[i].image+"'/><p>"+data.books[i].price+"</p></div></a></li>";
+			};
+			oBooks.innerHTML=str;
+		}
+		window.onload=function(){
+			
+			var oBtn=$("#btn");
+			var oText=$("#oText");
+			var oBooks=$("#books");
+			
+			oBtn.onclick=function(){
+				//创建一个script标签
+				var oScript=document.createElement("script");
+				//添加src 等于那个远程的api
+				oScript.src="https://api.douban.com/v2/book/search?q="+oText.value+"&callback=fn&start=0&count=10"
+				//将script放入页面 立即执行				
+				document.body.appendChild(oScript);
+			}
+		};
+	</script>
+	
+</head>
+<body>
+	<div id="top">
+		<input type="text" id="oText" />
+		<input type="button" value="搜一搜" id="btn" />
+	</div>
+	<ul id="books">
+		<!--<li>
+			<div><img src='aa.gif'/>
+				<p>38.5元</p>
+			</div>
+		</li>-->
+		
+	</ul>
+</body>
+</html>

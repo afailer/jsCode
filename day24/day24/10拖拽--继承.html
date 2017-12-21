@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			cursor: move;
+		}
+		#parent{
+			left : 100px;
+			top: 0;
+			background: thistle;
+		}
+		#son{
+			left: 200px;
+			top: 0;
+			background: deepskyblue;
+		}
+	</style>
+	<body>
+		<div id="parent">父类</div>
+		<div id="son">子类</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//  两个能拖拽的div、
+	// 父类 ： 只能拖拽  
+	// 子类 ： 既能拖拽   又可以实现边界处理
+	//实现父类功能
+	//  思考 ： 混合继承实现   父类的方法都是原型方法
+	onload = function(){
+		new Drag("#parent").init();
+		new ChildDrag("#son").init();
+	}
+	function Drag(id){
+		this.div =  document.querySelector(id);
+		//var that = this;
+		this.init = function(){
+			this.div.onmousedown = function(e){
+				var e = e || event;
+				this.down(e);
+				document.onmousemove = function(e){
+					var e = e || event;
+					this.move(e);
+				}.bind(this);
+				
+				document.onmouseup = function(){
+					this.up();
+				}.bind(this)
+				return false;
+			}.bind(this);
+		}
+		this.down = function(e){
+			this.disx = e.pageX - this.div.offsetLeft;
+			this.disy = e.pageY - this.div.offsetTop;
+		}
+		this.move = function(e){
+			this.div.style.left = e.pageX - this.disx + "px";
+			this.div.style.top = e.pageY - this.disy + "px";
+		}
+		this.up = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+	
+
+	function ChildDrag(id){
+		Drag.call(this,id);//继承父类id的内部实现方式
+		//子类移动时  有边界处理  移动的方法在子类中需要单独实现
+		this.move = function(){
+			this.x = event.pageX - this.disx;
+			this.y = event.pageY - this.disy;
+			
+			this.maxL = window.innerWidth - this.div.offsetWidth;
+			this.maxT = window.innerHeight - this.div.offsetHeight;
+			
+			this.x = this.x < 0 ? 0 : (this.x > this.maxL ? this.maxL : this.x)
+			this.y = this.y < 0 ? 0 : (this.y > this.maxT ? this.maxT : this.y)
+			
+			this.div.style.left = this.x + "px";
+			this.div.style.top = this.y + "px";
+		}
+	}
+	
+	var cd = new ChildDrag("#son");
+	//alert( cd.div.innerHTML );
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			cursor:move;
+		}
+	</style>
+	<body>
+		<div id="box">21212121</div>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+	 面向对象 ：
+	 	构造函数 --- 特效名称  
+	 	属性        --- 特效操作的页面元素
+	 	方法        ---  特效中元素的功能
+	 */
+	onload = function(){
+		new Drag().down();
+	}
+	//操作的元素为属性   功能为方法
+	function Drag(){
+		this.div = document.querySelector("#box"); // 要操作的页面元素
+		this.down = function(){ //入口
+			var that = this;//将this存入到一个变量中  
+			this.div.onmousedown = function(e){
+				//this 指向 事件的触发者 div
+				var e = e || event;
+				//记录鼠标相对于div的偏移量
+				//that 指向构造函数new出来的对象  
+				that.disx = e.pageX - that.div.offsetLeft;
+				that.disy = e.pageY - that.div.offsetTop;
+				
+				//调用移动功能
+				document.onmousemove = function(e){
+					var e = e || event;
+					that.move(e);
+				}
+				//调用鼠标抬起功能
+				document.onmouseup = function(){
+					that.up();
+				}
+				
+				return false;
+			}
+		}
+		this.move = function(e){
+			//改变div的left 和 top
+			this.div.style.left = e.pageX - this.disx + "px";
+			this.div.style.top = e.pageY - this.disy + "px";
+		}
+		this.up = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+	
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// Promsie  承诺
+	var promise = new Promise(function(success,failed){
+		//success,failed  通知promise对象 承诺的结果  如果执行success ，承诺已完成  
+		//如果执行 failed  承诺失败
+		//failed();
+		success("ok");//通知promise对象  承诺已完成
+		//failed();//通知promise对象  承诺失败
+	});
+	
+	promise.then(function(msg){
+		alert(msg);
+	},function(){
+		alert("失败后执行");
+	})
+	/*promise.catch(function(){
+		alert("失败后执行");
+	})*/
+	console.log(promise);
+</script>

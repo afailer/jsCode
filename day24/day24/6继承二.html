@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function fun(){
+		alert(this);
+	}
+	fun.call(document);*/
+	//改变父类中的this指向  让父类中的this指向子类
+	function Animal(age,name){
+		this.age = age;
+		this.name = name;
+		this.running = function(){
+			alert("奔跑.....");
+		}
+		this.eat = function(){
+			alert("吃....");
+		}
+	}
+	
+	function Dog(age,name){
+		//在子类中通过call方法调用父类  
+		// call方法的第一个参数 ： 要改变的Animal中的this指向 
+		// call方法的第二个参数个数 不固定     ，就是要继承的父类的属性 
+		Animal.call(this,age,name);
+	}
+	var dog = new Dog(2,"小黄");
+	 
+</script>

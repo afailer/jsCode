@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+ 
+    <style>
+        .box {
+            width: 400px;
+            margin:100px auto;
+            border:1px solid #ccc;
+        }
+		.top button.purple {
+            background-color: purple;
+        }
+        .bottom div{
+            width:100%;
+            height: 300px;
+            background-color: pink;
+            display: none;
+        }
+       
+		.bottom div.show{
+			display:block;
+		}
+	
+    </style>
+   
+</head>
+<body>
+<div class="box">
+    <div class="top" id="top">
+        <button class="purple">第一个</button>
+        <button>第二个</button>
+        <button>第三个</button>
+        <button>第四个</button>
+        <button>第五个</button>
+    </div>
+    <div class="bottom" id="divs">
+        <div class="show">1好盒子</div>
+        <div>2好盒子</div>
+        <div>3好盒子</div>
+        <div>4好盒子</div>
+        <div>5好盒子</div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>	
+	/*
+	 构造函数 ：   Tab
+	 属性 ：   标题按钮    内容div
+	功能  ： 清空所有的样式   隐藏所有 的内容         入口功能  -- 事件调用
+	 */
+	window.onload = function(){
+		new Tab().init();
+	}
+	
+	function Tab(){
+		this.btns = document.querySelector("#top").children;
+		this.divs = document.querySelector("#divs").children;
+		this.init = function(){
+			var that = this;
+			//为所有的btns添加鼠标移入事件
+			for( let i = 0 ;  i < this.btns.length ; i++  ){
+				this.btns[i].onmouseover = function(){
+					//排他思想
+					that.clearStyle();
+					that.hideContent();
+					this.className = "purple"; //操作当前按钮的背景色
+					//操作当前标题对应的内容
+					that.divs[i].className = "show";
+				}
+			}
+		}
+		this.clearStyle = function(){
+			for( var i = 0 ; i < this.btns.length ; i++ ){
+				this.btns[i].className = "";
+			}
+		}
+		this.hideContent = function(){
+			for( var i = 0 ; i < this.divs.length ; i++ ){
+				this.divs[i].className = "";
+			}
+		}
+	}
+	
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Father(){
+	    this.money = 999999;
+	    this.dance = function(){
+	        alert("跳舞");
+	    }
+	}
+	Father.prototype.name = "jack";
+	function Son(){
+	    this.parent =  Father;
+	    this.parent();
+	    //删除parent属性
+	    //delete this.parent;
+	}
+	var son = new Son();
+	son.dance();
+	console.log( son.money );
+</script>

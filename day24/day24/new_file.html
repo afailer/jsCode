@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+     function Father(firstname){
+           this.firstname = firstname;
+           this.money = 20000000;
+           this.eat = function(){
+                console.log("吃肉");
+           }
+           this.drink = function(){
+                console.log("喝酒");
+           }
+     }
+     Father.prototype.aa = function(){
+     	alert()
+     }
+     //Son的第二个父类
+     function Father2(){
+           this.money2 = 1000000000;
+     }
+
+     function Son(firstname,score){
+           this.score = score;   //子类特有的score属性
+           Father.call(this,firstname); //用  Father  Call   Son   继承父类1
+           Father2.call(this);          //继承父类2   实现了多继承
+           this.study = function(){    //子类特有的学习 方法
+                console.log("儿子要学习");
+           }
+     }
+
+     console.log( new Son("jack",100).aa() );
+
+</script>
+

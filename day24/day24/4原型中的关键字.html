@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Animal(){
+		this.age = 2;
+		//delete this.age;
+	}
+	Animal.prototype.name = "mm";
+	var a1 = new Animal();
+	//delete a1.age;
+	//alert( a1.hasOwnProperty( "name" ) );
+	alert( "name" in a1 );
+	//a1 instanceof Animal
+	//alert( Animal.prototype.isPrototypeOf( a1 ) );
+</script>

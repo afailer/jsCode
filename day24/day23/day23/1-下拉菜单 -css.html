@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none;}
+.all{ width:330px; height:30px; background:url(img/bg.jpg) no-repeat; margin:100px auto; line-height:30px; text-align:center; padding-left:10px; margin-bottom:0;}
+.all ul li{ width:100px; height:30px; background:url(img/libg.jpg); float:left; margin-right:10px; position:relative; cursor:pointer;}
+.all ul ul{ position:absolute; left:0; top:30px; display:none;}
+</style>
+</head>
+
+<body>
+<div class="all" >
+	<ul id="list">
+		<li>一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+		<li>一级菜单
+			<ul>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+				<li>二级菜单</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
+<script>
+	/*
+	 面向对象 ：
+	 	构造函数 --- 特效名称  
+	 	属性        --- 特效操作的页面元素
+	 	方法        ---  特效中元素的功能    显示  隐藏   鼠标移入和移出操作
+	 页面加载后，new出来一个对象  调用入口方法
+	 */
+	window.onload = function(){
+		new DropMenu().init();
+	}
+	//确定构造函数
+	function DropMenu(){
+		//确定属性
+		this.list = document.querySelector("#list").children;//要操作的元素
+	}
+	//原型方法
+	//入口方法  调用鼠标的移入移出功能
+	DropMenu.prototype.init = function(){
+		var that = this;
+		for( var i = 0 ; i < this.list.length ; i++ ){
+			this.list[i].onmouseover = function(){
+				//this指向  当前操作的一级li
+				//鼠标移入操作当前一级li的子元素显示
+				that.show( this.children[0] );//将要显示的子元素ul通过参数传递 
+			}
+			this.list[i].onmouseout = function(){
+				that.hide( this.children[0] );//将要隐藏的子元素ul通过参数传递 
+			}
+		}
+	}
+	//显示  obj指向要显示二级菜单
+	DropMenu.prototype.show = function(obj){
+		obj.style.display = "block";
+	}
+	//隐藏
+	DropMenu.prototype.hide = function(obj){
+		obj.style.display = "none";
+	}
+</script>

@@ -1,0 +1,68 @@
+<!DO CTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建对象" id="btn"/>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+		点击按钮 创建 被拖拽的div对象   
+		构造函数： 拖拽   Drag
+		属性 ：操作的元素  --  动态创建出来的
+			样式设置  
+		功能 ： 鼠标按下  移动 抬起   
+	*/
+	var oBtn = document.getElementById("btn");
+	oBtn.onclick = function(){
+		new Drag().init().dragDiv();//创建对象 并调用入口函数
+	}
+	function Drag(){
+		this.div = document.createElement("div");
+		this.init = function(){ //描述div的样式
+			document.body.appendChild(this.div);
+			this.div.style.width = this.div.style.height = "100px";
+			this.div.style.background = `rgb(${this.rand(0,255)},${this.rand(0,255)},${this.rand(0,255)})`;
+			this.div.style.position = "absolute";
+			this.div.style.left = this.rand( 0,window.innerWidth-this.div.offsetWidth ) +"px";
+			this.div.style.top = this.rand( 0,window.innerHeight-this.div.offsetHeight ) +"px";
+			//this.dragDiv();
+			return this;//方便链式调用
+		}
+		this.dragDiv = function(){ //拖拽功能实现
+			var that = this;
+			this.div.onmousedown = function(e){
+				var e = e || event;
+				that.down(e);
+				document.onmousemove = function(e){
+					var e = e || event;
+					that.move(e);
+				}
+				document.onmouseup = function(){
+					that.up();
+				}
+				return false;
+			}
+		}
+		this.down = function(e){ //鼠标按下
+			this.disx = e.pageX - this.div.offsetLeft;
+			this.disy = e.pageY - this.div.offsetTop;
+			console.log( this.disy );
+		}
+		this.move = function(e){ //鼠标移动
+			this.div.style.left = e.pageX - this.disx +"px";
+			this.div.style.top = e.pageY - this.disy +"px";
+		}
+		this.up = function(){  // 鼠标抬起
+			document.onmousemove = null;
+			document.onmouseup  = null;
+		}
+		this.rand = function(min,max){ //获取任意区间值随机数
+			return Math.round(Math.random()*(max-min) + min);
+			//Math.floor( Math.random()*(max-min+1) + min );
+		}
+	}
+</script>

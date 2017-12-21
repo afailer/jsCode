@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	// Promsie  承诺
+	/*var promise = new Promise(function(success,failed){
+		setTimeout(function(){
+			success("ok");
+		},Math.random()*1000 + 3000);
+		setTimeout(function(){
+			failed("failed");
+		},3200);
+	});
+	
+	promise.then(function(msg){
+		alert(msg);
+	},function(msg){
+		alert(msg);
+	})*/
+	
+	//页面加载图片   
+	var promise = new Promise(function(success,failed){
+		var img = new Image();//创建一个图片对象  document.createElement()
+		img.src = "1.jpg";
+		//如果图片加载成功 
+		img.onload = function(){
+			success(this);//this指向 img
+		}
+		//如果图片加载失败
+		img.onerror = function(){
+			failed("加载图片失败");
+		}
+	});
+	
+	promise.then(function(img){
+		//如果图片加载成功了   将图片存入到页面上
+		document.body.appendChild(img);
+	},function(err){
+		alert(err);
+	})
+	 
+</script>

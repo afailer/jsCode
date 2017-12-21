@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+<script type="text/javascript">
+//	function Animal(){
+//		//this.age = 3;
+//	}
+//	//Animal.prototype.age = 5;
+//	Object.prototype.age = 6;
+//	var a1 = new Animal();
+//	alert( a1.age );// 为甚么 a1  对象 就能获取到  Animal.prototype 对象的属性值？？
+	/*console.log( Animal.prototype );  //原型对象 Object
+	console.log( a1 );  //实例对象    Animal */
+	//原型链 ： 实例对象和原型之间的链接
+	
+	
+	function Fun(){
+		//this.index = 1;
+	}
+	//Fun.prototype.index = 2;
+	Object.prototype.index = 3;
+	var f = new Fun();
+	alert( f.index );
+</script>

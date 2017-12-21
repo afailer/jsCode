@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+	定义一个Human父类                属性  hobby  功能  ：   行走  吃饭
+	定义一个Student      属性  hobby score name  功能  ：行走 吃饭  学习  混合继承实现
+	 */
+	function Human(hobby){
+		this.hobby = hobby;
+	}
+	Human.prototype.walk = function(){
+		console.log("行走");
+	}
+	Human.prototype.eat = function(){
+		console.log("吃饭");
+	}
+	
+	function Student(hobby,name,score){
+		Human.call(this,hobby);
+		this.name = name;
+		this.score = score;
+	}
+	
+	//原型继承 继承原型方法
+	Student.prototype = new Human("撩妹");
+	
+	var stu = new Student("学习","小明",100);
+	console.log( stu.hobby );
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var index = 9;
+	var num = 90;  //基本数据类型
+	var arr = [1,2,3,4,5];  // 对象数据类型   
+	num.index = 1;
+	arr.index = 10;
+	alert( arr.index );//10
+	alert( num.index );//undefined
+	arr.sum = function(){ //私有方法
+		var s = 0;
+		for( var i = 0 ; i <arr.length ; i++ ){
+			s += arr[i];
+		}
+		return s;
+	}
+	alert( arr.sum() );
+	
+	//全局函数 
+	function sum(){
+		
+	}
+	sum();
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//Promise  承诺   请求服务器数据
+	document.onclick = function(){
+		var pro = new Promise(function(success,failed){
+			var ajax = new XMLHttpRequest();
+			ajax.open("GET","data1.json");
+			ajax.send();
+			ajax.onreadystatechange = function(){
+				if( ajax.readyState == 4 && ajax.status == 200 ){ //请求成功
+					success(ajax.responseText);
+				}
+			}
+		});
+		pro.then(function(msg){
+			alert( msg );
+		})
+	}
+	
+	//封装一个ajax  通过promise对象实现
+	function ajaxGet(url,data){
+		var pro = new Promise(function(success,failed){
+				var ajax = new XMLHttpRequest();
+				if( data ){
+					url = url + "?" + data;
+				}
+				ajax.open("GET",url);
+				ajax.send();
+				ajax.onreadystatechange = function(){
+					if( ajax.readyState == 4 && ajax.status == 200 ){ //请求成功
+						success(ajax.responseText);
+					}
+				}
+				//如果承诺的时间段内没有完成   执行failed  
+				setTimeout(function(){
+					failed("请求数据失败");
+				},5000)
+			});
+		return pro;
+	}
+	var promise = ajaxGet("dataw1.json");
+	promise.then(function(msg){//msg 服务器返回的数据
+		alert(msg);
+	},function(msg){
+		alert(msg);
+	})
+</script>

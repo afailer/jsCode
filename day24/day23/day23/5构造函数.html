@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Animal(name,age){
+		//类是具有相同属性和行为的一类事物的总称
+		//为 new出来的对象定义相同的属性 和 行为
+		//构造函数中的this  指向 构造函数new出来的对象
+		this.name = name; //实例属性
+		this.age = age;
+		this.eat = function(food){ //实例方法
+			console.log( this.name + "在吃" + food );
+		}
+	}
+	
+	var animal = new Animal("小白",2);	
+	var a2 = new Animal("大白",3);
+	/*alert( animal.name );
+	alert( a2.name );
+	a2.eat("骨头");
+	animal.eat("肉");*/
+	
+	function Student(age,name){
+		this.age = age;
+		this.name = name;
+		this.study = function(){
+			return "学生在学习...";
+		}
+	}
+	var stu = new Student(19,"小明");
+	var stu2 = new Student(18,"小花");
+	
+	//使用 instanceof 确定某个对象属于哪一个类
+//	alert( stu instanceof Student );// true
+//	alert( animal instanceof Student );// false
+	
+	alert( stu.study == stu2.study  );
+	
+</script>

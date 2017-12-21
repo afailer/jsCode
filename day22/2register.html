@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：  <input type="text" id="uname"/>
+		密码：     <input type="text" id="upwd"/>
+		<input type="button" value="注册" id="reg"/>
+		<span id="s1"></span>
+		<hr />
+		用户名：  <input type="text" id="tname"/>
+		密码：     <input type="text" id="tpwd"/>
+		<input type="button" value="登录" id="login"/>
+		<span id="s2"></span>
+	</body>
+</html>
+<script src="ajax.js"></script>
+<script type="text/javascript">
+	//通过ajax实现 注册和登录 ：客户端的数据通过ajax传递给服务器  
+	//注意使用ajax时，按钮不要用submit  不要有form标签  原因：submit按钮会刷新页面
+	function $id(id){
+		return document.getElementById(id);
+	}
+	//注册
+	$id("reg").onclick = function(){
+		var url = "http://datainfo.duapp.com/shopdata/userinfo.php";
+		var username = $id("uname").value;
+		var userpwd = $id("upwd").value;
+		var data = `status=register&userID=${username}&password=${userpwd}`;
+		ajaxGet(url,function(msg){
+			switch(msg){
+				case "0":
+					$id("s1").innerHTML = "用户名重复了，换一个";
+					break;
+				case "1":
+					$id("s1").innerHTML = "注册成功";
+					break;
+				case "2":
+					$id("s1").innerHTML = "服务器出错了 该天再试吧";
+					break;
+			}
+		},data)
+	}
+	
+	//登录
+	$id("login").onclick = function(){
+		var url = "http://datainfo.duapp.com/shopdata/userinfo.php";
+		var username = $id("tname").value;
+		var userpwd = $id("tpwd").value;
+		var data = `status=login&userID=${username}&password=${userpwd}`;
+		ajaxGet(url,function(msg){
+			switch(msg){
+				case "0":
+					alert("用户名不存在");
+					break;
+				case "2":
+					alert("用户名和密码不符");
+					break;
+				default :
+					$id("s2").innerHTML = "恭喜登录成功，页面将在2秒后跳转~~";
+					setTimeout(function(){
+						location.href = "1hw.html";
+					},2000)
+			}
+		},data)
+	}
+</script>

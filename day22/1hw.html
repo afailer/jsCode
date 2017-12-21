@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="加载数据" id="btn" />
+		<ul id="box"></ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var oBtn = document.querySelector("#btn");
+	var oUl = document.querySelector("#box");
+	var str = "";
+	oBtn.onclick = function(){
+		/*var ajax = new XMLHttpRequest();
+		ajax.open("GET","http://127.0.0.1/1722ajax/day22/data1.json");
+		ajax.send();
+		ajax.onreadystatechange = function(){
+			//状态值              状态码  
+			if( ajax.readyState == 4  && ajax.status == 200 ){
+				var arr = JSON.parse(ajax.responseText);
+				for (var i = 0 ; i < arr.length ; i++) {
+					str += `<li>${ arr[i].pid } --- ${ arr[i].pname } --- ${ arr[i].price } </li>`;
+				}
+				oUl.innerHTML = str;
+			}
+		}*/
+		var url = "http://127.0.0.1/1722ajax/day22/data1.json";
+		
+		ajaxGet(url,function(msg){
+			var arr = JSON.parse(msg);
+			for (var i = 0 ; i < arr.length ; i++) {
+				str += `<li>${ arr[i].pid } --- ${ arr[i].pname } --- ${ arr[i].price } </li>`;
+			}
+			oUl.innerHTML = str;
+		});
+	}
+	
+	function ajaxGet(url,callback){
+		var ajax = null;
+		if( window.XMLHttpRequest ){
+			ajax = new XMLHttpRequest();
+		}else{
+			ajax = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		ajax.open("GET",url);
+		ajax.send();
+		ajax.onreadystatechange = function(){
+			if( ajax.readyState == 4  && ajax.status == 200 ){
+				//此处是一个不固定的功能   ajax.responseText
+				callback( ajax.responseText );//通过回调函数的参数将服务器的结果返回
+			}
+		}
+	}
+	
+	
+</script>

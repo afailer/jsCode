@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="main.css" />
+		<style>
+			.header{
+				height: 40px;
+				width: 900px;
+				margin: 0 auto 50px;
+			}
+			#box{
+				width: 300px;
+				height: 30px;
+				border: 1px solid black;
+				float: left;
+				margin-left:500px;
+			}
+			#box li{
+				float: left;
+				list-style: none;
+				display: inline-block;
+				padding: 0 5px;
+			}
+			#box li.active{
+				color: red;
+				background: skyblue;
+			}
+			#box ul{
+				/*float: left;*/
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>		 		 
+		<ul class="shoplist clearfix" id="main">
+			<!--<li>
+				<img src="img/1.jpg" alt="" />
+				<p>小米1</p>
+				<p>999</p>
+				<button>购买</button>
+			</li>-->
+		</ul>	
+		<div id="box">
+			<span id="left">上一页</span>
+			<ul id="u">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<span id="right">下一页</span>
+		</div>
+	</body>
+</html>
+<script src="ajax.js"></script>
+<script type="text/javascript">
+	//第一步 ： 请求ajax的所有数据  实现数据显示
+	//第二步 ： 分页  每页显示固定数量的图片     每页显示4张图片
+	//第三步 ： 显示页码
+	//第四步：  设置当前页的页码的样式 
+	//第五步 ： 点击页码 设置当前页码的样式 并显示当前页的数据  
+	//第六步 ：上一页下一页  操作页码样式和数据的改变
+	var main = document.querySelector("#main");
+	var oUl = document.querySelector("#u");
+	var oPrev = document.querySelector("#left");
+	var oNext = document.querySelector("#right");
+	var pageNum = 4;//每页显示的数据量
+	var index = 1;//页码 初始显示第一页
+	showData();
+	//请求ajax
+	function showData(){
+		ajaxGet("http://127.0.0.1/1722ajax/fenye/data.json",function(msg){
+			var arr = JSON.parse(msg);
+			var str = "";
+			//  通过i  获取数组中的json对象     i >=0 && i<= arr.length-1
+			for (var i = (index-1)*pageNum ; i < index*pageNum ; i++) {
+				//最后一页的数据量不够   报错 原因：下标越界  
+				if( i <= arr.length - 1 ){
+					str += `<li>
+							<img src="img/${arr[i].src}" alt="" />
+							<p>${arr[i].name}</p>
+							<p>${arr[i].price}</p>
+							<button>购买</button>
+						</li>`;
+				}
+				
+			}
+			main.innerHTML = str;
+			
+			//获取总页数
+			pageTotle = Math.ceil(arr.length / pageNum);
+			var page = "";
+			//显示正确的页数
+			for( var n = 1 ; n <= pageTotle ; n++ ){
+				page += `<li>${n}</li>`;
+			}
+			oUl.innerHTML = page;
+			
+			//获取当前页的页码li
+			oUl.children[index-1].className = "active";
+		})
+	}
+	
+	
+	//点击页码   事件委托（事件代理）
+	oUl.onclick = function(e){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName.toLowerCase() == "li" ){
+			//获取当前页码
+			index = parseInt(target.innerHTML);
+			showData();
+		}
+	}
+	
+	//上一页
+	oPrev.onclick = function(){
+		if( index <= 1 ){
+			index = 1
+		}else{
+			index--;
+		}
+		showData();
+	}
+	//下一页
+	oNext.onclick = function(){
+		if( index >= pageTotle ){
+			index = pageTotle
+		}else{
+			index++;
+		}
+		showData();
+	}
+	/*
+	 分页页码规律
+index 页码   （index-1）*4	index * pageNum
+	 1   	0    			4  
+	 2	 	4    			8
+	 3   	8    			12
+	 4   	12   			16
+	 5      16  			20
+	 */
+</script>

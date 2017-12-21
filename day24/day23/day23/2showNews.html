@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="uu">
+			
+		</ul>
+	</body>
+</html>
+<script src="ajax.js"></script>
+<script>
+	function showData(){
+		ajaxGet("http://127.0.0.1/1722ajax/2showNews.php",function(msg){
+			var arr = JSON.parse(msg);
+			var str = "";
+			for( var i = 0 ; i < arr.length ; i++ ){
+				str += `<li>${arr[i].title}----${arr[i].time}</li>`;
+			}
+			document.querySelector("#uu").innerHTML = str;
+		})
+	}
+	setInterval(function(){
+		showData();
+	},300)
+</script>

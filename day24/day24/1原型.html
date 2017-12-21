@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+<script type="text/javascript">
+	/*function Animal(){
+		
+	}
+	var a1 = new Animal();
+	var a2 = new Animal();
+	console.log( Animal.prototype ); // Object
+	console.log(a1.prototype);   //  undefined
+	console.log( a1.__proto__ );*/
+	
+	
+	/*var arr = [1,2,3,4];
+	arr.index = 5;
+	Array.prototype.index = 9;
+	alert( arr.index );//5*/
+	
+	
+	
+	/*function Animal(){
+		this.age = 3;//实例属性
+		this.init = function(){
+			alert( 10 );
+		}
+	}
+	Animal.prototype.age = 5;
+	Animal.prototype.init = function(){
+		alert(20);
+	}
+	var a1 = new Animal();
+	//alert( a1.age );   3
+	a1.init();*/
+	
+	
+	
+	var arr1 = [1,2,3,4,5];
+	var arr2 = [10,20,30,40,50];
+	/*arr1.sum = function(){  //数组只为 arr1 使用  
+		var s = 0;
+		for(var i = 0 ; i < arr1.length ; i++){
+			s += arr1[i];
+		}
+		return s;
+	}*/
+	Array.prototype.sum = function(){
+		//this -- 指向  数组对象    
+		var s = 0;
+		for(var i = 0 ; i < this.length ; i++){
+			s += this[i];
+		}
+		return s;
+	}
+	alert( arr1.sum() );
+	alert( arr2.sum() );
+</script>

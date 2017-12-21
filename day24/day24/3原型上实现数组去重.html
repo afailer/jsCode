@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	Array.prototype.norepeat = function(){
+	     //this  数组对象
+	     
+	     return  Array.from(  new Set(this)  ); //返回去重后的数组
+	}
+	var arr1 = new Array(1,1,23,23,1,45,3,6,5,3);
+	//alert( arr1.norepeat() );
+	
+	String.prototype.nospace = function(){
+		// this 指向 new出来的字符串 
+		return this.replace( /(^\s+)|(\s+$)/g , "" );
+	}
+	
+	var str = new String("    hello    world       ");
+	console.log(str);
+	console.log( str.nospace() );
+</script>

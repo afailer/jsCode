@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	document.onclick = function(){
+		var ajax = new XMLHttpRequest();
+		ajax.open("get","http://localhost/1722ajax/cors/cors.php");
+		ajax.send();
+		ajax.onreadystatechange = function(){
+			if( ajax.readyState == 4 && ajax.status == 200 ){
+				alert( ajax.responseText );
+			}
+		}
+	}
+</script>

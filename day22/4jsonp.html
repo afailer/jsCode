@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//点击文档  实现跨域请求数据
+	document.onclick = function(){
+		var sc = document.createElement("script");
+		// 接口上有一个回调函数 （通过接口传递一个参数  这个参数就是一个函数）
+		sc.src = "http://127.0.0.1/1722ajax/day22/jsonp.php?callback=fn";
+		//将script标签添加到body中
+		document.body.appendChild(sc);
+	}
+	function fn(msg){ //参数msg接收服务器返回的结果
+		alert(typeof msg );
+	}
+</script>

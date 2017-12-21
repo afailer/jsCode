@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Father(name){
+		this.money = 99999;
+		this.name = name;
+		this.dance = function(){
+			console.log("跳舞");
+		}
+	}
+	Father.prototype.age = 39;
+	Father.prototype.sing = function(){
+		console.log("唱歌");
+	}
+	
+	function Son(){
+		
+	}
+	//原型继承   ： 让父类的实例对象指向子类的原型
+	Son.prototype = new Father("张三");
+	var son = new Son();
+	console.log( son.age );
+	
+</script>

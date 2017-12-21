@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//工厂 --- 创建多个同类对象
+	function createObj(price,color){
+	     //备料  --  创建对象
+	     var obj = new Object();
+	     //加工  --  为对象添加属性和方法
+	     obj.price = price;
+	     obj.color = color;
+	     obj.close = function(){
+	          console.log("穿....");
+	     }
+	     //出厂   ---  返回对象
+	     return obj;  
+	}
+	//调用工厂
+	var obj = createObj(100,"red");
+	var obj2 = createObj(100,"blue");
+	console.log(obj.price);
+	
+	function createStudent(name,tel){
+		var stu = new Object();
+		stu.name = name;
+		stu.tel = tel;
+		stu.study = function(){
+			return "学习";
+		}
+		return stu;
+	}
+	var student = createStudent("xm","1311111");
+	// instanceof  测试一个对象属于哪一个构造函数  （测试一个对象属于哪一个类）
+	alert( student instanceof Object);//true
+	alert( obj2 instanceof Object);  // true
+	
+</script>

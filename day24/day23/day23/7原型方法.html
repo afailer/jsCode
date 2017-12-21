@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Cat(){
+		
+	}
+	//原型属性
+	Cat.prototype.name = "小花";
+	Cat.prototype.age = 2;
+	//原型方法
+	Cat.prototype.eat = function(food){
+		return "吃" + food;
+	}
+	var c = new Cat();
+	var c2 = new Cat();
+	//console.log( c.eat == c2.eat );
+	/*alert( c.eat("鱼") );
+	alert( c2.eat("鱼骨头") );*/
+	alert( c.name );
+	alert( c2.name );
+</script>

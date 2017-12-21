@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Dog(name,age){
+		this.name = name; //实例属性
+		this.age = age;
+	}
+	//原型方法
+	Dog.prototype.eat = function(){
+		return "吃骨头";
+	}
+	Dog.prototype.running = function(){
+		return "奔跑";
+	}
+	
+	
+	var dog = new Dog("大黄",3);
+	var dog2 = new Dog("二黄",2);
+	//alert( dog2.running == dog.running );
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt"/>
+		<ul id="box"></ul>
+	</body>
+</html>
+<script src="ajax.js"></script>
+<script type="text/javascript">
+	//键盘事件  实现ajax请求数据
+	var oTxt = document.querySelector("#txt");
+	var oUl = document.querySelector("#box");
+	oTxt.onkeyup = function(){
+		//清空ul
+		oUl.innerHTML = "";
+		var url = "http://127.0.0.1/1722ajax/day22/data2.json";
+		ajaxGet(url,function(msg){
+			var arr = JSON.parse(msg);
+			for ( var i = 0 ; i < arr.length ; i++ ) {
+				var oli = document.createElement("li");
+				oli.innerHTML = arr[i].pname;
+				if( arr[i].pname.indexOf( oTxt.value ) != -1 ){ //查找文本框输入的内容在  arr[i].pname 中是否存在  
+					oUl.appendChild(oli);
+				}
+			}
+		});
+	}
+	// "hello".indexOf("e")
+	oUl.onmouseover = function(e){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName.toLowerCase() == "li" ){
+			target.style.backgroundColor = "gray";
+		}
+	}
+	oUl.onmouseout = function(e){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName.toLowerCase() == "li" ){
+			target.style.backgroundColor = "";
+		}
+	}
+	oUl.onclick = function(e){
+		var e = e || event;
+		var target = e.target || e.srcElement;
+		if( target.nodeName.toLowerCase() == "li" ){
+			oTxt.value = target.innerHTML;
+			oUl.innerHTML = "";
+		}
+	}
+</script>

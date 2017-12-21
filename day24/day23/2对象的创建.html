@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	var obj = {
+	    x : 2,
+	    y : 3,
+	    add : function(){
+	        obj.res = obj.x + obj.y;
+	        return obj.res;
+	    },
+	    diff : function(){
+	    	return obj.x - obj.y;
+	    }
+	}
+	//alert( obj.add() );
+
+	/*function add(x,y){
+		return x + y;
+	}*/
+	
+	
+	var obj = new Object();
+	obj.x = 34;
+	obj.y = 9;
+	obj.diff = function(){
+	     obj.res = obj.x - obj.y;
+	     alert( obj.res );
+	}
+	obj.diff();
+</script>

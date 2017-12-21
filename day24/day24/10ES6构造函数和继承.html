@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//ES5构造函数函数定义 ： 
+	/*function Animal(age){
+		this.age = age;//为new出来的对象定义属性
+		this.eat = function(){//为new出来的对象定义方法
+			
+		}
+	}*/
+	 
+	//ES6构造函数(类)的定义 ： 
+	class Animal{
+		//定义属性   通过constructor关键字 为new出来的对象定义属性
+		constructor(name,age){
+			this.name = name;//this指向构造函数new出来的对象
+			this.age = age;
+		}
+		//为new出来的对象定义方法
+		eat(food){
+			console.log("吃" + food);
+		}
+		running(){
+			return "奔跑...";
+		}
+	}
+	var a1 = new Animal("小黄",3);
+	//console.log(a1);
+	
+	//ES6继承  Dog 类 继承 Animal
+	class Dog extends Animal{
+		constructor(name,age,weight){
+			super(name,age);//继承 父类的属性和方法
+			this.weight = weight;//子类特有的属性   先实现继承 后实现自己特有的属性 
+		}
+		sleep(){ //子类特有的方法
+			console.log("睡觉");
+		}
+	}
+	var dog = new Dog("大黄",8,67);
+	dog.sleep();
+</script>

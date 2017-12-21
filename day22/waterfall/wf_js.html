@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html,body {
+				width: 100%;
+				height: 100%;
+				background: #f3f2f3;
+			}
+			#main {
+				border: 1px solid red;
+				width: 1225px;
+				margin: 0 auto;
+			}
+			.column {
+				width: 245px;
+				float: left;
+			}
+		</style>
+		<script src="ajax.js"></script>
+	</head>
+
+	<body>
+		<button id="btn">加载图片</button>
+		<div id="main">
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column"></div>
+		</div>
+	</body>
+
+</html>
+<script src="ajax.js"></script>
+<script type="text/javascript">
+	var oBtn = document.querySelector("#btn");
+	oBtn.onclick = function(){
+		// 请求ajax
+		var pro = ajaxGet("pbl.json");
+		pro.then(function(msg){
+			var arr = JSON.parse(msg);
+			waterFall(arr);
+		},function(msg){
+			alert(msg);
+		})
+	}
+	var cols = document.getElementsByClassName("column");//五列容器
+	//实现瀑布流功能 <img src = "" width = "100" height="200" /> 
+	function waterFall(arr){
+		for( var i = 0 ; i < arr.length ; i++ ){
+			var oImg = document.createElement("img");
+			oImg.src = arr[i].src;
+			oImg.height = arr[i].height;
+			oImg.width = 245;
+			var index = getMinHeightIndex();
+			//console.log(index);
+			cols[index].appendChild(oImg);
+		}
+	}
+	//实现获取最小高度列的索引值  0 -- 4
+	function getMinHeightIndex(){
+		//假设第一列的高度是最小的
+		var index = 0;
+		for( var i = 0 ; i < cols.length ; i++ ){
+			if( cols[i].offsetHeight < cols[index].offsetHeight ){
+				index = i;
+			}
+		}
+		return index;
+	}
+	
+	//触发滚动条 无限加载图片
+	window.onscroll = function(){
+		var minHeightIndex = getMinHeightIndex();
+		var minHeight = cols[minHeightIndex].offsetHeight;//最小高度
+		var wHeight = window.innerHeight;//窗口高度
+		var sTop = document.body.scrollTop || document.documentElement.scrollTop;// 页面滚走距离
+		
+		//当  窗口的高度 + 页面滚走的距离  >  最小高度列时        开始加载图片
+		if( wHeight + sTop > minHeight ){
+			//重新加载图片  可以请求ajax
+			oBtn.onclick(); //调用单击事件 请求pbl.json数据
+		}
+	}
+</script>
