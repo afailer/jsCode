@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//单例模式
+	/*function Animal(name){
+		this.name = name;
+	}
+	var a1 = new Animal("大白");
+	var a2 = new Animal("小白");
+	alert( a1==a2 );*/
+	
+	//单例模式
+	/*function MyPlane(){
+		if( MyPlane.instance ){
+			return MyPlane.instance;
+		}
+		MyPlane.instance = this;
+		return MyPlane.instance;
+	}
+	var m1 = new MyPlane();
+	var m2 = new MyPlane();
+	var m3 = new MyPlane();
+	alert( m3 == m2 );*/
+	
+	function MyPlane(){
+		if( !MyPlane.instance ){
+			MyPlane.instance = {
+				"name":"战斗机"
+			}
+		}
+		return MyPlane.instance;
+	}
+	var m1 = new MyPlane();
+	var m2 = new MyPlane();
+	alert( m1 == m2 );
+</script>

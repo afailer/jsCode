@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.1.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<div>
+				<p>多个孩子1</p>
+				<p>多个孩子2</p>
+				<p>多个孩子3</p>
+			</div>
+			<p id="pp">孩子1 <span id="ss">www</span> </p>
+			<p>孩子2</p>
+			<p>孩子3</p>
+		</div>
+		<p>div的兄弟1</p>
+		<p>div的兄弟2</p>
+	</body>
+</html>
+<script type="text/javascript">
+	//$("#box p").css("background","deepskyblue");
+	//$("#box>p").css("background","deepskyblue");
+	//$("#box+p").css("background","deepskyblue");
+	//$("#box~p").css("background","deepskyblue");
+	//$("div~p").css("background","deepskyblue");
+	//$("p:even").css("background","deepskyblue");
+	//$("p:eq(2)").css("background","deepskyblue");
+	//$("p:not(p:eq(2))").css("background","deepskyblue");
+	//$("p:not( :first )").css("background","deepskyblue");
+	
+	//通过循环方式 为奇偶行的p添加不同的背景颜色   size()
+	/*for( var i = 0 ; i < $("p").length ; i++ ){
+		if( i%2 ){ //奇数条件
+			//$("p:eq("+i+")").css("background","deepskyblue");
+			$("p").eq(i).css("background","deepskyblue");
+		}else{
+			$("p:eq("+i+")").css("background","orange");
+		}
+	}*/
+	
+	//$("#box").find("p").css("background","orange");
+	//$("#box").children().css("background","orange");
+	//$("p").filter("#pp").css("background","orange");
+	/*var $obj = $("p").filter(function(index){
+		return $("p").eq(index).html() == "多个孩子3";//innerHTML
+		//return index == 3;
+	})
+	$obj.css("background","orange");*/
+	
+	//  $("#pp").next("span").css("background","orange"); +
+	//  $("#pp").nextAll().css("background","orange");
+	
+	//$("#pp").siblings().css("background","orange");
+</script>

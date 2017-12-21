@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//小米5  属性：价格  颜色  型号      打电话  发短信     父类   
+	//小米6  新增属性和 功能    属性 ： 内存容量     功能 ：  拍照  播放音乐   子类
+	function Phone5(price,color,type){ //父类
+		this.price = price;
+		this.color = color;
+		this.type = type;
+		this.phone = function(){
+			alert("打电话");
+		}
+		this.message = function(){
+			alert("发短信");
+		}
+	}
+	
+	function Phone6(price,color,type,memory){ //子类
+		this.memory = memory;
+		Phone5.apply(this,arguments);
+		this.photo = function(){
+			alert("拍照");
+		}
+		this.music = function(){
+			alert("播放音乐");
+		}
+	}
+	console.log(new Phone6("7777","白色","66","8"));
+</script>

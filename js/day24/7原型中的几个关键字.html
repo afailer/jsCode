@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Animal(){
+		this.name = "小蜜蜂";
+	}
+	var animal = new Animal();
+	//delete animal.name;
+	//alert( animal.name );
+	//alert( animal.hasOwnProperty("name") );
+	//alert( Animal.prototype.isPrototypeOf( animal ) );
+	
+	alert( "name" in animal );
+</script>

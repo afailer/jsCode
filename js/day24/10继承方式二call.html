@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function fn(){
+		alert(this);
+	}
+	fn.call(document);*/
+	function Father(familyName,money){
+		this.money = money;
+		this.familyName = familyName;
+		this.music = function(){
+			return  "唱歌";
+		}
+	}
+	function Son(familyName,money,score){
+		this.score = score;//实现子类特有的属性
+		Father.call(this,familyName,money);
+		//第一个参数 ： 指向子类对象的this 第二个参数：要继承的父类的属性  第二个参数的个数不固定
+	}
+	var son = new Son("王",9999999,90);
+	console.log( son );
+</script>

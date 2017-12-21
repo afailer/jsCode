@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	class Father{
+		constructor(age,name,addr){
+			this.age = age;
+			this.name = name;
+			this.addr = addr;
+		}
+		work(){
+			alert("工作");
+		}
+	}
+	
+	class Son extends Father{
+		constructor(age,name,addr,score){
+			super(age,name,addr);
+			this.score = score;
+		}
+		study(){
+			return "学习";
+		}
+	}
+	var s = new Son(18,"小明","上海",90);
+	s.work();
+</script>

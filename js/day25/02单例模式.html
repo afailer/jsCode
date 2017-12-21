@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	 
+	/*function Plane(){
+		if( Plane.instance ){
+			return Plane.instance;
+		}
+		Plane.instance = this;
+		return Plane.instance;
+	}
+	var p1 = new Plane();
+	var p2 = new Plane();
+	alert( p1==p2 );*/
+	
+	function Plane(){
+		if( ! Plane.instance ){
+			Plane.instance = {
+			 	//......
+			}
+		}
+		return Plane.instance;
+	}
+</script>

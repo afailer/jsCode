@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function Animal(){
+		
+	}
+	Animal.prototype.name = "小羊";//原型属性
+	var animal = new Animal();
+	alert( animal.name );*/
+	//原型链 ： 实例对象和原型之间的链接 就叫做原型链
+	
+	function Animal(){
+		
+	}
+	Object.prototype.name = "小蜜蜂";
+	alert( Animal.prototype.name );
+	/*var animal = new Animal();
+	alert( animal.name );*/
+</script>

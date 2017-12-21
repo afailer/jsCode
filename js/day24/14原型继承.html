@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Father(age){
+		this.age = age;
+		this.money = 9999999;
+	}
+	Father.prototype.liaomei = function(){
+		return "撩妹";
+	}
+	
+	function Son(){
+		
+	}
+	Son.prototype = new Father();//原型继承	
+	//原型继承
+	var f = new Father(38);
+	console.log(f.age);
+	
+	var son = new Son(18);	
+	//console.log( son.money );
+	console.log( son.age );
+	/*
+	function Father(age){
+		this.age = age;
+	}
+	function Son(){
+		
+	}
+	Son.prototype = new Father();
+	var son = new Son();
+	var f = new Father(80);
+	console.log( son.age );
+	console.log(f.age);*/
+</script>

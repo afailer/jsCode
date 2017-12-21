@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	//10只猫 和10只狗    
+	function Cat(name,voice){
+		this.name = name;
+		this.voice = voice;
+	}
+	function Dog(name,voice){
+		this.name = name;
+		this.voice = voice;
+	}
+	
+	var animalArr = [];
+	for(var i = 0 ; i < 20 ; i++){
+		animalArr[i] = new Cat("猫","喵喵");
+		animalArr[++i] = new Dog("狗","汪汪");
+	}
+	
+	
+	for( var i = 0 ; i < 20 ; i++ ){
+		console.log( animalArr[i].name + "," + animalArr[i].voice );
+	}
+</script>

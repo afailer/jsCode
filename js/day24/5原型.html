@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*function Animal(){
+		this.name = "小羊";
+		this.eat = function(){
+			return "吃草";
+		}
+	}
+	Animal.prototype.name = "小狗";
+	Animal.prototype.eat = function(){
+		return "吃肉";
+	}
+	//console.log( Animal.prototype ); //object
+	var animal = new Animal();
+	alert( animal.name ); //小羊
+	alert( animal.eat() );//吃草*/
+	
+	
+	var arr1 =new Array(1,2,3,4,5);
+	var arr2 = new Array(11,2,3,4,5);
+	Array.prototype.sum = function(){
+		var s = 0;
+		for( var i = 0 ; i < this.length ; i++ ){
+			s += this[i];
+		}
+		return s;
+	}
+	alert( arr1.sum() );
+	alert( arr2.sum() );
+	
+	/*arr1.sum = function(){
+		var s = 0;
+		for( var i = 0 ; i < this.length ; i++ ){
+			s += this[i];
+		}
+		return s;
+	}*/
+	
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="login.php" method="get" onsubmit="return checkForm()">
+			用户名： <input type="text" name="uname" id="uname" /><br>
+			密码： <input type="text" name="upwd"  id="upwd"/>
+			<input type="submit" value="登录"/>
+		</form>
+	</body>
+</html>
+<script>
+	//可以通过表单验证的方式  处理  数据的有效性问题
+	function checkForm(){
+		var uname = $("uname").value;
+		var upwd = $("upwd").value;
+		
+		var reg = /^\w{3,6}$/;
+		if( !reg.test(uname) ){
+			alert("用户名不对");
+			return false;
+		}
+		return true;
+	}
+	
+	function $(id){
+		return document.getElementById(id);
+	}
+</script>

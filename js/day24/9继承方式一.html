@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	function Father(){
+		this.money = 999999;
+		this.eat = function(){
+			return "爱吃肉";
+		}
+	}
+	 
+	function Son(){
+		this.parent = Father;//将父类构造函数赋值给子类属性
+		this.parent();//通过调用子类属性   完成继承父类
+		//删除实例属性     
+		delete this.parent;
+	}
+	var son = new Son();
+	console.log( son );
+</script>
