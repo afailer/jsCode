@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="main.css" />
+		<style>
+			.header{
+				height: 40px;
+				width: 900px;
+				margin: 0 auto 50px;
+			}
+			#box{
+				width: 300px;
+				height: 30px;
+				border: 1px solid black;
+				float: left;
+				margin-left:500px;
+			}
+			#box li{
+				float: left;
+				list-style: none;
+				display: inline-block;
+				padding: 0 5px;
+			}
+			#box li.active{
+				color: red;
+			}
+			#box ul{
+				/*float: left;*/
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>		 		 
+		<ul class="shoplist clearfix" id="main">
+			<!--<li>
+				<img src="img/1.jpg" alt="" />
+				<p>小米1</p>
+				<p>999</p>
+				<button>购买</button>
+			</li>-->
+		</ul>	
+		<div class="M-box" style="margin-left: 300px;"></div>
+	</body>
+</html>
+<script src="script/lib/jquery.min.js"></script>
+<script src="script/jquery.pagination.js"></script>
+<link rel="stylesheet" type="text/css" href="style/common.css"/>
+<link rel="stylesheet" type="text/css" href="style/pagination.css"/>
+<script type="text/javascript">
+	//页面加载   请求第一页的数据 
+	window.onload = function(){
+		$.ajax({
+			type:"get",
+			url:"http://localhost/fenye/data.json",
+			success : function(arr){
+				var html = "";
+				for( var i = 0 ; i < 4 ; i++ ){
+					html += `<li>
+								<img src="img/${arr[i].src}"/>
+								<p>${arr[i].name}</p>
+								<p>${arr[i].price}</p>
+								<button>购买</button>
+							</li>`;
+				}
+				$("#main").html(html);
+				
+				
+				//分页插件调用：
+				$('.M-box').pagination({
+				    pageCount: Math.ceil(arr.length/4),
+				    callback:function(api){
+				        var data = {
+				            page: api.getCurrent()
+				        };
+				        var index = data.page;//获取当前页码
+				        
+				        $.getJSON('http://localhost/fenye/data.json',function(arr){
+				        	var str = "";
+				            for( var i = (index-1)*4;i<index*4 ; i++ ){
+				            	if( i < arr.length ){
+					            	str += `<li>
+												<img src="img/${arr[i].src}"/>
+												<p>${arr[i].name}</p>
+												<p>${arr[i].price}</p>
+												<button>购买</button>
+											</li>`
+				            	}
+				            }
+				            $("#main").html(str);
+				        });
+				    }
+				});
+			}
+		});
+		
+	}
+	
+	/*
+	 1  0  4
+	 2  4  8
+	 3  8  12
+	 */
+</script>	
